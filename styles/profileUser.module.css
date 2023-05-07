@@ -1,0 +1,139 @@
+.modelRegister {
+    position: absolute;
+    margin-top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.styleTitleRegister {
+    display: flex;
+    justify-content: center;
+}
+
+
+.styleTitleRegister h1 {
+    color: white;
+    margin-bottom: 9%;
+    font-size: 21px;
+    text-align: center;
+}
+
+
+.styleTitleRegister img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    width: auto;
+    height: 170px;
+    border-radius: 30px;
+    margin-top: -28%;
+    margin-bottom: -5%;
+}
+
+
+.modelStyle {
+    width: 500px;
+    height: auto;
+    background: linear-gradient(rgba(0, 0, 0, 0.268), rgba(0, 0, 0, 0.685)), url("https://i.postimg.cc/2SHwWnhc/5183543-32546.jpg");
+    background-size: cover;
+    padding: 30px;
+    border-radius: 30px;
+}
+
+
+
+.header {
+    margin-bottom: 15px;
+}
+
+.header Button {
+    align-items: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 100% 50%;
+    margin-bottom: 2%;
+    color: rgb(255, 255, 255);
+    font-size: 17px;
+}
+
+
+.bodySpaceAvatar {
+    display: flex;
+    justify-content: center;
+    margin-top: -7%;
+    margin-bottom: 4%;
+}
+
+
+.bodySpaceInfoUser {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.bodySpaceInfoUser p {
+    color: rgb(255, 255, 255);
+    font-size: 17px;
+    line-height: 20px;
+}
+
+
+.updateUserData {
+    display: flex;
+    justify-content: center;
+    margin-top: 4%;
+}
+
+
+.updateUserData button {
+    color: #ffffff;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 15px;
+}
+
+
+.modelStyleUpdate {
+    width: 500px;
+    height: auto;
+    background: linear-gradient(rgba(0, 0, 0, 0.268), rgba(0, 0, 0, 0.685)), url("https://i.postimg.cc/8zG34dFT/4978307-31436.jpg");
+    background-size: cover;
+    padding: 30px;
+    border-radius: 30px;
+}
+
+
+.input-group input {
+    background-color: #8ccdeb5a;
+    color: white;
+    font-size: 15px;
+    border-radius: 15px;
+    border: none;
+}
+
+.input span {
+    height: 40px;
+    background-color: #b0c4cf;
+    border: none;
+}
+
+.input-group input::placeholder {
+    color: rgb(254, 254, 254);
+    font-size: 15px;
+}
+
+
+
+@media(max-width:991px) {
+
+    .modelStyle,
+    .modelStyleUpdate {
+        width: 380px;
+    }
+
+    .modelRegister {
+        margin-top: 75%;
+    }
+}

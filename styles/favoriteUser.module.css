@@ -1,0 +1,153 @@
+.titleFavorite {
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+
+.titleFavorite h1 {
+    font-size: 25px;
+    color: #d7b541;
+    font-weight: 550;
+    letter-spacing: 3px;
+    line-height: 52px;
+    transform: scale(0.94);
+    animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
+}
+
+@keyframes scale {
+    100% {
+        transform: scale(1);
+    }
+}
+
+.titleFavorite span {
+    display: inline-block;
+    opacity: 0;
+    filter: blur(4px);
+    margin-right: 0.3em
+}
+
+.titleFavorite span:nth-child(1) {
+    animation: fade-in 0.8s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+.titleFavorite span:nth-child(2) {
+    animation: fade-in 0.8s 0.2s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+.titleFavorite span:nth-child(3) {
+    animation: fade-in 0.8s 0.3s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+.titleFavorite span:nth-child(4) {
+    animation: fade-in 0.8s 0.4s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+.titleFavorite span:nth-child(5) {
+    animation: fade-in 0.8s 0.5s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+@keyframes fade-in {
+    100% {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+
+
+.cardsInfoAbout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 40px;
+    column-gap: 40px;
+    padding-bottom: 6%;
+    margin-top: 5%;
+}
+
+.circleModels {
+    width: 75%;
+}
+
+.showData {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box {
+    display: inline-block;
+    width: 160px;
+    text-align: center;
+}
+
+.img {
+    height: 100px;
+}
+
+.img img {
+    height: 45px;
+}
+
+
+.text {
+    padding: 60px 20px 20px 20px;
+    border-radius: 50%;
+    background: rgba(245, 245, 245, 0.066);
+    margin: -120px 0px 0px 0px;
+    line-height: 1px;
+}
+
+
+.text p {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff94;
+}
+
+
+.text h3 {
+    margin: 20px 0px 20px 0px;
+    color: #fcfcfc94;
+    font-size: 15px;
+}
+
+
+
+
+@media(max-width:991px) {
+
+    .titleFavorite {
+        margin-top: 5%;
+        margin-bottom: 7%;
+    }
+
+    .titleFavorite h1 {
+        font-size: 20px;
+    }
+
+
+    .box {
+        width: 120px;
+    }
+
+    .text {
+        padding: 45px 20px 20px 20px;
+    }
+
+    .text p {
+        font-size: 16px;
+    }
+
+    .text h3 {
+        font-size: 14px;
+    }
+
+    .img img {
+        height: 35px;
+    }
+
+}

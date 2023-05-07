@@ -1,0 +1,258 @@
+/* about Category */
+.imageAboutCategory img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    -webkit-mask-image: linear-gradient(rgb(0, 0, 0), transparent);
+    mask-image: linear-gradient(rgb(0, 0, 0), transparent);
+    border-top-right-radius: 2%;
+    border-top-left-radius: 2%;
+}
+
+.textAboutCategory {
+    padding: 7%;
+}
+
+.textAboutCategory p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.846);
+}
+
+.textAboutCategory h1 {
+    font-size: 25px;
+    color: rgba(255, 255, 255, 0.76);
+    text-align: center;
+    font-weight: 550;
+    letter-spacing: 3px;
+    line-height: 52px;
+}
+
+.showInfoAboutCategory {
+    overflow: hidden;
+}
+
+.showInfoAboutCategory div {
+    min-height: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+
+#one {
+    float: left;
+    margin-right: 0px;
+    width: 50%;
+}
+
+#two {
+    overflow: hidden;
+    margin-right: 20px;
+    margin: 1px;
+    width: auto;
+    min-height: 50%;
+    padding: 2%;
+    margin-top: -2%;
+}
+
+.tabsStyleInfo {
+    padding: 3%;
+    margin-top: -2%;
+    font-size: 30px;
+}
+
+.tabStyle {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.76);
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+
+.StyleAllShowData {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    row-gap: 40px;
+    column-gap: 95px;
+    padding: 5.5%;
+    margin-top: -7%;
+}
+
+.line {
+    margin-bottom: 8%;
+}
+
+.videoInfoCategory p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.76);
+    font-weight: 550;
+    letter-spacing: 1px;
+    line-height: 52px;
+    margin-bottom: -4%;
+    text-align: center;
+    margin-right: -12%;
+}
+
+.videoInfoCategory iframe {
+    width: 100%;
+    height: auto;
+    border: none;
+    margin: 4%;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+    border-radius: 2%;
+    transition: 0.4s;
+}
+
+.videoInfoCategory iframe:hover {
+    transform: scale(0.9, 0.9);
+}
+
+
+.buttonSave {
+    color: #a0a897;
+    margin: 1px 12px;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: none;
+    font-size: 26px;
+}
+
+
+.buttonSave:hover {
+    opacity: 0.6;
+}
+
+
+@keyframes SaveBookMarkInfoUser {
+    0% {
+        -webkit-transform: scale(1.1, .9);
+        transform: scale(1.1, .9);
+    }
+
+    50% {
+        -webkit-transform: scale(.9, 1.1) translateY(-.5rem)
+    }
+
+    70% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+b.SaveBookMarkInfoUser {
+    display: inline-block;
+    animation: SaveBookMarkInfoUser 0.7s ease 2s infinite alternate;
+}
+
+b.SaveBookMarkInfoUser:hover {
+    animation: none;
+}
+
+
+.linkInfoCategory a {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.76);
+    font-weight: 550;
+    letter-spacing: 3px;
+    line-height: 52px;
+}
+
+
+
+.fileLinkAboutCategory {
+    display: flex;
+    justify-content: center;
+}
+
+.fileLinkAboutCategory a {
+    text-decoration: none;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.846);
+}
+
+.fileLinkAboutCategory p {
+    text-decoration: none;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.846);
+    margin: 3px;
+}
+
+.fileLinkAboutCategory a:hover {
+    color: rgba(255, 255, 255, 0.405);
+}
+
+.tableStyle {
+    display: flex;
+    justify-content: center;
+}
+
+
+.tableStyle p {
+    display: flex;
+    justify-content: center;
+}
+
+
+.loading {
+    display: flex;
+    justify-content: center;
+    color: gray;
+    margin-top: 17%;
+    margin-bottom: 17%;
+}
+
+.noHaveFiles {
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.846);
+}
+
+
+
+@media screen and (max-width: 600px) {
+    #one {
+        float: none;
+        margin-right: 0;
+        width: auto;
+    }
+}
+
+
+@media(max-width:991px) {
+
+    .videoInfoCategory iframe {
+        width: 300px;
+        height: auto;
+    }
+
+    .videoInfoCategory h3 {
+        font-size: 18px;
+    }
+
+
+    .tabStyle {
+        font-size: 13px;
+    }
+
+
+    .videoInfoCategory p {
+        font-size: 11px;
+    }
+
+    .tableStyle p {
+        font-size: 12px;
+    }
+
+    .buttonSave {
+        font-size: 23px;
+    }
+
+    .noHaveFiles {
+        font-size: 13px;
+    }
+
+}

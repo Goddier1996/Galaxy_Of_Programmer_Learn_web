@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+
+html,
+body {
+  /* overflow-x: hidden; */
+  background: url("https://i.postimg.cc/wBgRtx0Z/dark-matter.png");
+  font-family: 'Raleway', sans-serif;
+}
+
+
+
+/* desgin scroll in web */
+html::-webkit-scrollbar-track {
+  background: url("https://i.postimg.cc/wBgRtx0Z/dark-matter.png");
+}
+
+html::-webkit-scrollbar {
+  width: 10px;
+}
+
+
+html::-webkit-scrollbar-thumb {
+  background-color: #d7b44100;
+  background-image: -webkit-linear-gradient(1395deg,
+      #423e18 25%,
+      transparent 25%,
+      transparent 50%,
+      #423e18 50%,
+      #423e18 75%,
+      transparent 75%,
+      transparent);
+}
+
+
+/* .MuiMenu-list {
+   background: #d7b541; 
+   color: rgba(255, 255, 255, 0.993);  */

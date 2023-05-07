@@ -1,0 +1,16 @@
+/* footer */
+.fotrIcon {
+    background: rgba(0, 0, 0, 0.071);
+  }
+  
+  .fotrIcon a {
+    border-radius: 50%;
+  }
+  
+  .end p {
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 13px;
+    margin-top: -2%;
+    margin-bottom: -2%;
+  }
+  

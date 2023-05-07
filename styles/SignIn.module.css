@@ -1,0 +1,138 @@
+.modelRegister {
+    position: absolute;
+    margin-top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.styleTitleRegister {
+    display: flex;
+    justify-content: center;
+}
+
+
+.styleTitleRegister h1 {
+    color: white;
+    margin-top: -8%;
+    margin-bottom: 9%;
+}
+
+
+.form {
+    width: 500px;
+    height: auto;
+    background: linear-gradient(rgba(0, 0, 0, 0.268), rgba(0, 0, 0, 0.685)), url("https://i.postimg.cc/pXYDFJ0s/5037770-31633.jpg");
+    background-size: cover;
+    padding: 30px;
+    border-radius: 30px;
+}
+
+
+.RegisterInOrCloseButtom {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.RegisterInOrCloseButtom button {
+    font-size: 14px;
+    border-radius: 15px;
+}
+
+
+.header {
+    margin-bottom: 15px;
+}
+
+.header Button {
+    align-items: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 100% 50%;
+    margin-bottom: 2%;
+    color: rgb(255, 255, 255);
+    font-size: 17px;
+}
+
+.form button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+.input-group input {
+    background-color: #256d8f5a;
+    color: white;
+    font-size: 15px;
+    border-radius: 15px;
+    border: none;
+}
+
+.input span {
+    height: 40px;
+    background-color: #b0c4cf;
+    border: none;
+}
+
+.input-group input::placeholder {
+    color: rgb(254, 254, 254);
+    font-size: 15px;
+}
+
+
+.DemoUser {
+    text-align: center;
+}
+
+.DemoUser p {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    animation: change-text 16s linear infinite;
+}
+
+@keyframes change-text {
+    10% {
+        opacity: 1;
+        letter-spacing: 3px;
+    }
+
+    35% {
+        opacity: 1;
+        letter-spacing: 3px;
+    }
+
+    60% {
+        opacity: 1;
+        letter-spacing: 3px;
+    }
+
+    85% {
+        opacity: 1;
+        letter-spacing: 3px;
+    }
+
+    0%,
+    25%,
+    50%,
+    75%,
+    100% {
+        opacity: 0;
+        letter-spacing: 0;
+    }
+}
+
+
+
+
+@media(max-width:991px) {
+
+    .form {
+        width: 380px;
+    }
+    .modelRegister {
+        margin-top: 75%;
+    }
+}
