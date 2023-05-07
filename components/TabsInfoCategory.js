@@ -102,6 +102,7 @@ const TabsInfoCategory = ({ data }) => {
                                                 {(InfoCategoryVideoLearn.length !== 0) ?
                                                     <>
                                                         {InfoCategoryVideoLearn.map(InfoCategory => (
+
                                                             <div className={styles.videoInfoCategory} key={InfoCategory._id}>
                                                                 {(InfoCategory._id) ?
                                                                     <>
