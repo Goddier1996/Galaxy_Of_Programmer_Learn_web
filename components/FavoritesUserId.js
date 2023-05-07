@@ -23,6 +23,10 @@ function FavoritesUserId() {
 
   const [tabIndex, setTabIndex] = useState(0);
 
+  const [loadingVideo, setLoadingVideo] = useState(false);
+  const [loadingLink, setLoadingLink] = useState(false);
+  const [loadingFIle, setLoadingFIle] = useState(false);
+
   let countLinkInfoCategory = 1;
   let countLinkLinkFIleCategory = 1;
 
@@ -40,16 +44,22 @@ function FavoritesUserId() {
     if (userData != null) {
       setDataUser(userData.connectUser);
 
+      setLoadingFIle(true)
       favoriteSaveIdUserFIle(userData.connectUser._id)
         .then((data) => setFileUserFile(data))
+        .then(() => setLoadingFIle(false))
         .catch((err) => console.log(err));
 
+      setLoadingVideo(true)
       favoriteSaveIdUserVideo(userData.connectUser._id)
         .then((data) => setFileUserVideo(data))
+        .then(() => setLoadingVideo(false))
         .catch((err) => console.log(err));
 
+      setLoadingLink(true)
       favoriteSaveIdUserLink(userData.connectUser._id)
         .then((data) => setFileUserLink(data))
+        .then(() => setLoadingLink(false))
         .catch((err) => console.log(err));
     }
 
@@ -183,148 +193,179 @@ function FavoritesUserId() {
 
               {tabIndex === 0 && (
                 <Box>
-                  <div className={styless.line}>
-                    {(FileUserVideo.length !== 0) ?
-                      <div className={styless.StyleAllShowData}>
-                        {FileUserVideo.map(InfoCategory => (
-                          <div className={styless.videoInfoCategory} key={InfoCategory._id}>
+                  <div className={styles.line}>
 
-                            <p>{InfoCategory.title}
-                              <UserDeleteFavorite id={InfoCategory._id} />
-                            </p>
-                            <iframe allowFullScreen='allowFullScreen' src={InfoCategory.favorite} alt="video Learn" />
-                          </div>
-                        ))}
+                    {(loadingVideo) ?
+                      <div style={{ color: "gray", display: "flex", justifyContent: "center" }}>
+                        <CircularProgress color="inherit" size={30} />
+                        <br /><br /><br /><br /><br /><br /><br /><br /><br />
                       </div>
                       :
-                      (FileUserVideo.length === 0) ?
-                        <div className={styless.noHaveFiles}>
-                          Not Have Now FIles Sorry
-                        </div>
-                        : ""
+                      <div className={styles.StyleAllShowData}>
+                        {(FileUserVideo.length !== 0) ?
+                          <div className={styless.StyleAllShowData}>
+                            {FileUserVideo.map(InfoCategory => (
+                              <div className={styless.videoInfoCategory} key={InfoCategory._id}>
+
+                                <p>{InfoCategory.title}
+                                  <UserDeleteFavorite id={InfoCategory._id} />
+                                </p>
+
+                                <iframe allowFullScreen='allowFullScreen' src={InfoCategory.favorite} alt="video Learn" />
+                              </div>
+                            ))}
+                          </div>
+                          :
+                          <div className={styles.noHaveFiles}>
+                            Not Have Now FIles Sorry
+                          </div>
+                        }
+                      </div>
                     }
 
                   </div>
+
                 </Box>
               )}
 
 
               {tabIndex === 1 && (
+
                 <Box>
-                  <div className={styless.line}>
-                    {(FileUserLink.length !== 0) ?
+                  {(loadingLink) ?
+                    <div style={{ color: "gray", display: "flex", justifyContent: "center" }}>
+                      <CircularProgress color="inherit" size={30} />
+                      <br /><br /><br /><br /><br /><br /><br /><br /><br />
+                    </div>
+                    :
+                    <div className={styless.line}>
                       <div className={styless.tableStyle}>
                         <Table style={{ width: 600 }} aria-label="simple table">
                           <TableBody>
-                            {FileUserLink.map((InfoCategory) => (
-                              <TableRow
-                                key={InfoCategory._id}
-                                style={{ borderBottom: "2px solid #b0c4cf" }}
-                              >
 
-                                <TableCell style={{ color: "white" }} align="center">
-                                  <p className={styless.fileLinkAboutCategory}>
-                                    {countLinkInfoCategory++}.
-                                  </p>
-                                </TableCell>
+                            {((FileUserLink.length !== 0) ?
+                              <>
+                                {FileUserLink.map((InfoCategory) => (
+                                  <TableRow
+                                    key={InfoCategory._id}
+                                    style={{ borderBottom: "2px solid #b0c4cf" }}
+                                  >
 
-                                <TableCell style={{ color: "white" }} align="center">
-                                  <p className={styless.fileLinkAboutCategory}>
-                                    {InfoCategory.title}
-                                  </p>
-                                </TableCell>
+                                    <TableCell style={{ color: "white" }} align="center">
+                                      <p className={styless.fileLinkAboutCategory}>
+                                        {countLinkInfoCategory++}.
+                                      </p>
+                                    </TableCell>
+
+                                    <TableCell style={{ color: "white" }} align="center">
+                                      <p className={styless.fileLinkAboutCategory}>
+                                        {InfoCategory.title}
+                                      </p>
+                                    </TableCell>
 
 
-                                <TableCell style={{ color: "white" }} align="center">
-                                  <div className={styless.fileLinkAboutCategory}>
-                                    <a target="_blank" href={InfoCategory.favorite} download>
-                                      <LinkIcon />
-                                    </a>
-                                  </div>
-                                </TableCell>
+                                    <TableCell style={{ color: "white" }} align="center">
+                                      <div className={styless.fileLinkAboutCategory}>
+                                        <a target="_blank" href={InfoCategory.favorite} download>
+                                          <LinkIcon />
+                                        </a>
+                                      </div>
+                                    </TableCell>
 
-                                <TableCell style={{ color: "white" }} align="center">
-                                  <Typography className={styles.fileLinkAboutCategory}>
+                                    <TableCell style={{ color: "white" }} align="center">
+                                      <Typography className={styless.fileLinkAboutCategory}>
 
-                                    <UserDeleteFavorite id={InfoCategory._id} />
+                                        <UserDeleteFavorite id={InfoCategory._id} />
 
-                                  </Typography>
-                                </TableCell>
+                                      </Typography>
+                                    </TableCell>
 
-                              </TableRow>
-                            ))}
+                                  </TableRow>
+                                ))}
+                              </>
+                              :
+                              <div className={styless.noHaveFiles}>
+                                Not Have Now FIles Sorry
+                              </div>
+
+                            )}
                           </TableBody>
                         </Table>
                       </div>
-                      :
-                      (FileUserLink.length === 0) ?
-                        <div className={styless.noHaveFiles}>
-                          Not Have Now FIles Sorry
-                        </div>
-                        : ""
-                    }
-                  </div>
+                    </div>
+                  }
                 </Box>
               )}
 
 
               {tabIndex === 2 && (
+
                 <Box>
-                  <div className={styless.line}>
-                    {(FileUserFile.length !== 0) ?
+                  {(loadingFIle) ?
+                    <div style={{ color: "gray", display: "flex", justifyContent: "center" }}>
+                      <CircularProgress color="inherit" size={30} />
+                      <br /><br /><br /><br /><br /><br /><br /><br /><br />
+                    </div>
+                    :
+                    <div className={styless.line}>
                       <div className={styless.tableStyle}>
                         <Table style={{ width: 600 }} aria-label="simple table">
                           <TableBody>
-                            {FileUserFile.map((InfoCategory) => (
-                              <TableRow
-                                key={InfoCategory._id}
-                              >
 
-                                <TableCell style={{ color: "white" }} align="center">
-                                  <p className={styless.fileLinkAboutCategory}>
-                                    {countLinkLinkFIleCategory++}
-                                  </p>
-                                </TableCell>
+                            {((FileUserFile.length !== 0) ?
+                              <>
+                                {FileUserFile.map((InfoCategory) => (
+                                  <TableRow
+                                    key={InfoCategory._id}
+                                    style={{ borderBottom: "2px solid #b0c4cf" }}
+                                  >
 
-                                <TableCell style={{ color: "white" }} align="center">
-                                  <p className={styless.fileLinkAboutCategory}>
-                                    {InfoCategory.title}
-                                  </p>
-                                </TableCell>
+                                    <TableCell style={{ color: "white" }} align="center">
+                                      <p className={styless.fileLinkAboutCategory}>
+                                        {countLinkLinkFIleCategory++}.
+                                      </p>
+                                    </TableCell>
 
-
-                                <TableCell style={{ color: "white" }} align="center">
-                                  <div className={styless.fileLinkAboutCategory}>
-                                    <a target="_blank" href={InfoCategory.favorite} download>
-                                      <FileDownloadIcon />
-                                    </a>
-                                  </div>
-                                </TableCell>
+                                    <TableCell style={{ color: "white" }} align="center">
+                                      <p className={styless.fileLinkAboutCategory}>
+                                        {InfoCategory.title}
+                                      </p>
+                                    </TableCell>
 
 
+                                    <TableCell style={{ color: "white" }} align="center">
+                                      <div className={styless.fileLinkAboutCategory}>
+                                        <a target="_blank" href={InfoCategory.favorite} download>
+                                          <FileDownloadIcon />
+                                        </a>
+                                      </div>
+                                    </TableCell>
 
-                                <TableCell style={{ color: "white" }} align="center">
-                                  <Typography className={styles.fileLinkAboutCategory}>
+                                    <TableCell style={{ color: "white" }} align="center">
+                                      <Typography className={styless.fileLinkAboutCategory}>
 
-                                    <UserDeleteFavorite id={InfoCategory._id} />
+                                        <UserDeleteFavorite id={InfoCategory._id} />
 
-                                  </Typography>
-                                </TableCell>
+                                      </Typography>
+                                    </TableCell>
 
-                              </TableRow>
-                            ))}
+                                  </TableRow>
+                                ))}
+                              </>
+                              :
+                              <div className={styless.noHaveFiles}>
+                                Not Have Now FIles Sorry
+                              </div>
+
+                            )}
                           </TableBody>
                         </Table>
                       </div>
-                      : (FileUserFile.length === 0) ?
-                        <div className={styless.noHaveFiles}>
-                          Not Have Now FIles Sorry
-                        </div>
-                        : ""
-                    }
-                  </div>
+                    </div>
+                  }
                 </Box>
               )}
+
 
             </Box>
           </Box>

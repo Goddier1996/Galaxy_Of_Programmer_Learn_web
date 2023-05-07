@@ -11,9 +11,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 
 
-
 const TabsInfoCategory = ({ data }) => {
-
 
 
     const [tabIndex, setTabIndex] = useState(0);
@@ -31,22 +29,32 @@ const TabsInfoCategory = ({ data }) => {
     const [InfoCategoryLinkLearn, setInfoCategoryLinkLearn] = useState([]);
     const [InfoCategoryFileLearn, setInfoCategoryFileLearn] = useState([]);
 
+    const [loadingVideo, setLoadingVideo] = useState(false);
+    const [loadingLink, setLoadingLink] = useState(false);
+    const [loadingFIle, setLoadingFIle] = useState(false);
+
 
 
     useEffect(() => {
 
+        setLoadingVideo(true)
         getCategoryIdInfoVideoLearn(data)
             .then((dataCategory) => setInfoCategoryVideoLearn(dataCategory))
+            .then(() => setLoadingVideo(false))
             .catch((err) => console.log(err));
 
 
+        setLoadingLink(true)
         getCategoryIdInfoLinkLearn(data)
             .then((dataCategory) => setInfoCategoryLinkLearn(dataCategory))
+            .then(() => setLoadingLink(false))
             .catch((err) => console.log(err));
 
 
+        setLoadingFIle(true)
         getCategoryIdInfoFilesLearn(data)
             .then((dataCategory) => setInfoCategoryFileLearn(dataCategory))
+            .then(() => setLoadingFIle(false))
             .catch((err) => console.log(err));
 
     }, [])
@@ -85,36 +93,42 @@ const TabsInfoCategory = ({ data }) => {
                                 <Box>
                                     <div className={styles.line}>
 
-                                        {(InfoCategoryVideoLearn !== 0) ?
-                                            <div className={styles.StyleAllShowData}>
-                                                {InfoCategoryVideoLearn.map(InfoCategory => (
-                                                    <div className={styles.videoInfoCategory} key={InfoCategory._id}>
-                                                        {(InfoCategory._id) ?
-                                                            <>
-                                                                <p>{InfoCategory.titleVideo}
-                                                                    <UserSaveFavorite
-                                                                        favorite={InfoCategory.video}
-                                                                        title={InfoCategory.titleVideo}
-                                                                        type={InfoCategory.type}
-                                                                        idFavorite={InfoCategory._id}
-                                                                    />
-                                                                </p>
-                                                                <iframe allowFullScreen='allowFullScreen' src={InfoCategory.video} alt="video Learn" />
-                                                            </>
-                                                            :
-                                                            <div style={{ color: "gray" }}>
-                                                                <CircularProgress color="inherit" size={25} />
-                                                            </div>
-                                                        }
-                                                    </div>
-                                                ))}
+                                        {(loadingVideo) ?
+                                            <div style={{ color: "gray", display: "flex", justifyContent: "center" }}>
+                                                <CircularProgress color="inherit" size={30} />
                                             </div>
                                             :
-                                            (InfoCategoryVideoLearn === 0) ?
-                                                <div className={styles.noHaveFiles}>
-                                                    Not Have Now FIles Sorry
-                                                </div>
-                                                : ""
+                                            <div className={styles.StyleAllShowData}>
+                                                {(InfoCategoryVideoLearn.length !== 0) ?
+                                                    <>
+                                                        {InfoCategoryVideoLearn.map(InfoCategory => (
+                                                            <div className={styles.videoInfoCategory} key={InfoCategory._id}>
+                                                                {(InfoCategory._id) ?
+                                                                    <>
+                                                                        <p>{InfoCategory.titleVideo}
+                                                                            <UserSaveFavorite
+                                                                                favorite={InfoCategory.video}
+                                                                                title={InfoCategory.titleVideo}
+                                                                                type={InfoCategory.type}
+                                                                                idFavorite={InfoCategory._id}
+                                                                            />
+                                                                        </p>
+                                                                        <iframe allowFullScreen='allowFullScreen' src={InfoCategory.video} alt="video Learn" />
+                                                                    </>
+                                                                    :
+                                                                    <div style={{ color: "gray" }}>
+                                                                        <CircularProgress color="inherit" size={25} />
+                                                                    </div>
+                                                                }
+                                                            </div>
+                                                        ))}
+                                                    </>
+                                                    :
+                                                    <div className={styles.noHaveFiles}>
+                                                        Not Have Now FIles Sorry
+                                                    </div>
+                                                }
+                                            </div>
                                         }
 
                                     </div>
@@ -124,134 +138,149 @@ const TabsInfoCategory = ({ data }) => {
 
 
                             {tabIndex === 1 && (
-                                <Box>
-                                    <div className={styles.line}>
 
-                                        {(InfoCategoryLinkLearn.length !== 0) ?
+                                <Box>
+                                    {(loadingLink) ?
+                                        <div style={{ color: "gray", display: "flex", justifyContent: "center" }}>
+                                            <CircularProgress color="inherit" size={30} />
+                                            <br />
+                                        </div>
+                                        :
+                                        <div className={styles.line}>
                                             <div className={styles.tableStyle}>
                                                 <Table style={{ width: 600 }} aria-label="simple table">
                                                     <TableBody>
-                                                        {InfoCategoryLinkLearn.map((InfoCategory) => (
-                                                            <TableRow
-                                                                key={InfoCategory._id}
-                                                                style={{ borderBottom: "2px solid #b0c4cf" }}
-                                                            >
 
-                                                                <TableCell style={{ color: "white" }} align="center">
-                                                                    <p className={styles.fileLinkAboutCategory}>
-                                                                        {countLinkInfoCategory++}.
-                                                                    </p>
-                                                                </TableCell>
+                                                        {((InfoCategoryLinkLearn.length !== 0) ?
+                                                            <>
+                                                                {InfoCategoryLinkLearn.map((InfoCategory) => (
+                                                                    <TableRow
+                                                                        key={InfoCategory._id}
+                                                                        style={{ borderBottom: "2px solid #b0c4cf" }}
+                                                                    >
 
-                                                                <TableCell style={{ color: "white" }} align="center">
-                                                                    <p className={styles.fileLinkAboutCategory}>
-                                                                        {InfoCategory.titlelinkWebSite}
-                                                                    </p>
-                                                                </TableCell>
+                                                                        <TableCell style={{ color: "white" }} align="center">
+                                                                            <p className={styles.fileLinkAboutCategory}>
+                                                                                {countLinkInfoCategory++}.
+                                                                            </p>
+                                                                        </TableCell>
+
+                                                                        <TableCell style={{ color: "white" }} align="center">
+                                                                            <p className={styles.fileLinkAboutCategory}>
+                                                                                {InfoCategory.titlelinkWebSite}
+                                                                            </p>
+                                                                        </TableCell>
 
 
-                                                                <TableCell style={{ color: "white" }} align="center">
-                                                                    <div className={styles.fileLinkAboutCategory}>
-                                                                        <a target="_blank" href={InfoCategory.linkWebSiteLearn} download>
-                                                                            <LinkIcon />
-                                                                        </a>
-                                                                    </div>
-                                                                </TableCell>
+                                                                        <TableCell style={{ color: "white" }} align="center">
+                                                                            <div className={styles.fileLinkAboutCategory}>
+                                                                                <a target="_blank" href={InfoCategory.linkWebSiteLearn} download>
+                                                                                    <LinkIcon />
+                                                                                </a>
+                                                                            </div>
+                                                                        </TableCell>
 
-                                                                <TableCell style={{ color: "white" }} align="center">
-                                                                    <Typography className={styles.fileLinkAboutCategory}>
+                                                                        <TableCell style={{ color: "white" }} align="center">
+                                                                            <Typography className={styles.fileLinkAboutCategory}>
 
-                                                                        <UserSaveFavorite
-                                                                            favorite={InfoCategory.linkWebSiteLearn}
-                                                                            title={InfoCategory.titlelinkWebSite}
-                                                                            type={InfoCategory.type}
-                                                                            idFavorite={InfoCategory._id}
-                                                                        />
+                                                                                <UserSaveFavorite
+                                                                                    favorite={InfoCategory.linkWebSiteLearn}
+                                                                                    title={InfoCategory.titlelinkWebSite}
+                                                                                    type={InfoCategory.type}
+                                                                                    idFavorite={InfoCategory._id}
+                                                                                />
 
-                                                                    </Typography>
-                                                                </TableCell>
+                                                                            </Typography>
+                                                                        </TableCell>
 
-                                                            </TableRow>
-                                                        ))}
+                                                                    </TableRow>
+                                                                ))}
+                                                            </>
+                                                            :
+                                                            <div className={styles.noHaveFiles}>
+                                                                Not Have Now FIles Sorry
+                                                            </div>
+
+                                                        )}
                                                     </TableBody>
                                                 </Table>
                                             </div>
-                                            :
-                                            (InfoCategoryLinkLearn.length === 0) ?
-                                                <div className={styles.noHaveFiles}>
-                                                    Not Have Now FIles Sorry
-                                                </div>
-                                                : ""
-                                        }
-                                    </div>
-
+                                        </div>
+                                    }
                                 </Box>
                             )}
 
 
                             {tabIndex === 2 && (
+
                                 <Box>
-                                    <div className={styles.line}>
-
-                                        {(InfoCategoryFileLearn.length !== 0) ?
-
+                                    {(loadingFIle) ?
+                                        <div style={{ color: "gray", display: "flex", justifyContent: "center" }}>
+                                            <CircularProgress color="inherit" size={30} />
+                                            <br /><br /><br />
+                                        </div>
+                                        :
+                                        <div className={styles.line}>
                                             <div className={styles.tableStyle}>
                                                 <Table style={{ width: 600 }} aria-label="simple table">
                                                     <TableBody>
-                                                        {InfoCategoryFileLearn.map((InfoCategory) => (
-                                                            <TableRow
-                                                                key={InfoCategory._id}
-                                                            >
 
-                                                                <TableCell style={{ color: "white" }} align="center">
-                                                                    <p className={styles.fileLinkAboutCategory}>
-                                                                        {countLinkLinkFIleCategory++}.
-                                                                    </p>
-                                                                </TableCell>
+                                                        {((InfoCategoryFileLearn.length !== 0) ?
+                                                            <>
+                                                                {InfoCategoryFileLearn.map((InfoCategory) => (
+                                                                    <TableRow
+                                                                        key={InfoCategory._id}
+                                                                        style={{ borderBottom: "2px solid #b0c4cf" }}
+                                                                    >
 
-                                                                <TableCell style={{ color: "white" }} align="center">
-                                                                    <p className={styles.fileLinkAboutCategory}>
-                                                                        {InfoCategory.titleFIleLink}
-                                                                    </p>
-                                                                </TableCell>
+                                                                        <TableCell style={{ color: "white" }} align="center">
+                                                                            <p className={styles.fileLinkAboutCategory}>
+                                                                                {countLinkLinkFIleCategory++}.
+                                                                            </p>
+                                                                        </TableCell>
 
-
-                                                                <TableCell style={{ color: "white" }} align="center">
-                                                                    <div className={styles.fileLinkAboutCategory}>
-                                                                        <a target="_blank" href={InfoCategory.linkFIleLinkLearn} download>
-                                                                            <FileDownloadIcon />
-                                                                        </a>
-                                                                    </div>
-                                                                </TableCell>
+                                                                        <TableCell style={{ color: "white" }} align="center">
+                                                                            <p className={styles.fileLinkAboutCategory}>
+                                                                                {InfoCategory.titleFIleLink}
+                                                                            </p>
+                                                                        </TableCell>
 
 
+                                                                        <TableCell style={{ color: "white" }} align="center">
+                                                                            <div className={styles.fileLinkAboutCategory}>
+                                                                                <a target="_blank" href={InfoCategory.linkFIleLinkLearn} download>
+                                                                                    <FileDownloadIcon />
+                                                                                </a>
+                                                                            </div>
+                                                                        </TableCell>
 
-                                                                <TableCell style={{ color: "white" }} align="center">
-                                                                    <Typography className={styles.fileLinkAboutCategory}>
+                                                                        <TableCell style={{ color: "white" }} align="center">
+                                                                            <Typography className={styles.fileLinkAboutCategory}>
 
-                                                                        <UserSaveFavorite
-                                                                            favorite={InfoCategory.linkFIleLinkLearn}
-                                                                            title={InfoCategory.titleFIleLink}
-                                                                            type={InfoCategory.type}
-                                                                            idFavorite={InfoCategory._id}
-                                                                        />
+                                                                                <UserSaveFavorite
+                                                                                    favorite={InfoCategory.linkFIleLinkLearn}
+                                                                                    title={InfoCategory.titleFIleLink}
+                                                                                    type={InfoCategory.type}
+                                                                                    idFavorite={InfoCategory._id}
+                                                                                />
 
-                                                                    </Typography>
-                                                                </TableCell>
+                                                                            </Typography>
+                                                                        </TableCell>
 
-                                                            </TableRow>
-                                                        ))}
+                                                                    </TableRow>
+                                                                ))}
+                                                            </>
+                                                            :
+                                                            <div className={styles.noHaveFiles}>
+                                                                Not Have Now FIles Sorry
+                                                            </div>
+
+                                                        )}
                                                     </TableBody>
                                                 </Table>
                                             </div>
-                                            : (InfoCategoryFileLearn.length === 0) ?
-                                                <div className={styles.noHaveFiles}>
-                                                    Not Have Now FIles Sorry
-                                                </div>
-                                                : ""
-                                        }
-                                    </div>
-
+                                        </div>
+                                    }
                                 </Box>
                             )}
 
