@@ -1,7 +1,6 @@
 import axios from "axios"
 
 
-
 export const getAllCategories = async () => {
 
     const res = await axios.get(`${process.env.APP_URL}/api/categories`);
