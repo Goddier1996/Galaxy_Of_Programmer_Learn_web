@@ -12,6 +12,10 @@ Link Web Side - https://galaxy-of-programmer.vercel.app/
  
 
 
+https://user-images.githubusercontent.com/59862302/236671645-5723dbe5-e1dc-4c82-92db-1defe3447a4a.mp4
+
+
+
 # home page :
 
 ![home1](https://user-images.githubusercontent.com/59862302/236669727-2568b27e-bb5f-4c72-87af-dd163a335a5a.png)
