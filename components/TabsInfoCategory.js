@@ -143,7 +143,7 @@ const TabsInfoCategory = ({ data }) => {
                                     {(loadingLink) ?
                                         <div style={{ color: "gray", display: "flex", justifyContent: "center" }}>
                                             <CircularProgress color="inherit" size={30} />
-                                            <br />
+                                            <br /><br /><br />
                                         </div>
                                         :
                                         <div className={styles.line}>
