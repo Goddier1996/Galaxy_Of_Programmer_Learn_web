@@ -4,8 +4,6 @@ import axios from "axios"
 
 export const getAllCategories = async () => {
 
-    // const res = await axios.get("http://localhost:3000/api/categories");
-
     const res = await axios.get(`${process.env.APP_URL}/api/categories`);
 
 
@@ -21,8 +19,6 @@ export const getAllCategories = async () => {
 
 export const getCategoryIdInfo = async (id) => {
 
-
-    // const res = await axios.get(`http://localhost:3000/api/category/${id}`);
     const res = await axios.get(`${process.env.APP_URL}/api/category/${id}`);
 
 
@@ -38,8 +34,6 @@ export const getCategoryIdInfo = async (id) => {
 
 export const getCategoryIdInfoVideoLearn = async (id) => {
 
-
-    // const res = await axios.get(`http://localhost:3000/api/categoryLearnVideo/${id}`);
     const res = await axios.get(`${process.env.APP_URL}/api/categoryLearnVideo/${id}`);
 
 
@@ -56,7 +50,6 @@ export const getCategoryIdInfoVideoLearn = async (id) => {
 export const getCategoryAllInfoVideoLearn = async () => {
 
 
-    // const res = await axios.get(`http://localhost:3000/api/categoryLearnVideo`);
     const res = await axios.get(`${process.env.APP_URL}/api/categoryLearnVideo`);
 
 
@@ -74,7 +67,6 @@ export const getCategoryAllInfoVideoLearn = async () => {
 export const getCategoryIdInfoLinkLearn = async (id) => {
 
 
-    // const res = await axios.get(`http://localhost:3000/api/categoryLearnLink/${id}`);
     const res = await axios.get(`${process.env.APP_URL}/api/categoryLearnLink/${id}`);
 
 
@@ -91,7 +83,6 @@ export const getCategoryIdInfoLinkLearn = async (id) => {
 export const getCategoryAllInfoLinkLearn = async () => {
 
 
-    // const res = await axios.get(`http://localhost:3000/api/categoryLearnLink`);
     const res = await axios.get(`${process.env.APP_URL}/api/categoryLearnLink`);
 
 
@@ -108,7 +99,6 @@ export const getCategoryAllInfoLinkLearn = async () => {
 export const getCategoryIdInfoFilesLearn = async (id) => {
 
 
-    // const res = await axios.get(`http://localhost:3000/api/categoryFIleLearn/${id}`);
     const res = await axios.get(`${process.env.APP_URL}/api/categoryFIleLearn/${id}`);
 
     if (res.status != 200) {
@@ -124,7 +114,6 @@ export const getCategoryIdInfoFilesLearn = async (id) => {
 export const getCategoryAllInfoFilesLearn = async () => {
 
 
-    // const res = await axios.get(`http://localhost:3000/api/categoryFIleLearn`);
     const res = await axios.get(`${process.env.APP_URL}/api/categoryFIleLearn`);
 
 
@@ -144,7 +133,6 @@ export const getCategoryAllInfoFilesLearn = async () => {
 export const getAllUsers = async () => {
 
 
-    // const res = await axios.get(`http://localhost:3000/api/users`);
     const res = await axios.get(`${process.env.APP_URL}/api/users`);
 
 
@@ -200,7 +188,6 @@ export const updateUser = async (id, data) => {
 
 export const signInUser = async (data) => {
 
-    // const res = await axios.post("http://localhost:3000/api/connectUserSignIn", data);
     const res = await axios.post(`${process.env.APP_URL}/api/connectUserSignIn`, data);
 
 
@@ -210,7 +197,6 @@ export const signInUser = async (data) => {
 
 export const registerCheckIfHaveThisUserInDataBase = async (login) => {
 
-    // const res = await axios.get(`http://localhost:3000/api/findUser/${login}`);
     const res = await axios.get(`${process.env.APP_URL}/api/findUser/${login}`);
 
 
@@ -244,7 +230,6 @@ export const addUserFavorite = async (favorite, title, type, idUser, idFavorite)
 
 export const checkIfUserHaveThisFavorite = async (idUser, idFavorite) => {
 
-    // const res = await axios.get(`http://localhost:3000/api/checkIfUserHaveFavorite/${idUser}`);
     const res = await axios.get(`${process.env.APP_URL}/api/checkIfUserHaveFavorite/${idUser}`);
 
 
@@ -258,7 +243,6 @@ export const checkIfUserHaveThisFavorite = async (idUser, idFavorite) => {
 export const favoriteSaveIdUserFIle = async (id) => {
 
 
-    // const res = await axios.get(`http://localhost:3000/api/favoriteUser/${id}`);
     const res = await axios.get(`${process.env.APP_URL}/api/favoriteUser/${id}`);
 
 
@@ -277,7 +261,6 @@ export const favoriteSaveIdUserFIle = async (id) => {
 
 export const favoriteSaveIdUserVideo = async (id) => {
 
-    // const res = await axios.get(`http://localhost:3000/api/favoriteUser/${id}`);
     const res = await axios.get(`${process.env.APP_URL}/api/favoriteUser/${id}`);
 
 
@@ -297,7 +280,6 @@ export const favoriteSaveIdUserVideo = async (id) => {
 export const favoriteSaveIdUserLink = async (id) => {
 
 
-    // const res = await axios.get(`http://localhost:3000/api/favoriteUser/${id}`);
     const res = await axios.get(`${process.env.APP_URL}/api/favoriteUser/${id}`);
 
 
@@ -316,7 +298,6 @@ export const favoriteSaveIdUserLink = async (id) => {
 
 export const favoriteRemoveIdUser = async (id) => {
 
-    // const res = await axios.delete(`http://localhost:3000/api/favoriteUser/${id}`);
     const res = await axios.delete(`${process.env.APP_URL}/api/favoriteUser/${id}`);
 
 
