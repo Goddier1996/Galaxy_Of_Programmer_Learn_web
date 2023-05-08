@@ -11,7 +11,7 @@ import { registerCheckIfHaveThisUserInDataBase } from "../api-helpers/frontend/u
 const AddNewUser = ({ closeModel }) => {
 
 
-    const [InfoCategoryVideoLearn, setInfoCategoryVideoLearn] = useState("");
+    const [checkIfHaveThisUserInDataBase, setCheckIfHaveThisUserInDataBase] = useState("");
     const [clickNumButton, setClickNumButton] = useState(1);
     const [disabled, setDisabled] = useState(false);
 
@@ -62,20 +62,21 @@ const AddNewUser = ({ closeModel }) => {
     const registerNewUser = async () => {
 
         registerCheckIfHaveThisUserInDataBase(inputs.login)
-            .then((dataCategory) => setInfoCategoryVideoLearn(dataCategory))
+            .then((dataCategory) => setCheckIfHaveThisUserInDataBase(dataCategory))
             .catch((err) => console.log(err));
 
         setClickNumButton((clickNumButton) => clickNumButton + 1)
 
         if (clickNumButton >= 2) {
 
-            if (InfoCategoryVideoLearn) {
+            if (checkIfHaveThisUserInDataBase) {
                 setShowAlertShowAlertHaveLoginInDatabase(true);
                 setDisabled(true);
-                setInfoCategoryVideoLearn("");
+                setCheckIfHaveThisUserInDataBase("");
             }
 
             else {
+                setDisabled(true);
                 addUser(inputs)
                     .then((value) => console.log(value))
                     .then(() => {
@@ -176,10 +177,15 @@ const AddNewUser = ({ closeModel }) => {
                                 </Button>
                             </div>
 
+                            <div className={styles.ClickTwice}>
+                                <p>* Click twice when Register</p>
+                            </div>
+
                         </form>
                     </div>
                 </div>
             </div>
+
 
 
 
@@ -191,8 +197,6 @@ const AddNewUser = ({ closeModel }) => {
                         setShowAlertUserRegister(false)
                         window.location.reload(false);
                     }}>
-
-
                     <Alert
                         variant="filled" severity="success"
                         sx={{ width: '100%', fontSize: "17px", textAlign: "center" }}>
@@ -209,8 +213,6 @@ const AddNewUser = ({ closeModel }) => {
                     onClose={() => {
                         setShowAlertUserRegisterNeedInputValue(false)
                     }}>
-
-
                     <Alert
                         variant="filled" severity="warning"
                         sx={{ width: '100%', fontSize: "17px", textAlign: "center" }}>
