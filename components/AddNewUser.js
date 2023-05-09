@@ -13,7 +13,8 @@ const AddNewUser = ({ closeModel }) => {
 
     const [checkIfHaveThisUserInDataBase, setCheckIfHaveThisUserInDataBase] = useState("");
     const [clickNumButton, setClickNumButton] = useState(1);
-    const [disabled, setDisabled] = useState(false);
+    const [disabledRegesterButton, setDisabledRegesterButton] = useState(false);
+    const [disabledCloseButton, setDisabledCloseButton] = useState(false);
 
     const [showAlertUserRegister, setShowAlertUserRegister] = useState(false);
     const [showAlertUserRegisterNeedInputValue, setShowAlertUserRegisterNeedInputValue] = useState(false);
@@ -71,12 +72,13 @@ const AddNewUser = ({ closeModel }) => {
 
             if (checkIfHaveThisUserInDataBase) {
                 setShowAlertShowAlertHaveLoginInDatabase(true);
-                setDisabled(true);
+                setDisabledRegesterButton(true);
                 setCheckIfHaveThisUserInDataBase("");
             }
 
             else {
-                setDisabled(true);
+                setDisabledRegesterButton(true);
+                setDisabledCloseButton(true);
                 addUser(inputs)
                     .then((value) => console.log(value))
                     .then(() => {
@@ -98,7 +100,7 @@ const AddNewUser = ({ closeModel }) => {
                 <div className={styles.form}>
                     <div className={styles.header}>
 
-                        <Button onClick={closeModel}
+                        <Button disabled={disabledCloseButton} onClick={closeModel}
                             variant="contained"
                             sx={{ bgcolor: 'rgba(255, 0, 0, 0.600)', '&:hover': { bgcolor: 'rgba(255, 0, 0, 0.500)' } }}>
                             X
@@ -172,7 +174,7 @@ const AddNewUser = ({ closeModel }) => {
                             <br />
 
                             <div className={styles.RegisterInOrCloseButtom}>
-                                <Button disabled={disabled} onClick={checkIfValueAllNotEmpty} variant="contained" >
+                                <Button disabled={disabledRegesterButton} onClick={checkIfValueAllNotEmpty} variant="contained" >
                                     Let's Register
                                 </Button>
                             </div>

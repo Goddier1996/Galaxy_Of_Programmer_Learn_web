@@ -12,7 +12,10 @@ const SignIn = ({ hideSignInFun }) => {
 
     const [showAlertEmptyValueLogin, setShowAlertEmptyValueLogin] = useState(false);
     const [showAlertUserEmptyInDatabase, setShowAlertUserEmptyInDatabase] = useState(false);
+    const [showAlertUserConnect, setShowAlertUserConnect] = useState(false);
 
+
+    const [disabledSignInButton, setDisabledSignInButton] = useState(false);
 
 
     const [login, SetLogin] = useState('');
@@ -30,7 +33,8 @@ const SignIn = ({ hideSignInFun }) => {
         signInUser(user)
             .then((value) => console.log(value))
             .then(() => {
-                window.location.reload(false);
+                setDisabledSignInButton(true);
+                setShowAlertUserConnect(true);
             })
             .catch(err => console.log(err));
     }
@@ -54,8 +58,10 @@ const SignIn = ({ hideSignInFun }) => {
                     sessionStorage.clear();
                 }
 
-                else
-                    window.location.reload(false);
+                else {
+                    setDisabledSignInButton(true);
+                    setShowAlertUserConnect(true);
+                }
             })
             .catch(err => console.log(err));
     }
@@ -78,6 +84,7 @@ const SignIn = ({ hideSignInFun }) => {
 
 
 
+
     return (
 
         <>
@@ -86,7 +93,7 @@ const SignIn = ({ hideSignInFun }) => {
                 <div className={styles.form}>
                     <div className={styles.header}>
 
-                        <Button onClick={hideSignInFun}
+                        <Button disabled={disabledSignInButton} onClick={hideSignInFun}
                             variant="contained"
                             sx={{ bgcolor: 'rgba(255, 0, 0, 0.600)', '&:hover': { bgcolor: 'rgba(255, 0, 0, 0.500)' } }} >
                             X
@@ -131,14 +138,19 @@ const SignIn = ({ hideSignInFun }) => {
                             <br />
 
                             <div className={styles.RegisterInOrCloseButtom}>
-                                <Button onClick={() => checkValueInput()} variant="contained" >
+                                <Button disabled={disabledSignInButton} onClick={() => checkValueInput()} variant="contained" >
                                     Sign In
                                 </Button>
                             </div>
 
 
                             <div className={styles.DemoUser}>
-                                <p onClick={() => connectDemoUser()}>Click to Connect Demo User</p>
+                                <p style={(disabledSignInButton === true) ? { color: "rgba(0, 0, 0, 0.1)", cursor: "none" } :
+                                    { color: "#ffffff" }}
+                                    onClick={() => connectDemoUser()}
+                                >
+                                    Click to Connect Demo User
+                                </p>
                             </div>
 
                         </form>
@@ -156,8 +168,6 @@ const SignIn = ({ hideSignInFun }) => {
                     onClose={() => {
                         setShowAlertEmptyValueLogin(false)
                     }}>
-
-
                     <Alert
                         variant="filled" severity="warning"
                         sx={{ width: '100%', fontSize: "17px", textAlign: "center" }}>
@@ -175,12 +185,29 @@ const SignIn = ({ hideSignInFun }) => {
                     onClose={() => {
                         setShowAlertUserEmptyInDatabase(false)
                     }}>
-
-
                     <Alert
                         variant="filled" severity="warning"
                         sx={{ width: '100%', fontSize: "17px", textAlign: "center" }}>
                         Don't Have This User In Database !
+                    </Alert>
+                </Snackbar>
+            )}
+
+
+
+            {showAlertUserConnect && (
+                <Snackbar
+                    open={showAlertUserConnect}
+                    autoHideDuration={1000}
+                    onClose={() => {
+                        setShowAlertUserConnect(false);
+                        window.location.reload(false);
+                    }}>
+                    <Alert
+                        variant="filled" severity="success"
+                        sx={{ width: '100%', fontSize: "17px", textAlign: "center" }}>
+                        Welcome you Connect<br />
+                        Let's Learn new technology
                     </Alert>
                 </Snackbar>
             )}
