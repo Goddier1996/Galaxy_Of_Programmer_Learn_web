@@ -217,6 +217,7 @@ function FavoritesUserId() {
                           </div>
                           :
                           <div className={styless.noHaveFiles}>
+                            <br /><br /><br /><br />
                             Not Have Now FIles Sorry
                           </div>
                         }
@@ -285,6 +286,7 @@ function FavoritesUserId() {
                               </>
                               :
                               <div className={styless.noHaveFiles}>
+                                <br /><br />
                                 Not Have Now FIles Sorry
                               </div>
 
@@ -354,6 +356,7 @@ function FavoritesUserId() {
                               </>
                               :
                               <div className={styless.noHaveFiles}>
+                                <br /><br />
                                 Not Have Now FIles Sorry
                               </div>
 
