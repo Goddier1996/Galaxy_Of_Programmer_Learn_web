@@ -216,7 +216,7 @@ function FavoritesUserId() {
                             ))}
                           </div>
                           :
-                          <div className={styles.noHaveFiles}>
+                          <div className={styless.noHaveFiles}>
                             Not Have Now FIles Sorry
                           </div>
                         }

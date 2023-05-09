@@ -27,7 +27,7 @@ const AddNewUser = ({ closeModel }) => {
             login: "",
             password: "",
             confirmPassword: "",
-            avatarUser: "https://i.postimg.cc/SQ9RXBN9/imgbin-astronaut-avatar-png"
+            avatarUser: "https://i.postimg.cc/90N7bp8f/imgbin-astronaut-avatar-png.png"
         }
     );
 
