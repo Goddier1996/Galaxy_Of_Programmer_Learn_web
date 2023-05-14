@@ -11,6 +11,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 
 
+
 const TabsInfoCategory = ({ data }) => {
 
 
@@ -298,5 +299,3 @@ const TabsInfoCategory = ({ data }) => {
 
 
 export default TabsInfoCategory
-
-

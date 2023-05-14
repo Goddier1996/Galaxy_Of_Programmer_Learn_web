@@ -1,4 +1,3 @@
-// import TabsInfoCategory from "./TabsInfoCategory"
 import ShowInfoAboutCategory from "./ShowInfoAboutCategory"
 import styles from "../styles/infoCategoryPage.module.css"
 import CircularProgress from '@mui/material/CircularProgress';
@@ -14,7 +13,6 @@ const InfoCategory = ({ data }) => {
   return (
 
     <>
-
       {(data.codeCategory) ?
         <>
           <ShowInfoAboutCategory data={data} />
@@ -25,12 +23,8 @@ const InfoCategory = ({ data }) => {
           <CircularProgress color="inherit" size={95} />
         </div>
       }
-
     </>
   )
 }
 
 export default InfoCategory
-
-
-

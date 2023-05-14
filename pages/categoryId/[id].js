@@ -1,11 +1,14 @@
 import { getCategoryIdInfo } from "../../api-helpers/frontend/utils";
-import InfoCategory from '../../components/InfoCategory'
-// import dynamic from 'next/dynamic'
+import CircularProgress from '@mui/material/CircularProgress';
+import dynamic from 'next/dynamic'
 
-// const InfoCategory = dynamic(() => import('../../components/InfoCategory'), {
-//     ssr: false,
-// })
 
+
+const InfoCategory = dynamic(() => import('../../components/InfoCategory'), {
+    loading: () => <div style={{ color: "gray", display: "flex", justifyContent: "center" }}>
+        <CircularProgress color="inherit" size={30} />
+    </div>,
+});
 
 
 
