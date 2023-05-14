@@ -20,7 +20,7 @@ const Index = ({ categories }) => {
     <>
       <ShowHomeTitle />
 
-      <CategoriesList data={categories} />
+      {/* <CategoriesList data={categories} /> */}
     </>
   )
 }
