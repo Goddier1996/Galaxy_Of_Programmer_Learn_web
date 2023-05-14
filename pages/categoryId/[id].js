@@ -5,8 +5,8 @@ import dynamic from 'next/dynamic'
 
 
 const InfoCategory = dynamic(() => import('../../components/InfoCategory'), {
-    loading: () => <div style={{ color: "gray", display: "flex", justifyContent: "center" }}>
-        <CircularProgress color="inherit" size={30} />
+    loading: () => <div style={{ color: "gray", display: "flex", justifyContent: "center", marginBottom: "20%", marginTop: "20%" }}>
+        <CircularProgress color="inherit" size={60} />
     </div>,
 });
 
