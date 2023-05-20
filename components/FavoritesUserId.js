@@ -42,6 +42,7 @@ function FavoritesUserId() {
     let userData = JSON.parse(window.sessionStorage.getItem('user'))
 
     if (userData != null) {
+      
       setDataUser(userData.connectUser);
 
       setLoadingFIle(true)

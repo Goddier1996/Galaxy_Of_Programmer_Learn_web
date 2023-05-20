@@ -1,7 +1,6 @@
 import styles from "../styles/profileUser.module.css"
 import Button from '@mui/material/Button';
 import { useState, useEffect } from 'react'
-import Image from 'next/image'
 import { Modal } from 'react-bootstrap'
 import UpdateProfileUser from "./UpdateProfileUser";
 
@@ -18,7 +17,7 @@ const ProfileUser = ({ hideSignInFun }) => {
 
     const UpdateProfileUser1 = () => {
 
-        handleShowModelUpdate()
+        handleShowModelUpdate();
     }
 
 
@@ -71,13 +70,11 @@ const ProfileUser = ({ hideSignInFun }) => {
 
 
                     <div className={styles.bodySpaceAvatar}>
-
-                        <Image
+                        <img
                             src={SaveDataUserFromSessionStorage.avatarUser}
-                            alt="logo user"
+                            alt="avatar user profile"
                             width={120}
                             height={120}
-                            priority
                         />
                     </div>
 

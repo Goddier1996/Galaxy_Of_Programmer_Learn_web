@@ -153,6 +153,7 @@ const AddNewUser = ({ closeModel }) => {
                                     onChange={handleChange}
                                     value={inputs.password}
                                     name="password"
+                                    autoComplete="off"
                                 />
                             </div>
 
@@ -168,6 +169,7 @@ const AddNewUser = ({ closeModel }) => {
                                     onChange={handleChange}
                                     value={inputs.confirmPassword}
                                     name="confirmPassword"
+                                    autoComplete="off"
                                 />
                             </div>
 

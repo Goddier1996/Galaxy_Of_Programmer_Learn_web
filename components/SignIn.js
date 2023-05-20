@@ -132,6 +132,7 @@ const SignIn = ({ hideSignInFun }) => {
                                     onChange={(event) => setPassword(event.target.value)}
                                     value={password}
                                     name="password"
+                                    autoComplete="off"
                                 />
                             </div>
 

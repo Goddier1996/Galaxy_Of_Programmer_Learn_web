@@ -12,7 +12,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 
 
-const TabsInfoCategory = ({ data }) => {
+const TabsInfoCategory = ({ idCategory }) => {
 
 
     const [tabIndex, setTabIndex] = useState(0);
@@ -39,26 +39,26 @@ const TabsInfoCategory = ({ data }) => {
     useEffect(() => {
 
         setLoadingVideo(true)
-        getCategoryIdInfoVideoLearn(data)
+        getCategoryIdInfoVideoLearn(idCategory)
             .then((dataCategory) => setInfoCategoryVideoLearn(dataCategory))
             .then(() => setLoadingVideo(false))
             .catch((err) => console.log(err));
 
 
         setLoadingLink(true)
-        getCategoryIdInfoLinkLearn(data)
+        getCategoryIdInfoLinkLearn(idCategory)
             .then((dataCategory) => setInfoCategoryLinkLearn(dataCategory))
             .then(() => setLoadingLink(false))
             .catch((err) => console.log(err));
 
 
         setLoadingFIle(true)
-        getCategoryIdInfoFilesLearn(data)
+        getCategoryIdInfoFilesLearn(idCategory)
             .then((dataCategory) => setInfoCategoryFileLearn(dataCategory))
             .then(() => setLoadingFIle(false))
             .catch((err) => console.log(err));
 
-    }, [])
+    }, [idCategory])
 
 
 

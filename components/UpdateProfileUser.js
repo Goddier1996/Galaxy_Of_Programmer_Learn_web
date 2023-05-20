@@ -123,6 +123,7 @@ const UpdateProfileUser = ({ hideUpdate, dataUser }) => {
                                     onChange={handleChange}
                                     value={inputs.password}
                                     name="password"
+                                    autoComplete="off"
                                 />
                             </div>
 
@@ -138,6 +139,7 @@ const UpdateProfileUser = ({ hideUpdate, dataUser }) => {
                                     onChange={handleChange}
                                     value={inputs.confirmPassword}
                                     name="confirmPassword"
+                                    autoComplete="off"
                                 />
                             </div>
 

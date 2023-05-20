@@ -16,7 +16,7 @@ const InfoCategory = ({ data }) => {
       {(data.codeCategory) ?
         <>
           <ShowInfoAboutCategory data={data} />
-          <TabsInfoCategory data={data.codeCategory} />
+          <TabsInfoCategory idCategory={data.codeCategory} />
         </>
         :
         <div className={styles.loading}>
