@@ -38,25 +38,32 @@ const TabsInfoCategory = ({ idCategory }) => {
 
     useEffect(() => {
 
+        const controller = new AbortController();
+
         setLoadingVideo(true)
-        getCategoryIdInfoVideoLearn(idCategory)
+        getCategoryIdInfoVideoLearn(idCategory, { signal: controller.signal })
             .then((dataCategory) => setInfoCategoryVideoLearn(dataCategory))
             .then(() => setLoadingVideo(false))
             .catch((err) => console.log(err));
 
 
         setLoadingLink(true)
-        getCategoryIdInfoLinkLearn(idCategory)
+        getCategoryIdInfoLinkLearn(idCategory, { signal: controller.signal })
             .then((dataCategory) => setInfoCategoryLinkLearn(dataCategory))
             .then(() => setLoadingLink(false))
             .catch((err) => console.log(err));
 
 
         setLoadingFIle(true)
-        getCategoryIdInfoFilesLearn(idCategory)
+        getCategoryIdInfoFilesLearn(idCategory, { signal: controller.signal })
             .then((dataCategory) => setInfoCategoryFileLearn(dataCategory))
             .then(() => setLoadingFIle(false))
             .catch((err) => console.log(err));
+
+
+        return () => {
+            controller.abort()
+        }
 
     }, [idCategory])
 
