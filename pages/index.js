@@ -17,6 +17,8 @@ const CategoriesList = dynamic(() => import('../components/CategoriesList'), {
 
 
 
+
+
 const Index = ({ categories }) => {
 
   const [showModel, setShowModel] = useState(false);
