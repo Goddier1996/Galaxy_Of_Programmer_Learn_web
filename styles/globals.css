@@ -11,7 +11,7 @@ body {
   background: url("https://i.postimg.cc/wBgRtx0Z/dark-matter.png");
   font-family: 'Raleway', sans-serif;
 
-  cursor: url("https://cur.cursors-4u.net/others/oth-8/oth756.cur"), pointer;
+  /* cursor: url("https://cur.cursors-4u.net/others/oth-8/oth756.cur"), pointer; */
 }
 
 
@@ -37,8 +37,3 @@ html::-webkit-scrollbar-thumb {
       transparent 75%,
       transparent);
 }
-
-
-/* .MuiMenu-list {
-   background: #d7b541; 
-   color: rgba(255, 255, 255, 0.993);  */

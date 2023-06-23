@@ -1,0 +1,47 @@
+.styleModelCursors {
+    background: url("https://i.postimg.cc/wBgRtx0Z/dark-matter.png");
+    position: absolute;
+    margin-top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 500px;
+    height: auto;
+    padding: 6%;
+    border-radius: 1%;
+}
+
+
+.titleSelectCurser h1 {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+}
+
+.titleSelectCurser h6 {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.choiceCurser {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+
+.cursorsImage  {
+    cursor: pointer;
+    margin-top: 3%;
+}
+
+
+.cursorsImage img:hover {
+    opacity: 0.6;
+}
