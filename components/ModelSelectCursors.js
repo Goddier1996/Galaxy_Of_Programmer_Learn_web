@@ -7,6 +7,7 @@ import { container, item } from "../components/StyleAnimation"
 
 const ModelSelectCursors = ({ hide }) => {
 
+    
     const arrayCursors =
         [
             { id: 1, LinkImage: 'https://cur.cursors-4u.net/others/oth-8/oth756.cur' },
@@ -32,8 +33,11 @@ const ModelSelectCursors = ({ hide }) => {
             className={styles.styleModelCursors}>
 
             <motion.div variants={item} class={styles.titleSelectCurser}>
-                <h1>Welcome to the Learn for Programmers Website</h1>
-                <h6>Please Select a style Cursor</h6>
+                <h1>Welcome to the Galaxy of programmers<br />
+                    Let's start the journey in space
+                </h1>
+                <h6>Choose your spaceship</h6>
+                <p>The spaceship will be your cursor style in this app</p>
             </motion.div>
 
 
