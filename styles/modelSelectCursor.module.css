@@ -1,20 +1,51 @@
+.positionPopUp{
+    display: flex;
+    justify-content: center;
+    animation: popup 0.5s;
+}
+
+
+@keyframes popup {
+    0%{
+      transition: all 0.3s;
+    }
+    50%{
+      transform: scale(1.4);
+    }
+    60%{
+      transform: scale(1.1);
+    }
+    70%{
+      transform: scale(1.2);
+    }
+    80%{
+      transform: scale(1);
+    }
+    90%{
+      transform: scale(1.1);
+    }
+    100%{
+      transform: scale(1);
+    }
+  }
+
+
+  
 .styleModelCursors {
     background: url("https://i.postimg.cc/wBgRtx0Z/dark-matter.png");
     position: absolute;
     margin-top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
     width: 500px;
     height: auto;
     padding: 6%;
-    border-radius: 1%;
+    border-radius: 1%; 
 }
 
 
 .titleSelectCurser h1 {
     font-size: 16px;
-
     color: white;
     font-weight: 780;
     line-height: 35px;

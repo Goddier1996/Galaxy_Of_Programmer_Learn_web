@@ -29,6 +29,8 @@ const ModelSelectCursors = ({ hide }) => {
 
 
     return (
+        <div className={styles.positionPopUp}>
+            
         <motion.div variants={container} initial="hidden" animate="show"
             className={styles.styleModelCursors}>
 
@@ -51,7 +53,8 @@ const ModelSelectCursors = ({ hide }) => {
                 )}
             </motion.div >
 
-        </motion.div>
+            </motion.div>
+            </div>
     )
 }
 
