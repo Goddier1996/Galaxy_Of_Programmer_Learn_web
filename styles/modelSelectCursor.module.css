@@ -1,90 +1,73 @@
-.positionPopUp{
-    display: flex;
-    justify-content: center;
-    animation: popup 0.5s;
+.positionPopUp {
+  display: flex;
+  justify-content: center;
+  animation: popup 0.5s;
 }
 
 
 @keyframes popup {
-    0%{
-      transition: all 0.3s;
-    }
-    50%{
-      transform: scale(1.4);
-    }
-    60%{
-      transform: scale(1.1);
-    }
-    70%{
-      transform: scale(1.2);
-    }
-    80%{
-      transform: scale(1);
-    }
-    90%{
-      transform: scale(1.1);
-    }
-    100%{
-      transform: scale(1);
-    }
+  50% {
+    transition: all 0.2s ease-in-out;
+    transform: scale(0.8);
   }
+}
 
 
-  
+
 .styleModelCursors {
-    background: url("https://i.postimg.cc/wBgRtx0Z/dark-matter.png");
-    position: absolute;
-    margin-top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 500px;
-    height: auto;
-    padding: 6%;
-    border-radius: 1%; 
+  background: url("https://i.postimg.cc/wBgRtx0Z/dark-matter.png");
+  position: absolute;
+  margin-top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: auto;
+  padding: 6%;
+  border-radius: 1%;
 }
 
 
 .titleSelectCurser h1 {
-    font-size: 16px;
-    color: white;
-    font-weight: 780;
-    line-height: 35px;
-    text-align: center;
-    text-transform: uppercase;
+  font-size: 16px;
+  color: white;
+  font-weight: 780;
+  line-height: 35px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .titleSelectCurser h6 {
-    margin-top: 8%;
-    margin-bottom: 5%;
-    font-size: 15px;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 780;
-    color: white;
+  margin-top: 8%;
+  margin-bottom: 5%;
+  font-size: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 780;
+  color: white;
 }
 
 .titleSelectCurser p {
-    margin-top: -3%;
-    font-size: 12px;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 780;
-    color: white;
+  margin-top: -3%;
+  font-size: 12px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 780;
+  color: white;
 }
 
 .choiceCurser {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
 }
 
 
 .cursorsImage {
-    cursor: pointer;
-    margin-top: 3%;
+  cursor: pointer;
+  margin-top: 3%;
 }
 
 
 .cursorsImage img:hover {
-    opacity: 0.6;
+  opacity: 0.6;
 }
