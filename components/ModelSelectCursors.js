@@ -7,7 +7,7 @@ import { container, item } from "../components/StyleAnimation"
 
 const ModelSelectCursors = ({ hide }) => {
 
-    
+
     const arrayCursors =
         [
             { id: 1, LinkImage: 'https://cur.cursors-4u.net/others/oth-8/oth756.cur' },
@@ -30,31 +30,31 @@ const ModelSelectCursors = ({ hide }) => {
 
     return (
         <div className={styles.positionPopUp}>
-            
-        <motion.div variants={container} initial="hidden" animate="show"
-            className={styles.styleModelCursors}>
 
-            <motion.div variants={item} class={styles.titleSelectCurser}>
-                <h1>Welcome to the Galaxy of programmers<br />
-                    Let's start the journey in space
-                </h1>
-                <h6>Choose your spaceship</h6>
-                <p>The spaceship will be your cursor style in this app</p>
+            <motion.div variants={container} initial="hidden" animate="show"
+                className={styles.styleModelCursors}>
+
+                <motion.div variants={item} class={styles.titleSelectCurser}>
+                    <h1>Welcome to the Galaxy of programmers<br />
+                        Let's start the journey in space
+                    </h1>
+                    <h6>Choose your spaceship</h6>
+                    <p>The spaceship will be your cursor style in this app</p>
+                </motion.div>
+
+
+                <motion.div variants={item} class={styles.choiceCurser} >
+
+                    {arrayCursors.map((item) =>
+                        <div className={styles.cursorsImage} key={item.id}>
+                            <img src={item.LinkImage}
+                                onClick={() => applyCursorUserChoose(item.id, item.LinkImage)} />
+                        </div>
+                    )}
+                </motion.div >
+
             </motion.div>
-
-
-            <motion.div variants={item} class={styles.choiceCurser} >
-
-                {arrayCursors.map((item) =>
-                    <div className={styles.cursorsImage} key={item.id}>
-                        <img src={item.LinkImage}
-                            onClick={() => applyCursorUserChoose(item.id, item.LinkImage)} />
-                    </div>
-                )}
-            </motion.div >
-
-            </motion.div>
-            </div>
+        </div>
     )
 }
 
