@@ -43,15 +43,15 @@ const ModelSelectCursors = ({ hide }) => {
                 </motion.div>
 
 
-                <motion.div variants={item} class={styles.choiceCurser} >
+                <div class={styles.choiceCurser} >
 
                     {arrayCursors.map((item) =>
-                        <div className={styles.cursorsImage} key={item.id}>
+                        <motion.div variants={item} className={styles.cursorsImage} key={item.id}>
                             <img src={item.LinkImage}
                                 onClick={() => applyCursorUserChoose(item.id, item.LinkImage)} />
-                        </div>
+                        </motion.div>
                     )}
-                </motion.div >
+                </div >
 
             </motion.div>
         </div>
