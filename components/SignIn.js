@@ -14,9 +14,7 @@ const SignIn = ({ hideSignInFun }) => {
     const [showAlertUserEmptyInDatabase, setShowAlertUserEmptyInDatabase] = useState(false);
     const [showAlertUserConnect, setShowAlertUserConnect] = useState(false);
 
-
     const [disabledSignInButton, setDisabledSignInButton] = useState(false);
-
 
     const [login, SetLogin] = useState('');
     const [password, setPassword] = useState('');

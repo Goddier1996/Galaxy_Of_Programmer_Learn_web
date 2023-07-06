@@ -24,20 +24,17 @@ const ProfileUser = dynamic(() => import('./ProfileUser'), {
 
 
 
-
-
-// values menu
-const mainPages = [{ id: '1', namePage: 'Home' }, { id: '2', namePage: 'About' }];
-
-const mainPagesResponsiveScreen = [{ id: '1', namePage: 'Home' }, { id: '2', namePage: 'About' }, { id: '3', namePage: 'Login' }, { id: '4', namePage: 'Register' }];
-const mainPagesResponsiveScreenUserConnect = [{ id: '1', namePage: 'Home' }, { id: '2', namePage: 'About' }];
-
-const controlPages = [{ id: '1', namePage: 'Login' }, { id: '2', namePage: 'Register' }];
-const ProfileUserOptions = [{ id: '1', option: 'Profile' }, { id: '2', option: 'favorites' }, { id: '3', option: 'Logout' }];
-
-
-
 const Header = () => {
+
+
+  // values menu
+  const mainPages = [{ id: '1', namePage: 'Home' }, { id: '2', namePage: 'About' }];
+
+  const mainPagesResponsiveScreen = [{ id: '1', namePage: 'Home' }, { id: '2', namePage: 'About' }, { id: '3', namePage: 'Login' }, { id: '4', namePage: 'Register' }];
+  const mainPagesResponsiveScreenUserConnect = [{ id: '1', namePage: 'Home' }, { id: '2', namePage: 'About' }];
+
+  const controlPages = [{ id: '1', namePage: 'Login' }, { id: '2', namePage: 'Register' }];
+  const ProfileUserOptions = [{ id: '1', option: 'Profile' }, { id: '2', option: 'favorites' }, { id: '3', option: 'Logout' }];
 
 
   const router = useRouter();
@@ -175,7 +172,7 @@ const Header = () => {
 
 
   const logOutUser = async () => {
-    await sessionStorage.clear();
+    await sessionStorage.removeItem("user");
     await router.push("/")
     window.location.reload(false);
   }
