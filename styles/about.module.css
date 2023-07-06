@@ -89,32 +89,13 @@
 
 
 .infoContact p {
-    font-size: 14px;
+    font-size: 13px;
     color: rgba(255, 255, 255, 0.76);
     text-align: center;
     letter-spacing: 2px;
     line-height: 30px;
     margin-top: 2%;
     width: 70%;
-    animation: SaveBookMarkInfoUser 1s ease 5s infinite alternate;
-}
-
-
-/*Bounce*/
-@keyframes SaveBookMarkInfoUser {
-    0% {
-        -webkit-transform: scale(1.1, .9);
-        transform: scale(1.1, .9);
-    }
-
-    50% {
-        -webkit-transform: scale(.9, 1.1) translateY(-.5rem)
-    }
-
-    70% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-    }
 }
 
 
