@@ -31,7 +31,7 @@ https://github.com/Goddier1996/Galaxy_Of_Programmer_Learn_web/assets/59862302/10
 # Login + Register + Change Cursor : 
 ![4](https://github.com/Goddier1996/Galaxy_Of_Programmer_Learn_web/assets/59862302/53eb1def-0c61-43c1-b8e8-31189ba7d3c7)
 ![44](https://github.com/Goddier1996/Galaxy_Of_Programmer_Learn_web/assets/59862302/40a1ff47-a97b-4991-952f-b3a646b7b974)
-![444](https://github.com/Goddier1996/Galaxy_Of_Programmer_Learn_web/assets/59862302/bf4d3b48-45af-42e4-b14e-db691be17664)
+![a](https://github.com/Goddier1996/Galaxy_Of_Programmer_Learn_web/assets/59862302/f7762827-3a57-4b64-9d57-2e780be555c2)
 
 
 
