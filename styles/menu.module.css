@@ -47,7 +47,8 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   cursor: pointer;
-  padding: 5%;
+  padding: 10%;
+  background: url("https://i.postimg.cc/wBgRtx0Z/dark-matter.png");
 }
 
 .SelectCursor img:hover {

@@ -33,13 +33,3 @@ html::-webkit-scrollbar-thumb {
       transparent 75%,
       transparent);
 }
-
-
-
-/* here Tooltip MUI style Heater */
-.css-6hp17o-MuiList-root-MuiMenu-list {
-  background: url("https://i.postimg.cc/wBgRtx0Z/dark-matter.png");
-  border-top: 5px #50708d solid;
-  border-bottom: 5px #72722b solid;
-  color: white;
-}

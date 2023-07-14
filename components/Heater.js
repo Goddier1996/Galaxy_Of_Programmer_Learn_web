@@ -441,7 +441,7 @@ const Header = () => {
                 {/* show Select Curser style */}
                 <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
 
-                  <Tooltip title="Select Curser">
+                  <Tooltip title="Select Curser" >
                     <IconButton onClick={handleOpenSelectCurserHeater} sx={{ p: 0 }}>
 
                       {ChangeStyleCurserInHeater.map((page) => (
@@ -470,7 +470,7 @@ const Header = () => {
                     onClose={handleCloseSelectCurserHeater}
                   >
 
-                    <div className={styles.SelectCursor}>
+                    <div className={styles.SelectCursor} >
                       {arrayCursors.map((item) =>
                         <motion.div variants={item} className={styles.cursorsImage} key={item.id}>
                           <img src={item.LinkImage} onClick={() => applyCursorUserChoose(item.LinkImage)} />
