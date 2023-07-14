@@ -306,12 +306,13 @@ const Header = () => {
                         display: { xs: 'block', md: 'none' },
                       }}
                     >
-
-                      {mainPagesResponsiveScreen.map((page) => (
-                        <MenuItem key={page.id} onClick={() => hamburgerNavbarResponsiveScreen(page.id)}>
-                          <Typography textAlign="center">{page.namePage}</Typography>
-                        </MenuItem>
-                      ))}
+                      <div className={styles.SelectCursor} >
+                        {mainPagesResponsiveScreen.map((page) => (
+                          <MenuItem key={page.id} onClick={() => hamburgerNavbarResponsiveScreen(page.id)}>
+                            <Typography textAlign="center">{page.namePage}</Typography>
+                          </MenuItem>
+                        ))}
+                      </div>
 
                     </Menu>
                   </Box>
@@ -346,11 +347,13 @@ const Header = () => {
                       }}
                     >
 
-                      {mainPagesResponsiveScreenUserConnect.map((page) => (
-                        <MenuItem key={page.id} onClick={() => hamburgerNavbarResponsiveScreenUserConnect(page.id)}>
-                          <Typography textAlign="center">{page.namePage}</Typography>
-                        </MenuItem>
-                      ))}
+                      <div className={styles.SelectCursor} >
+                        {mainPagesResponsiveScreenUserConnect.map((page) => (
+                          <MenuItem key={page.id} onClick={() => hamburgerNavbarResponsiveScreenUserConnect(page.id)}>
+                            <Typography textAlign="center">{page.namePage}</Typography>
+                          </MenuItem>
+                        ))}
+                      </div>
 
                     </Menu>
                   </Box>
