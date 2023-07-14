@@ -10,9 +10,7 @@ Link Web Side - https://galaxy-of-programmer.vercel.app/
         
 # video : 
 
-https://github.com/Goddier1996/Galaxy_Of_Programmer_Learn_web/assets/59862302/10fbfc0f-fa2d-491e-86e3-489237f5c7a6
-
-
+https://github.com/Goddier1996/Galaxy_Of_Programmer_Learn_web/assets/59862302/8b768340-bfbd-4b30-8f06-3496197075ab
 
 
 
