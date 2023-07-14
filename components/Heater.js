@@ -417,11 +417,13 @@ const Header = () => {
                       open={Boolean(anchorElUser)}
                       onClose={handleCloseUserProfileMenu}
                     >
-                      {ProfileUserOptions.map((setting) => (
-                        <MenuItem key={setting.id} onClick={() => mainPagesChooseResponsiveScreenUserConnect(setting.id)}>
-                          <Typography textAlign="center">{setting.option}</Typography>
-                        </MenuItem>
-                      ))}
+                      <div className={styles.SelectCursor} >
+                        {ProfileUserOptions.map((setting) => (
+                          <MenuItem key={setting.id} onClick={() => mainPagesChooseResponsiveScreenUserConnect(setting.id)}>
+                            <Typography textAlign="center">{setting.option}</Typography>
+                          </MenuItem>
+                        ))}
+                      </div>
                     </Menu>
                   </Box>
                   :
@@ -471,6 +473,9 @@ const Header = () => {
                   >
 
                     <div className={styles.SelectCursor} >
+
+                      <h1>Select Cursor :</h1>
+
                       {arrayCursors.map((item) =>
                         <motion.div variants={item} className={styles.cursorsImage} key={item.id}>
                           <img src={item.LinkImage} onClick={() => applyCursorUserChoose(item.LinkImage)} />
