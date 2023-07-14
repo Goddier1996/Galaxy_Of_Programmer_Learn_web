@@ -17,38 +17,40 @@ https://user-images.githubusercontent.com/59862302/236671645-5723dbe5-e1dc-4c82-
 
 
 # home page :
+![1](https://github.com/Goddier1996/Galaxy_Of_Programmer_Learn_web/assets/59862302/cb050f00-3bcf-4d27-b611-c95eb7b6b0da)
+![2](https://github.com/Goddier1996/Galaxy_Of_Programmer_Learn_web/assets/59862302/dfd5289c-b5d0-4c5c-9221-07eb41f4aa57)
+![22](https://github.com/Goddier1996/Galaxy_Of_Programmer_Learn_web/assets/59862302/795c4c4b-e22d-48cd-a6dc-2536b6d9efd2)
 
-![home1](https://user-images.githubusercontent.com/59862302/236669727-2568b27e-bb5f-4c72-87af-dd163a335a5a.png)
-
-![home2](https://user-images.githubusercontent.com/59862302/236669731-5b17c726-43a4-4a0f-9ea0-e9b51a5a9044.png)
 
 
 # info This Web site : 
- 
-![about](https://user-images.githubusercontent.com/59862302/236669737-b5e9526f-4992-458a-a21e-7c0fdf3eaa18.png)
+ ![3](https://github.com/Goddier1996/Galaxy_Of_Programmer_Learn_web/assets/59862302/0334873c-f775-486c-9c98-d4c1ee213b0e)
 
 
-# Login + Register : 
-![login](https://user-images.githubusercontent.com/59862302/236669791-8250b484-a66f-47dc-ae22-b659b2c0d7f3.png)
-![register](https://user-images.githubusercontent.com/59862302/236669792-5997b121-feec-49b6-b6dc-b2d0fb081de2.png)
+
+# Login + Register + Change Cursor : 
+![4](https://github.com/Goddier1996/Galaxy_Of_Programmer_Learn_web/assets/59862302/53eb1def-0c61-43c1-b8e8-31189ba7d3c7)
+![44](https://github.com/Goddier1996/Galaxy_Of_Programmer_Learn_web/assets/59862302/40a1ff47-a97b-4991-952f-b3a646b7b974)
+![444](https://github.com/Goddier1996/Galaxy_Of_Programmer_Learn_web/assets/59862302/bf4d3b48-45af-42e4-b14e-db691be17664)
 
 
 
 
 # info Category : 
-![info1](https://user-images.githubusercontent.com/59862302/236669762-589c29b9-8f43-4fd9-977a-d314fb5ec03c.png)
-![info2](https://user-images.githubusercontent.com/59862302/236669764-ea853eb7-8e2e-42de-b7ef-58373609ff89.png)
-![info3](https://user-images.githubusercontent.com/59862302/236669768-861cd1f4-4d09-4cd9-8d7c-c19eba814622.png)
+![6](https://github.com/Goddier1996/Galaxy_Of_Programmer_Learn_web/assets/59862302/fbf31100-2a2a-41a7-82a2-f371a7bf1170)
+![66](https://github.com/Goddier1996/Galaxy_Of_Programmer_Learn_web/assets/59862302/bfd333a0-1d9c-46bc-91f8-3b7aa2e04b1c)
+![666](https://github.com/Goddier1996/Galaxy_Of_Programmer_Learn_web/assets/59862302/5ed5c1db-8d95-4e52-abfe-9b8393035ad0)
+
 
 
 
 # Favorite User :
+![55](https://github.com/Goddier1996/Galaxy_Of_Programmer_Learn_web/assets/59862302/f31a7941-5633-4544-89a6-311890a7a340)
 
-![Favorite](https://user-images.githubusercontent.com/59862302/236669752-c5b465d8-3fea-4521-84c8-7396b01cfebe.png)
 
 
 # Profile User :
+![5](https://github.com/Goddier1996/Galaxy_Of_Programmer_Learn_web/assets/59862302/6447cfe3-a9be-40c7-a37d-e9d6e41272fd)
 
-![profile](https://user-images.githubusercontent.com/59862302/236669798-86813bb6-0ae8-404c-b917-e827ed519ea7.png)
-![updateData](https://user-images.githubusercontent.com/59862302/236669838-de0d5d03-b263-44a1-87b1-684478a05945.png)
+
 
