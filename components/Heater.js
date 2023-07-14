@@ -9,6 +9,7 @@ import { motion } from "framer-motion"
 import { container, item } from "./StyleAnimation"
 import styles from "../styles/menu.module.css"
 import dynamic from 'next/dynamic'
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const SignIn = dynamic(() => import('./SignIn'), {
   ssr: false,
@@ -25,6 +26,8 @@ const ProfileUser = dynamic(() => import('./ProfileUser'), {
 
 
 const Header = () => {
+
+  const mobileScreen = useMediaQuery('(min-width:991px)', { noSsr: true });
 
   let typeCursor = sessionStorage.getItem("typeCursor");
 
@@ -401,7 +404,9 @@ const Header = () => {
                   < Box sx={{ flexGrow: 0 }}>
                     <Tooltip title="Menu User">
                       <IconButton onClick={handleOpenUserProfileMenu} sx={{ p: 0 }}>
-                        <Avatar className={styles.SelectMenuUser} alt="avatar user" src={SaveDataUserFromSessionStorage.avatarUser} style={{ height: "60px", width: "60px", marginTop: "5px" }} />
+                        <Avatar alt="avatar user" src={SaveDataUserFromSessionStorage.avatarUser}
+                          style={mobileScreen ? { height: "60px", width: "60px", marginTop: "5px", marginRight: "50px" } :
+                            { height: "60px", width: "60px", marginTop: "5px" }} />
                       </IconButton>
                     </Tooltip>
                     <Menu
