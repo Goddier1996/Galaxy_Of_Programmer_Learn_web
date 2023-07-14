@@ -18,11 +18,10 @@ const ModelSelectCursors = ({ hide }) => {
         ];
 
 
-    const applyCursorUserChoose = (id, urlImage) => {
+    const applyCursorUserChoose = (urlImage) => {
 
         document.body.style.cursor = `url(${urlImage}), pointer`;
         sessionStorage.setItem("typeCursor", urlImage);
-
         hide();
     }
 
@@ -48,7 +47,7 @@ const ModelSelectCursors = ({ hide }) => {
                     {arrayCursors.map((item) =>
                         <motion.div variants={item} className={styles.cursorsImage} key={item.id}>
                             <img src={item.LinkImage}
-                                onClick={() => applyCursorUserChoose(item.id, item.LinkImage)} />
+                                onClick={() => applyCursorUserChoose(item.LinkImage)} />
                         </motion.div>
                     )}
                 </div >

@@ -26,6 +26,7 @@ const ProfileUser = dynamic(() => import('./ProfileUser'), {
 
 const Header = () => {
 
+  let typeCursor = sessionStorage.getItem("typeCursor");
 
   // values menu
   const mainPages = [{ id: '1', namePage: 'Home' }, { id: '2', namePage: 'About' }];
@@ -35,6 +36,17 @@ const Header = () => {
 
   const controlPages = [{ id: '1', namePage: 'Login' }, { id: '2', namePage: 'Register' }];
   const ProfileUserOptions = [{ id: '1', option: 'Profile' }, { id: '2', option: 'favorites' }, { id: '3', option: 'Logout' }];
+
+  const ChangeStyleCurserInHeater = [{ id: 1, typeStyleCurser: (typeCursor == null) ? "https://i.postimg.cc/3RhrRvpp/cursor-png-1137.png" : typeCursor }]
+
+  const arrayCursors =
+    [
+      { id: 1, LinkImage: 'https://cur.cursors-4u.net/others/oth-8/oth756.cur' },
+      { id: 2, LinkImage: 'https://cur.cursors-4u.net/mechanics/mec-4/mec318.cur' },
+      { id: 3, LinkImage: 'https://cur.cursors-4u.net/mechanics/mec-4/mec329.cur' },
+      { id: 4, LinkImage: 'https://cur.cursors-4u.net/mechanics/mec-4/mec324.cur' },
+      { id: 5, LinkImage: 'https://cur.cursors-4u.net/mechanics/mec-4/mec326.cur' }
+    ];
 
 
   const router = useRouter();
@@ -55,6 +67,8 @@ const Header = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
+  const [selectCurserHeater, setSelectCurserHeater] = useState(null);
+
 
 
   // open close menu responsive Mobile
@@ -68,8 +82,6 @@ const Header = () => {
 
 
 
-
-
   // open close avatar user profile
   const handleOpenUserProfileMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -79,6 +91,14 @@ const Header = () => {
     setAnchorElUser(null);
   };
 
+
+  const handleOpenSelectCurserHeater = (event) => {
+    setSelectCurserHeater(event.currentTarget);
+  };
+
+  const handleCloseSelectCurserHeater = () => {
+    setSelectCurserHeater(null);
+  };
 
 
 
@@ -170,13 +190,11 @@ const Header = () => {
 
 
 
-
   const logOutUser = async () => {
     await sessionStorage.removeItem("user");
     await router.push("/")
     window.location.reload(false);
   }
-
 
 
 
@@ -193,6 +211,15 @@ const Header = () => {
   const hideModelProfileUser = () => {
 
     setShowModelProfileUser(false);
+  }
+
+
+
+  const applyCursorUserChoose = (urlImage) => {
+
+    document.body.style.cursor = `url(${urlImage}), pointer`;
+    sessionStorage.setItem("typeCursor", urlImage);
+    handleCloseSelectCurserHeater();
   }
 
 
@@ -225,6 +252,7 @@ const Header = () => {
             <Container variants={item} maxWidth="xl" >
               <Toolbar disableGutters>
 
+                {/* responsive screen mobile */}
                 <Typography
                   noWrap
                   component="a"
@@ -287,9 +315,7 @@ const Header = () => {
 
                     </Menu>
                   </Box>
-
                   :
-
                   <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                     <IconButton
                       size="large"
@@ -330,6 +356,9 @@ const Header = () => {
                   </Box>
                 }
 
+
+
+                {/* menu value desktop screen */}
                 <Typography
                   noWrap
                   component="a"
@@ -352,8 +381,6 @@ const Header = () => {
                   </div>
                 </Typography>
 
-
-                {/* menu value pc screen */}
                 <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                   {mainPages.map((page) => (
                     <Button
@@ -367,13 +394,11 @@ const Header = () => {
                 </Box>
 
 
-
-
                 {(SaveDataUserFromSessionStorage) ?
                   < Box sx={{ flexGrow: 0 }}>
-                    <Tooltip title="Open settings">
+                    <Tooltip title="Menu User">
                       <IconButton onClick={handleOpenUserProfileMenu} sx={{ p: 0 }}>
-                        <Avatar alt="avatar user" src={SaveDataUserFromSessionStorage.avatarUser} style={{ height: "60px", width: "60px", marginTop: "5px" }} />
+                        <Avatar className={styles.SelectMenuUser} alt="avatar user" src={SaveDataUserFromSessionStorage.avatarUser} style={{ height: "60px", width: "60px", marginTop: "5px" }} />
                       </IconButton>
                     </Tooltip>
                     <Menu
@@ -382,12 +407,12 @@ const Header = () => {
                       anchorEl={anchorElUser}
                       anchorOrigin={{
                         vertical: 'top',
-                        horizontal: 'right',
+                        horizontal: 'left',
                       }}
                       keepMounted
                       transformOrigin={{
                         vertical: 'top',
-                        horizontal: 'right',
+                        horizontal: 'left',
                       }}
                       open={Boolean(anchorElUser)}
                       onClose={handleCloseUserProfileMenu}
@@ -400,7 +425,7 @@ const Header = () => {
                     </Menu>
                   </Box>
                   :
-                  <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
+                  <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }} style={{ margin: "20px" }}>
                     {controlPages.map((page) => (
                       <Button
                         key={page.id}
@@ -412,6 +437,49 @@ const Header = () => {
                   </Box>
                 }
 
+
+                {/* show Select Curser style */}
+                <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
+
+                  <Tooltip title="Select Curser">
+                    <IconButton onClick={handleOpenSelectCurserHeater} sx={{ p: 0 }}>
+
+                      {ChangeStyleCurserInHeater.map((page) => (
+
+                        <Avatar className={styles.SelectCurserStyleHeater}
+                          alt="Select Curser"
+                          src={page.typeStyleCurser}
+                          style={{ height: "60px", width: "60px" }} />
+                      ))}
+                    </IconButton>
+                  </Tooltip>
+                  <Menu
+                    sx={{ mt: '45px' }}
+                    id="menu-appbar"
+                    anchorEl={selectCurserHeater}
+                    anchorOrigin={{
+                      vertical: 'top',
+                      horizontal: 'left'
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                      vertical: 'top',
+                      horizontal: 'left'
+                    }}
+                    open={Boolean(selectCurserHeater)}
+                    onClose={handleCloseSelectCurserHeater}
+                  >
+
+                    <div className={styles.SelectCursor}>
+                      {arrayCursors.map((item) =>
+                        <motion.div variants={item} className={styles.cursorsImage} key={item.id}>
+                          <img src={item.LinkImage} onClick={() => applyCursorUserChoose(item.LinkImage)} />
+                        </motion.div>
+                      )}
+                    </div>
+
+                  </Menu>
+                </Box>
 
               </Toolbar>
             </Container>
@@ -443,6 +511,3 @@ const Header = () => {
 
 
 export default Header;
-
-
-

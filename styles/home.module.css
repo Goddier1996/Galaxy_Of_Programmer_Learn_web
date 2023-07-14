@@ -153,7 +153,6 @@
     animation: SaveBookMarkInfoUser 8s ease 5s infinite alternate;
 }
 
-/*Bounce*/
 @keyframes SaveBookMarkInfoUser {
     0% {
         transform: scale(1);

@@ -17,8 +17,6 @@ const CategoriesList = dynamic(() => import('../components/CategoriesList'), {
 
 
 
-
-
 const Index = ({ categories }) => {
 
   const [showModel, setShowModel] = useState(false);
@@ -41,20 +39,17 @@ const Index = ({ categories }) => {
 
 
   const hideModelSignIn = () => {
-
-    setShowModel(false);
+    window.location.reload(false);
+    // setShowModel(false);
   }
 
 
 
   return (
-
     <>
-
       <Modal show={showModel}  >
         <ModelSelectCursors hide={hideModelSignIn} />
       </Modal>
-
 
       <ShowHomeTitle />
 

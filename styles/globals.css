@@ -7,13 +7,9 @@
 
 html,
 body {
-  /* overflow-x: hidden; */
   background: url("https://i.postimg.cc/wBgRtx0Z/dark-matter.png");
   font-family: 'Raleway', sans-serif;
-
-  /* cursor: url("https://cur.cursors-4u.net/others/oth-8/oth756.cur"), pointer; */
 }
-
 
 
 /* desgin scroll in web */
@@ -36,4 +32,14 @@ html::-webkit-scrollbar-thumb {
       #423e18 75%,
       transparent 75%,
       transparent);
+}
+
+
+
+/* here Tooltip MUI style Heater */
+.css-6hp17o-MuiList-root-MuiMenu-list {
+  background: url("https://i.postimg.cc/wBgRtx0Z/dark-matter.png");
+  border-top: 5px #50708d solid;
+  border-bottom: 5px #72722b solid;
+  color: white;
 }
