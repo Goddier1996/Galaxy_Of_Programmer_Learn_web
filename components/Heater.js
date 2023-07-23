@@ -482,7 +482,7 @@ const Header = () => {
 
                     <div className={styles.SelectCursor} >
 
-                      <h1>Select Cursor :</h1>
+                      <h1>Select Cursor</h1>
 
                       {arrayCursors.map((item) =>
                         <motion.div variants={item} className={styles.cursorsImage} key={item.id}>

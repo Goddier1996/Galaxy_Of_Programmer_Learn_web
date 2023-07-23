@@ -11,7 +11,6 @@
 }
 
 
-
 .styleModelCursors {
   background: url("https://i.postimg.cc/wBgRtx0Z/dark-matter.png");
   position: absolute;
@@ -22,7 +21,6 @@
   height: auto;
   padding: 15%;
   border-radius: 50%;
-  /* double */
   border-right: 8px #50708d inset;
   border-left: 8px #50708d inset;
   border-top: 8px #72722b inset;
