@@ -1,6 +1,4 @@
 .positionPopUp {
-  display: flex;
-  justify-content: center;
   animation: popup 0.5s;
 }
 
@@ -17,13 +15,18 @@
 .styleModelCursors {
   background: url("https://i.postimg.cc/wBgRtx0Z/dark-matter.png");
   position: absolute;
-  margin-top: 50%;
+  margin-top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 500px;
   height: auto;
-  padding: 6%;
-  border-radius: 1%;
+  padding: 15%;
+  border-radius: 50%;
+  /* double */
+  border-right: 8px #50708d inset;
+  border-left: 8px #50708d inset;
+  border-top: 8px #72722b inset;
+  border-bottom: 8px #72722b inset;
 }
 
 
