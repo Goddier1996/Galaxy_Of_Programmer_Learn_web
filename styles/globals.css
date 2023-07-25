@@ -9,7 +9,9 @@ html,
 body {
   background: url("https://i.postimg.cc/wBgRtx0Z/dark-matter.png");
   font-family: 'Raleway', sans-serif;
+  cursor: url("https://i.postimg.cc/q7R0vBGq/cursor-Start-Web.png"), pointer;
 }
+
 
 
 /* desgin scroll in web */
