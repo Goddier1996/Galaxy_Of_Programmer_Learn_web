@@ -2,7 +2,6 @@
   animation: popup 0.5s;
 }
 
-
 @keyframes popup {
   50% {
     transition: all 0.2s ease-in-out;
