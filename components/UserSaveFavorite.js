@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Snackbar } from '@mui/material';
-import Alert from '@mui/material/Alert';
+import { Snackbar, Alert } from '@mui/material';
 import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
 import styles from "../styles/infoCategoryPage.module.css"
 import { addUserFavorite, checkIfUserHaveThisFavorite } from '../api-helpers/frontend/utils';

@@ -1,10 +1,6 @@
 import AddNewUser from '../components/AddNewUser'
 
-
-
-
 const Register = ({hideRegisterFun}) => {
-
 
     return (
         <>

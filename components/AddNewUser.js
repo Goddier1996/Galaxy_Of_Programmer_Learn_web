@@ -1,9 +1,7 @@
 import { useState } from 'react'
-import Button from '@mui/material/Button';
 import { addUser } from '../api-helpers/frontend/utils';
-import styles from "../styles/rigster.module.css"
-import { Snackbar } from '@mui/material';
-import Alert from '@mui/material/Alert';
+import styles from "../styles/register.module.css"
+import { Snackbar, Alert, Button } from '@mui/material';
 import { registerCheckIfHaveThisUserInDataBase } from "../api-helpers/frontend/utils"
 
 
@@ -93,8 +91,8 @@ const AddNewUser = ({ closeModel }) => {
 
 
     return (
-        <>
 
+        <div className={styles.animationOpenPopUp}>
             <div className={styles.modelRegister}>
 
                 <div className={styles.form}>
@@ -244,7 +242,7 @@ const AddNewUser = ({ closeModel }) => {
                     </Alert>
                 </Snackbar>
             )}
-        </>
+        </div>
     )
 }
 

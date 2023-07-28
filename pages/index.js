@@ -1,12 +1,10 @@
 import { useEffect } from "react";
 import { getAllCategories } from "../api-helpers/frontend/utils"
 import ShowHomeTitle from "../components/ShowHomeTitle";
-import CircularProgress from '@mui/material/CircularProgress';
 import dynamic from 'next/dynamic'
 import ModelSelectCursors from "../components/ModelSelectCursors";
 import { useState } from "react";
-import { Modal } from "react-bootstrap";
-import useMediaQuery from '@mui/material/useMediaQuery';
+import { Modal, CircularProgress, useMediaQuery } from '@mui/material';
 
 
 const CategoriesList = dynamic(() => import('../components/CategoriesList'), {
@@ -47,7 +45,7 @@ const Index = ({ categories }) => {
 
   return (
     <>
-      <Modal show={showModel}  >
+      <Modal open={showModel}  >
         <ModelSelectCursors hide={hideModelSignIn} />
       </Modal>
 

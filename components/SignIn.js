@@ -1,9 +1,7 @@
 import { useState } from 'react'
-import Button from '@mui/material/Button';
 import styles from "../styles/SignIn.module.css"
 import { signInUser } from '../api-helpers/frontend/utils';
-import { Snackbar } from '@mui/material';
-import Alert from '@mui/material/Alert';
+import { Snackbar, Button, Alert } from '@mui/material';
 
 
 
@@ -85,7 +83,7 @@ const SignIn = ({ hideSignInFun }) => {
 
     return (
 
-        <>
+        <div className={styles.animationOpenPopUp}>
             <div className={styles.modelRegister}>
 
                 <div className={styles.form}>
@@ -210,9 +208,8 @@ const SignIn = ({ hideSignInFun }) => {
                     </Alert>
                 </Snackbar>
             )}
-        </>
+        </div>
     )
-
 }
 
 export default SignIn

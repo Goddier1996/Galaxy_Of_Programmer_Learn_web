@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import BookmarkRemoveIcon from '@mui/icons-material/BookmarkRemove';
 import styles from "../styles/infoCategoryPage.module.css"
 import { favoriteRemoveIdUser } from "../api-helpers/frontend/utils"
-import { Snackbar } from '@mui/material';
-import Alert from '@mui/material/Alert';
+import { Snackbar, Alert } from '@mui/material';
 
 
 

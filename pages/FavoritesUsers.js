@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic'
-import CircularProgress from '@mui/material/CircularProgress';
+import { CircularProgress } from '@mui/material';
 
 
 const FavoritesUserId = dynamic(() => import('../components/FavoritesUserId'), {

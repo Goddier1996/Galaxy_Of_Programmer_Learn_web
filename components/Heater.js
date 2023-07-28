@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
-import { AppBar, Box, Toolbar, Typography, Menu, Container, Avatar, Button, Tooltip, MenuItem } from '@mui/material';
+import { AppBar, Box, Toolbar, Typography, Menu, Container, Avatar, Button, Tooltip, MenuItem, Modal } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useRouter } from 'next/router';
-import { Modal } from 'react-bootstrap'
 import Image from 'next/image'
 import { motion } from "framer-motion"
 import { container, item } from "./StyleAnimation"
@@ -504,19 +503,26 @@ const Header = () => {
 
 
       {/* model popup show Register */}
-      <Modal show={showModelRegister}  >
-        <Register hideRegisterFun={hideModelRegister} />
+      <Modal open={showModelRegister}  >
+        <div>
+          <Register hideRegisterFun={hideModelRegister} />
+        </div>
       </Modal>
 
 
       {/* model popup show Sign in */}
-      <Modal show={showModelSignIn} >
-        <SignIn hideSignInFun={hideModelSignIn} />
+      <Modal open={showModelSignIn} >
+        <div>
+          <SignIn hideSignInFun={hideModelSignIn} />
+        </div>
       </Modal>
 
+      
       {/* model popup show Sign in */}
-      <Modal show={showModelProfileUser} >
-        <ProfileUser hideSignInFun={hideModelProfileUser} />
+      <Modal open={showModelProfileUser} >
+        <div>
+          <ProfileUser hideSignInFun={hideModelProfileUser} />
+        </div>
       </Modal>
     </>
   );

@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react'
 import styles from "../styles/favoriteUser.module.css"
 import styless from "../styles/infoCategoryPage.module.css"
-import { Box, Tab, Table, TableBody, TableCell, TableRow, Tabs, Typography } from '@mui/material';
+import { Box, Tab, Table, TableBody, TableCell, TableRow, Tabs, Typography, CircularProgress } from '@mui/material';
 import { motion } from "framer-motion"
 import { container, item } from "./StyleAnimation"
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import LinkIcon from '@mui/icons-material/Link';
 import Image from 'next/image'
 import UserDeleteFavorite from './UserDeleteFavorite';
-import CircularProgress from '@mui/material/CircularProgress';
 import { favoriteSaveIdUserFIle, favoriteSaveIdUserVideo, favoriteSaveIdUserLink } from "../api-helpers/frontend/utils"
 
 
@@ -42,7 +41,7 @@ function FavoritesUserId() {
     let userData = JSON.parse(window.sessionStorage.getItem('user'))
 
     if (userData != null) {
-      
+
       setDataUser(userData.connectUser);
 
       setLoadingFIle(true)

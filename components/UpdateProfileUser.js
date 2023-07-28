@@ -1,10 +1,8 @@
 import styles from "../styles/profileUser.module.css"
-import Button from '@mui/material/Button';
 import { useState } from 'react'
 import { updateUser } from '../api-helpers/frontend/utils';
 import { useRouter } from 'next/router';
-import { Snackbar } from '@mui/material';
-import Alert from '@mui/material/Alert';
+import { Alert, Snackbar, Button } from '@mui/material';
 
 
 

@@ -14,12 +14,12 @@
 .styleModelCursors {
   background: url("https://i.postimg.cc/wBgRtx0Z/dark-matter.png");
   position: absolute;
-  margin-top: 65%;
+  margin-top: 27.5%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 500px;
   height: auto;
-  padding: 15%;
+  padding: 6%;
   border-radius: 50%;
   border-right: 8px #50708d inset;
   border-left: 8px #50708d inset;

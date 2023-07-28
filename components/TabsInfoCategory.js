@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react'
 import { motion } from "framer-motion"
 import { container, item } from "./StyleAnimation"
-import { Box, Tab, Table, TableBody, TableCell, TableRow, Tabs, Typography } from '@mui/material';
+import { Box, Tab, Table, TableBody, TableCell, TableRow, Tabs, Typography, CircularProgress } from '@mui/material';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import LinkIcon from '@mui/icons-material/Link';
 import { getCategoryIdInfoVideoLearn, getCategoryIdInfoLinkLearn, getCategoryIdInfoFilesLearn } from "../api-helpers/frontend/utils"
 import UserSaveFavorite from './UserSaveFavorite';
 import styles from "../styles/infoCategoryPage.module.css"
-import CircularProgress from '@mui/material/CircularProgress';
 
 
 

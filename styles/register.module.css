@@ -1,9 +1,20 @@
 /* register model */
 .modelRegister {
   position: absolute;
-  margin-top: 60%;
+  margin-top: 26%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.animationOpenPopUp {
+  animation: popup 0.7s;
+}
+
+@keyframes popup {
+  0% {
+    transition: all 0.2s ease-in-out;
+    transform: scale(0.1);
+  }
 }
 
 .styleTitleRegister {

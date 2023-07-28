@@ -1,8 +1,7 @@
 import styles from "../styles/profileUser.module.css"
-import Button from '@mui/material/Button';
 import { useState, useEffect } from 'react'
-import { Modal } from 'react-bootstrap'
 import UpdateProfileUser from "./UpdateProfileUser";
+import { Modal, Button } from '@mui/material';
 
 
 
@@ -100,7 +99,7 @@ const ProfileUser = ({ hideSignInFun }) => {
 
 
             {/* model popup show Sign in */}
-            <Modal show={showModelUpdate} >
+            <Modal open={showModelUpdate} >
                 <UpdateProfileUser hideUpdate={hideModelProfileUser} dataUser={SaveDataUserFromSessionStorage} />
             </Modal>
         </>
