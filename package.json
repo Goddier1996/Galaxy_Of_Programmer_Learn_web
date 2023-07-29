@@ -16,6 +16,7 @@
     "@mui/material": "^5.13.0",
     "@next/font": "13.4.2",
     "axios": "^1.4.0",
+    "bootstrap": "^5.2.3",
     "cookies": "^0.8.0",
     "cookies-next": "^2.1.1",
     "framer-motion": "^10.12.10",
@@ -25,7 +26,6 @@
     "mongoose": "^7.1.1",
     "next": "13.4.2",
     "react": "18.2.0",
-    "react-bootstrap": "^2.7.4",
     "react-cookie": "^4.1.1",
     "react-device-detect": "^2.2.3",
     "react-dom": "18.2.0"
