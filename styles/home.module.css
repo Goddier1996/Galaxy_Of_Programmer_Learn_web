@@ -108,11 +108,11 @@
 }
 
 .ChooseCategory p {
-    font-size: 13px;
+    font-size: 14px;
     color: rgba(255, 255, 255, 0.76);
     text-align: center;
     letter-spacing: 2px;
-    line-height: 42px;
+    line-height: 30px;
     margin-top: -10%;
 }
 
