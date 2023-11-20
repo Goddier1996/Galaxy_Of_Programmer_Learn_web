@@ -7,7 +7,8 @@ const nextConfig = {
   env: {
     DEMO_LOGIN: process.env.DEMO_LOGIN,
     DEMO_PASSWORD: process.env.DEMO_PASSWORD,
-    APP_URL: process.env.APP_URL
+    APP_URL: process.env.APP_URL,
+    REACT_APP_RECAPTCHA: process.env.REACT_APP_RECAPTCHA
   },
   swcMinify: true,
   optimizeFonts: true,

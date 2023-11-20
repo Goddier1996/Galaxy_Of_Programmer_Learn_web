@@ -3,6 +3,7 @@ import { addUser } from '../api-helpers/frontend/utils';
 import styles from "../styles/register.module.css"
 import { Snackbar, Alert, Button } from '@mui/material';
 import { registerCheckIfHaveThisUserInDataBase } from "../api-helpers/frontend/utils"
+import ReCAPTCHA from "react-google-recaptcha";
 
 
 
@@ -28,6 +29,10 @@ const AddNewUser = ({ closeModel }) => {
             avatarUser: "https://i.postimg.cc/90N7bp8f/imgbin-astronaut-avatar-png.png"
         }
     );
+
+
+    // check box if user not robot
+    const [capVal, setCapVal] = useState(null);
 
 
 
@@ -171,10 +176,19 @@ const AddNewUser = ({ closeModel }) => {
                                 />
                             </div>
 
-                            <br />
+
+                            {/* check box if user dont robot */}
+                            <div className={styles.checkBox}>
+                                <ReCAPTCHA
+                                    sitekey={process.env.REACT_APP_RECAPTCHA || ""}
+                                    onChange={(val) => setCapVal(val)}
+                                />
+                            </div>
+
 
                             <div className={styles.RegisterInOrCloseButtom}>
-                                <Button disabled={disabledRegesterButton} onClick={checkIfValueAllNotEmpty} variant="contained" >
+                                <Button disabled={!capVal ? !capVal : disabledRegesterButton}
+                                    onClick={checkIfValueAllNotEmpty} variant="contained">
                                     Let's Register
                                 </Button>
                             </div>

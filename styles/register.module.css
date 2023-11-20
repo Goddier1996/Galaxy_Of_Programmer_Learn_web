@@ -105,6 +105,12 @@
 }
 
 
+.checkBox {
+  display: flex;
+  justify-content: center;
+  transform: scale(0.85);
+}
+
 
 @media(max-width:991px) {
 
@@ -114,5 +120,9 @@
 
   .modelRegister {
     margin-top: 75%;
+  }
+
+  .checkBox {
+    transform: scale(0.77);
   }
 }
