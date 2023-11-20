@@ -185,7 +185,6 @@ const AddNewUser = ({ closeModel }) => {
                                 />
                             </div>
 
-
                             <div className={styles.RegisterInOrCloseButtom}>
                                 <Button disabled={!capVal ? !capVal : disabledRegesterButton}
                                     onClick={checkIfValueAllNotEmpty} variant="contained">
