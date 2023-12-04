@@ -1,15 +1,13 @@
 import { motion } from "framer-motion"
-import { container, item } from "../components/StyleAnimation"
-import styles from "../styles/home.module.css"
+import { container, item } from "../StyleAnimation"
+import styles from "../../styles/home.module.css"
 import Image from 'next/image'
 
 
 
 const ShowHomeTitle = () => {
 
-
     return (
-
         <>
             <motion.div variants={container} initial="hidden" animate="show" >
                 <motion.div variants={item} className={styles.info}>

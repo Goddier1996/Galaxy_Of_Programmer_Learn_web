@@ -1,5 +1,5 @@
-import styles from "../styles/home.module.css"
-import CardModel from "./CardModel"
+import styles from "../../styles/home.module.css"
+import CardModel from "../category/CardModel"
 
 
 const CategoriesList = ({ data }) => {
@@ -11,7 +11,6 @@ const CategoriesList = ({ data }) => {
             {data.map(category => (
                 <CardModel key={category._id} data={category} />
             ))}
-
         </div>
     )
 }

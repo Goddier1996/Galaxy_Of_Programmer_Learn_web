@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import styles from "../styles/SignIn.module.css"
-import { signInUser } from '../api-helpers/frontend/utils';
-import { Snackbar, Button, Alert } from '@mui/material';
+import styles from "../../styles/SignIn.module.css"
+import { signInUser } from '../../api-helpers/frontend/utils';
+import { Button } from '@mui/material';
+import SnackBarShow from '../tools/SnackBarShow';
 
 
 
@@ -157,59 +158,40 @@ const SignIn = ({ hideSignInFun }) => {
 
 
 
-
+            {/* show alert when user connect */}
             {showAlertEmptyValueLogin && (
-                <Snackbar
-                    open={showAlertEmptyValueLogin}
-                    autoHideDuration={1500}
-                    onClose={() => {
-                        setShowAlertEmptyValueLogin(false)
-                    }}>
-                    <Alert
-                        variant="filled" severity="warning"
-                        sx={{ width: '100%', fontSize: "17px", textAlign: "center" }}>
-                        input all value (Incorrect input) !
-                    </Alert>
-                </Snackbar>
+                <SnackBarShow
+                    showAlert={showAlertEmptyValueLogin}
+                    setShowAlert={() => setShowAlertEmptyValueLogin(false)}
+                    typeMessage={"input all value (Incorrect input) !"}
+                    typeAlert={"warning"}
+                    func={null}
+                />
             )}
-
 
 
             {showAlertUserEmptyInDatabase && (
-                <Snackbar
-                    open={showAlertUserEmptyInDatabase}
-                    autoHideDuration={1500}
-                    onClose={() => {
-                        setShowAlertUserEmptyInDatabase(false)
-                    }}>
-                    <Alert
-                        variant="filled" severity="warning"
-                        sx={{ width: '100%', fontSize: "17px", textAlign: "center" }}>
-                        Don't Have This User In Database !
-                    </Alert>
-                </Snackbar>
+                <SnackBarShow
+                    showAlert={showAlertUserEmptyInDatabase}
+                    setShowAlert={() => setShowAlertUserEmptyInDatabase(false)}
+                    typeMessage={"Don't Have This User In Database !"}
+                    typeAlert={"warning"}
+                    func={null}
+                />
             )}
 
 
-
             {showAlertUserConnect && (
-                <Snackbar
-                    open={showAlertUserConnect}
-                    autoHideDuration={1000}
-                    onClose={() => {
-                        setShowAlertUserConnect(false);
-                        window.location.reload(false);
-                    }}>
-                    <Alert
-                        variant="filled" severity="success"
-                        sx={{ width: '100%', fontSize: "17px", textAlign: "center" }}>
-                        Welcome you Connect<br />
-                        Let's Learn new technology
-                    </Alert>
-                </Snackbar>
+                <SnackBarShow
+                    showAlert={showAlertUserConnect}
+                    setShowAlert={() => setShowAlertUserConnect(false)}
+                    typeMessage={"Welcome you Connect, Let's Learn new technology"}
+                    typeAlert={"success"}
+                    func={null}
+                />
             )}
         </div>
     )
 }
 
-export default SignIn
+export default SignIn;

@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import { addUser } from '../api-helpers/frontend/utils';
-import styles from "../styles/register.module.css"
-import { Snackbar, Alert, Button } from '@mui/material';
-import { registerCheckIfHaveThisUserInDataBase } from "../api-helpers/frontend/utils"
-import ReCAPTCHA from "react-google-recaptcha";
+import { addUser } from '../../api-helpers/frontend/utils';
+import styles from "../../styles/register.module.css"
+import { Button } from '@mui/material';
+import { registerCheckIfHaveThisUserInDataBase } from "../../api-helpers/frontend/utils"
+import RobotBox from '../ReCAPTCHA/RobotBox';
+import SnackBarShow from '../tools/SnackBarShow';
 
 
 
@@ -30,9 +31,8 @@ const AddNewUser = ({ closeModel }) => {
         }
     );
 
-
     // check box if user not robot
-    const [capVal, setCapVal] = useState(null);
+    const [capVal, setCapVal] = useState(false);
 
 
 
@@ -57,7 +57,7 @@ const AddNewUser = ({ closeModel }) => {
         }
 
         else {
-            registerNewUser()
+            registerNewUser();
         }
     }
 
@@ -75,7 +75,7 @@ const AddNewUser = ({ closeModel }) => {
 
             if (checkIfHaveThisUserInDataBase) {
                 setShowAlertShowAlertHaveLoginInDatabase(true);
-                setDisabledRegesterButton(true);
+                setDisabledRegesterButton(false);
                 setCheckIfHaveThisUserInDataBase("");
             }
 
@@ -179,11 +179,9 @@ const AddNewUser = ({ closeModel }) => {
 
                             {/* check box if user dont robot */}
                             <div className={styles.checkBox}>
-                                <ReCAPTCHA
-                                    sitekey={process.env.REACT_APP_RECAPTCHA || ""}
-                                    onChange={(val) => setCapVal(val)}
-                                />
+                                <RobotBox activeRobotBox={() => setCapVal(true)} />
                             </div>
+
 
                             <div className={styles.RegisterInOrCloseButtom}>
                                 <Button disabled={!capVal ? !capVal : disabledRegesterButton}
@@ -191,6 +189,7 @@ const AddNewUser = ({ closeModel }) => {
                                     Let's Register
                                 </Button>
                             </div>
+
 
                             <div className={styles.ClickTwice}>
                                 <p>* Click twice when Register</p>
@@ -203,57 +202,37 @@ const AddNewUser = ({ closeModel }) => {
 
 
 
-
+            {/* here alerts if error and more , show when user input value register */}
             {showAlertUserRegister && (
-                <Snackbar
-                    open={showAlertUserRegister}
-                    autoHideDuration={1500}
-                    onClose={() => {
-                        setShowAlertUserRegister(false)
-                        window.location.reload(false);
-                    }}>
-                    <Alert
-                        variant="filled" severity="success"
-                        sx={{ width: '100%', fontSize: "17px", textAlign: "center" }}>
-                        You have successfully registered
-                    </Alert>
-                </Snackbar>
+                <SnackBarShow
+                    showAlert={showAlertUserRegister}
+                    setShowAlert={() => setShowAlertUserRegister(false)}
+                    typeMessage={"You have successfully registered"}
+                    typeAlert={"success"}
+                    func={null}
+                />
             )}
 
 
             {showAlertUserRegisterNeedInputValue && (
-                <Snackbar
-                    open={showAlertUserRegisterNeedInputValue}
-                    autoHideDuration={1500}
-                    onClose={() => {
-                        setShowAlertUserRegisterNeedInputValue(false)
-                    }}>
-                    <Alert
-                        variant="filled" severity="warning"
-                        sx={{ width: '100%', fontSize: "17px", textAlign: "center" }}>
-                        input all value or Incorrect input
-                    </Alert>
-                </Snackbar>
+                <SnackBarShow
+                    showAlert={showAlertUserRegisterNeedInputValue}
+                    setShowAlert={() => setShowAlertUserRegisterNeedInputValue(false)}
+                    typeMessage={"input all value or Incorrect input"}
+                    typeAlert={"warning"}
+                    func={null}
+                />
             )}
 
 
             {showAlertHaveLoginInDatabase && (
-                <Snackbar
-                    open={showAlertHaveLoginInDatabase}
-                    autoHideDuration={3500}
-                    onClose={() => {
-                        setShowAlertShowAlertHaveLoginInDatabase(false)
-                        closeModel()
-                    }}>
-                    <Alert
-                        variant="filled" severity="warning"
-                        sx={{ width: '100%', fontSize: "17px", textAlign: "center" }}>
-                        Have This Login in database ! <br />
-                        Wait Model Register closed<br />
-                        Try Again
-
-                    </Alert>
-                </Snackbar>
+                <SnackBarShow
+                    showAlert={showAlertHaveLoginInDatabase}
+                    setShowAlert={() => setShowAlertShowAlertHaveLoginInDatabase(false)}
+                    typeMessage={"Have This Login in database! Wait Model Register closed, Try Again"}
+                    typeAlert={"warning"}
+                    func={closeModel}
+                />
             )}
         </div>
     )

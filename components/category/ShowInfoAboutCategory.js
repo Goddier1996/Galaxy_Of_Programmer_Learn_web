@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
-import { container, item } from "./StyleAnimation"
+import { container, item } from "../StyleAnimation"
 import Image from 'next/image'
-import styles from "../styles/infoCategoryPage.module.css"
+import styles from "../../styles/infoCategoryPage.module.css"
 
 
 
@@ -24,7 +24,7 @@ const ShowInfoAboutCategory = ({ data }) => {
                             src={data.imageLanguage}
                             alt="category image info"
                             width={400}
-                            height={400}/>
+                            height={400} />
                     </motion.div>
                 </motion.div>
 

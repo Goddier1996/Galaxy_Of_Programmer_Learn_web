@@ -9,8 +9,9 @@ import { container, item } from "./StyleAnimation"
 import styles from "../styles/menu.module.css"
 import dynamic from 'next/dynamic'
 import useMediaQuery from '@mui/material/useMediaQuery';
+import SelectCurser from './heater/SelectCurser';
 
-const SignIn = dynamic(() => import('./SignIn'), {
+const SignIn = dynamic(() => import('./login/SignIn'), {
   ssr: false,
 })
 
@@ -18,7 +19,7 @@ const Register = dynamic(() => import('../pages/Register'), {
   ssr: false,
 })
 
-const ProfileUser = dynamic(() => import('./ProfileUser'), {
+const ProfileUser = dynamic(() => import('./profileUser/ProfileUser'), {
   ssr: false,
 })
 
@@ -40,15 +41,6 @@ const Header = () => {
   const ProfileUserOptions = [{ id: '1', option: 'Profile' }, { id: '2', option: 'favorites' }, { id: '3', option: 'Logout' }];
 
   const ChangeStyleCurserInHeater = [{ id: 1, typeStyleCurser: (typeCursor == null) ? "https://i.postimg.cc/3RhrRvpp/cursor-png-1137.png" : typeCursor }]
-
-  const arrayCursors =
-    [
-      { id: 1, LinkImage: 'https://cur.cursors-4u.net/others/oth-8/oth756.cur' },
-      { id: 2, LinkImage: 'https://cur.cursors-4u.net/mechanics/mec-4/mec318.cur' },
-      { id: 3, LinkImage: 'https://cur.cursors-4u.net/mechanics/mec-4/mec329.cur' },
-      { id: 4, LinkImage: 'https://cur.cursors-4u.net/mechanics/mec-4/mec324.cur' },
-      { id: 5, LinkImage: 'https://cur.cursors-4u.net/mechanics/mec-4/mec326.cur' }
-    ];
 
 
   const router = useRouter();
@@ -450,47 +442,14 @@ const Header = () => {
                 {/* show Select Curser style */}
                 <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
 
-                  <Tooltip title="Select Curser" >
-                    <IconButton onClick={handleOpenSelectCurserHeater} sx={{ p: 0 }}>
-
-                      {ChangeStyleCurserInHeater.map((page) => (
-
-                        <Avatar className={styles.SelectCurserStyleHeater}
-                          alt="Select Curser"
-                          src={page.typeStyleCurser}
-                          style={{ height: "60px", width: "60px" }} />
-                      ))}
-                    </IconButton>
-                  </Tooltip>
-                  <Menu
-                    sx={{ mt: '45px' }}
-                    id="menu-appbar"
-                    anchorEl={selectCurserHeater}
-                    anchorOrigin={{
-                      vertical: 'top',
-                      horizontal: 'left'
-                    }}
-                    keepMounted
-                    transformOrigin={{
-                      vertical: 'top',
-                      horizontal: 'left'
-                    }}
-                    open={Boolean(selectCurserHeater)}
-                    onClose={handleCloseSelectCurserHeater}
-                  >
-
-                    <div className={styles.SelectCursor} >
-
-                      <h1>Select Cursor</h1>
-
-                      {arrayCursors.map((item) =>
-                        <motion.div variants={item} className={styles.cursorsImage} key={item.id}>
-                          <img src={item.LinkImage} onClick={() => applyCursorUserChoose(item.LinkImage)} />
-                        </motion.div>
-                      )}
-                    </div>
-
-                  </Menu>
+                  <SelectCurser
+                    handleOpenSelectCurserHeater={handleOpenSelectCurserHeater}
+                    ChangeStyleCurserInHeater={ChangeStyleCurserInHeater}
+                    applyCursorUserChoose={applyCursorUserChoose}
+                    selectCurserHeater={selectCurserHeater}
+                    handleCloseSelectCurserHeater={handleCloseSelectCurserHeater}
+                  />
+                  
                 </Box>
 
               </Toolbar>
@@ -517,7 +476,7 @@ const Header = () => {
         </div>
       </Modal>
 
-      
+
       {/* model popup show Sign in */}
       <Modal open={showModelProfileUser} >
         <div>

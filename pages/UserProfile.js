@@ -1,4 +1,4 @@
-import ProfileUser from "../components/ProfileUser"
+import ProfileUser from "../components/profileUser/ProfileUser"
 
 
 const UserProfile = () => {

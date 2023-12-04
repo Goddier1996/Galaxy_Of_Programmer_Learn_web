@@ -1,4 +1,4 @@
-import AddNewUser from '../components/AddNewUser'
+import AddNewUser from '../components/register/AddNewUser'
 
 const Register = ({hideRegisterFun}) => {
 

@@ -1,7 +1,8 @@
-import styles from "../styles/profileUser.module.css"
+import styles from "../../styles/profileUser.module.css"
 import { useState, useEffect } from 'react'
 import UpdateProfileUser from "./UpdateProfileUser";
 import { Modal, Button } from '@mui/material';
+import ShowInfoUserProfile from "./ShowInfoUserProfile";
 
 
 
@@ -15,7 +16,6 @@ const ProfileUser = ({ hideSignInFun }) => {
 
 
     const UpdateProfileUser1 = () => {
-
         handleShowModelUpdate();
     }
 
@@ -39,10 +39,7 @@ const ProfileUser = ({ hideSignInFun }) => {
         else {
             setSaveDataUserFromSessionStorage()
         }
-
-    }, []);
-
-
+    });
 
 
 
@@ -52,38 +49,12 @@ const ProfileUser = ({ hideSignInFun }) => {
 
                 <div className={styles.modelStyle}>
 
-                    <div className={styles.header}>
-
-                        <Button onClick={hideSignInFun}
-                            variant="contained"
-                            sx={{ bgcolor: 'rgba(255, 0, 0, 0.600)', '&:hover': { bgcolor: 'rgba(255, 0, 0, 0.500)' } }}>
-                            X
-                        </Button>
-
-                        <div className={styles.styleTitleRegister} >
-                            <h1>Hi {SaveDataUserFromSessionStorage.name} Here Your Profile</h1>
-                        </div>
-
-                        <div className={styles.image}></div>
-                    </div>
-
-
-                    <div className={styles.bodySpaceAvatar}>
-                        <img
-                            src={SaveDataUserFromSessionStorage.avatarUser}
-                            alt="avatar user profile"
-                            width={120}
-                            height={120}
-                        />
-                    </div>
-
-                    <div className={styles.bodySpaceInfoUser}>
-
-                        <p>Name : {SaveDataUserFromSessionStorage.name}</p>
-                        <p>Login : {SaveDataUserFromSessionStorage.login}</p>
-
-                    </div>
-
+                    <ShowInfoUserProfile
+                        hideSignInFun={hideSignInFun}
+                        name={SaveDataUserFromSessionStorage.name}
+                        avatarUser={SaveDataUserFromSessionStorage.avatarUser}
+                        login={SaveDataUserFromSessionStorage.login}
+                    />
 
                     <div className={styles.updateUserData}>
 
@@ -93,12 +64,11 @@ const ProfileUser = ({ hideSignInFun }) => {
                         </Button>
 
                     </div>
-
                 </div>
             </div>
 
 
-            {/* model popup show Sign in */}
+            {/* model popup show Update Profile */}
             <Modal open={showModelUpdate} >
                 <UpdateProfileUser hideUpdate={hideModelProfileUser} dataUser={SaveDataUserFromSessionStorage} />
             </Modal>

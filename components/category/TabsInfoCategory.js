@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { motion } from "framer-motion"
-import { container, item } from "./StyleAnimation"
+import { container, item } from "../StyleAnimation"
 import { Box, Tab, Tabs } from '@mui/material';
-import styles from "../styles/infoCategoryPage.module.css"
-import ShowVideoCategoryLearn from './ShowVideoCategoryLearn';
-import ShowLinkCategoryLearn from './ShowLinkCategoryLearn';
-import ShowFilleCategoryLearn from './ShowFilleCategoryLearn';
+import styles from "../../styles/infoCategoryPage.module.css"
+import ShowVideoCategoryLearn from './video/ShowVideoCategoryLearn';
+import ShowLinkCategoryLearn from './links/ShowLinkCategoryLearn';
+import ShowFilleCategoryLearn from './Files/ShowFilleCategoryLearn';
 
 
 
@@ -45,26 +45,19 @@ const TabsInfoCategory = ({ idCategory }) => {
                             </Tabs>
                         </Box>
 
-
                         <Box >
                             {tabIndex === 0 && (
-                                <>
-                                    <ShowVideoCategoryLearn idCategoryVideo={idCategory} />
-                                </>
+                                <ShowVideoCategoryLearn idCategoryVideo={idCategory} howUse={"info"} />
                             )}
 
 
                             {tabIndex === 1 && (
-                                <>
-                                    <ShowLinkCategoryLearn idCategoryLink={idCategory} />
-                                </>
+                                <ShowLinkCategoryLearn idCategoryLink={idCategory} howUse={"info"} />
                             )}
 
 
                             {tabIndex === 2 && (
-                                <>
-                                    <ShowFilleCategoryLearn idCategoryFille={idCategory} />
-                                </>
+                                <ShowFilleCategoryLearn idCategoryFille={idCategory} howUse={"info"} />
                             )}
 
                         </Box>
@@ -76,5 +69,4 @@ const TabsInfoCategory = ({ idCategory }) => {
 }
 
 
-
-export default TabsInfoCategory
+export default TabsInfoCategory;

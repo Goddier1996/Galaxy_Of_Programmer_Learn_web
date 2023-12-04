@@ -1,8 +1,9 @@
-import styles from "../styles/profileUser.module.css"
+import styles from "../../styles/profileUser.module.css"
 import { useState } from 'react'
-import { updateUser } from '../api-helpers/frontend/utils';
+import { updateUser } from '../../api-helpers/frontend/utils';
 import { useRouter } from 'next/router';
-import { Alert, Snackbar, Button } from '@mui/material';
+import { Button } from '@mui/material';
+import SnackBarShow from "../tools/SnackBarShow";
 
 
 
@@ -148,52 +149,37 @@ const UpdateProfileUser = ({ hideUpdate, dataUser }) => {
 
 
                     <div className={styles.updateUserData}>
-
                         <Button
                             onClick={UpdateNewDataUser}
                             variant="contained">
                             Let's Update
                         </Button>
-
                     </div>
 
                 </div>
             </div>
 
 
-
+            {/* here alerts if error and more , Update user data */}
             {showAlertUpdateProfileUser && (
-                <Snackbar
-                    open={showAlertUpdateProfileUser}
-                    autoHideDuration={1500}
-                    onClose={() => {
-                        setShowAlertUpdateProfileUser(false);
-                    }}>
-
-                    <Alert
-                        variant="filled" severity="success"
-                        sx={{ width: '100%', fontSize: "17px", textAlign: "center" }}>
-                        The data was updated successfully
-                    </Alert>
-                </Snackbar>
+                <SnackBarShow
+                    showAlert={showAlertUpdateProfileUser}
+                    setShowAlert={() => setShowAlertUpdateProfileUser(false)}
+                    typeMessage={"The data was updated successfully"}
+                    typeAlert={"success"}
+                    func={null}
+                />
             )}
 
 
             {showAlertDemoUserUpdate && (
-                <Snackbar
-                    open={showAlertDemoUserUpdate}
-                    autoHideDuration={1200}
-                    onClose={() => {
-                        setShowAlertDemoUserUpdate(false);
-                        hideUpdate()
-                    }}>
-
-                    <Alert
-                        variant="filled" severity="info"
-                        sx={{ width: '100%', fontSize: "17px", textAlign: "center" }}>
-                        Demo User Can't updated Data !
-                    </Alert>
-                </Snackbar>
+                <SnackBarShow
+                    showAlert={showAlertDemoUserUpdate}
+                    setShowAlert={() => setShowAlertDemoUserUpdate(false)}
+                    typeMessage={"Demo User Can't updated Data !"}
+                    typeAlert={"info"}
+                    func={hideUpdate}
+                />
             )}
 
         </>

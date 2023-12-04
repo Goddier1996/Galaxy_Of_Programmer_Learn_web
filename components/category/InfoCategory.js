@@ -1,5 +1,5 @@
 import ShowInfoAboutCategory from "./ShowInfoAboutCategory"
-import styles from "../styles/infoCategoryPage.module.css"
+import styles from "../../styles/infoCategoryPage.module.css"
 import CircularProgress from '@mui/material/CircularProgress';
 import dynamic from 'next/dynamic'
 

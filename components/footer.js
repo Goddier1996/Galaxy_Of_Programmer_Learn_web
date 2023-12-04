@@ -8,9 +8,7 @@ import styles from '/styles/fotter.module.css'
 function Fotter() {
 
 
-
     return (
-
         <>
             <div className={styles.fotrIcon}>
 
