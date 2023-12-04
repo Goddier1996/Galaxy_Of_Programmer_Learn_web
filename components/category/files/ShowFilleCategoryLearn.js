@@ -99,4 +99,4 @@ const ShowFilleCategoryLearn = ({ idCategoryFille, howUse }) => {
     )
 }
 
-export default ShowFilleCategoryLearn
+export default ShowFilleCategoryLearn;
