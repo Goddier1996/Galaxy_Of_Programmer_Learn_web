@@ -5,7 +5,7 @@ import { Box, Tab, Tabs } from '@mui/material';
 import styles from "../../styles/infoCategoryPage.module.css"
 import ShowVideoCategoryLearn from './video/ShowVideoCategoryLearn';
 import ShowLinkCategoryLearn from './links/ShowLinkCategoryLearn';
-import ShowFilleCategoryLearn from './Files/ShowFilleCategoryLearn';
+import ShowFilleCategoryLearn from './files/ShowFilleCategoryLearn';
 
 
 
