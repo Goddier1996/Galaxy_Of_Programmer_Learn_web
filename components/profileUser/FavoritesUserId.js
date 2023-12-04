@@ -8,7 +8,7 @@ import Image from 'next/image'
 import { favoriteSaveIdUserFIle, favoriteSaveIdUserVideo, favoriteSaveIdUserLink } from "../../api-helpers/frontend/utils"
 import ShowCount from './ShowCount';
 import ShowLinkCategoryLearn from '../category/links/ShowLinkCategoryLearn';
-import ShowFilleCategoryLearn from '../category/Files/ShowFilleCategoryLearn';
+import ShowFilleCategoryLearn from '../category/files/ShowFilleCategoryLearn';
 import ShowVideoCategoryLearn from '../category/video/ShowVideoCategoryLearn';
 
 
