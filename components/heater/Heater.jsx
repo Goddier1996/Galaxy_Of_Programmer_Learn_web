@@ -342,7 +342,7 @@ const Header = () => {
                             }
                           >
                             <Typography textAlign="center">
-                              {setting.option}
+                              {setting.namePage}
                             </Typography>
                           </MenuItem>
                         ))}
