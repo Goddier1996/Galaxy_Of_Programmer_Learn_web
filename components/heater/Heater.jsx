@@ -337,7 +337,7 @@ const Header = () => {
                                 page.id,
                                 history,
                                 ()=>handleShowModelProfileUser(),
-                                handleCloseUserProfileMenu
+                                ()=>handleCloseUserProfileMenu
                               )
                             }
                           >
