@@ -133,7 +133,7 @@ const SignIn = ({ hideSignInFun }) => {
                       ? { color: "rgba(0, 0, 0, 0.1)", cursor: "none" }
                       : { color: "#ffffff" }
                   }
-                  onClick={() => connectDemoUser()}
+                  onClick={() => connectDemoUser(setDisabledSignInButton,setShowAlertUserConnect)}
                 >
                   Click to Connect Demo User
                 </p>

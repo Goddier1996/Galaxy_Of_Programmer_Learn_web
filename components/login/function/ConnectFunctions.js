@@ -20,7 +20,7 @@ export const connectUserToSite = async (user, setShowAlertUserEmptyInDatabase, s
 
 
 
-export const connectDemoUser = async () => {
+export const connectDemoUser = async (setDisabledSignInButton,setShowAlertUserConnect) => {
 
     let user = {
         login: process.env.DEMO_LOGIN,
