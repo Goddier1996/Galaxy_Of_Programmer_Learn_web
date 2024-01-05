@@ -44,7 +44,7 @@ const ProfileUser = dynamic(() => import("../profileUser/ProfileUser"), {
   ssr: false,
 });
 
-// ProfileUserOptions
+
 
 const Header = () => {
 
@@ -225,7 +225,7 @@ const Header = () => {
                                 hamburgerNavbarResponsiveScreenUserConnect(
                                   page.id,
                                   history,
-                                  handleCloseNavMenu
+                                  setAnchorElNav
                                 )
                               }
                             >
@@ -336,8 +336,8 @@ const Header = () => {
                               mainPagesChooseResponsiveScreenUserConnect(
                                 page.id,
                                 history,
-                                ()=>handleShowModelProfileUser(),
-                                ()=>handleCloseUserProfileMenu
+                                ()=>handleShowModelProfileUser,
+                                setAnchorElUser
                               )
                             }
                           >

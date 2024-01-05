@@ -26,38 +26,37 @@ export const mainPagesChooseLoginRegister = (indexPage, handleShowModelSignIn, h
 export const hamburgerNavbarResponsiveScreen = (indexPage, history, setAnchorElNav, handleShowModelSignIn, handleShowModelRegister) => {
 
     if (indexPage == 1) {
-        history.push("/")
-        setAnchorElNav(null)
+        history.push("/");
+        setAnchorElNav(null);
     }
 
     if (indexPage == 2) {
-        history.push("/About")
-        setAnchorElNav(null)
+        history.push("/About");
+        setAnchorElNav(null);
     }
 
     if (indexPage == 3) {
         handleShowModelSignIn();
-        setAnchorElNav(null)
+        setAnchorElNav(null);
     }
 
     if (indexPage == 4) {
         handleShowModelRegister();
-        setAnchorElNav(null)
+        setAnchorElNav(null);
     }
-
 };
 
 
-export const hamburgerNavbarResponsiveScreenUserConnect = (indexPage, history, handleCloseNavMenu) => {
+export const hamburgerNavbarResponsiveScreenUserConnect = (indexPage, history, setAnchorElNav) => {
 
     if (indexPage == 1) {
-        history.push("/")
-        handleCloseNavMenu()
+        history.push("/");
+        setAnchorElNav(null);
     }
 
     if (indexPage == 2) {
-        history.push("/About")
-        handleCloseNavMenu()
+        history.push("/About");
+        setAnchorElNav(null);
     }
 };
 
@@ -65,26 +64,26 @@ export const hamburgerNavbarResponsiveScreenUserConnect = (indexPage, history, h
 export const logOutUser = async (history) => {
 
     await sessionStorage.removeItem("user");
-    await history.push("/")
+    await history.push("/");
     window.location.reload(false);
 }
 
 
-export const mainPagesChooseResponsiveScreenUserConnect = (indexPage, history, handleShowModelProfileUser, handleCloseUserProfileMenu) => {
+export const mainPagesChooseResponsiveScreenUserConnect = (indexPage, history, handleShowModelProfileUser, setAnchorElUser) => {
 
     if (indexPage == 1) {
         handleShowModelProfileUser();
-        handleCloseUserProfileMenu();
+        setAnchorElUser(null);
     }
 
     if (indexPage == 2) {
         history.push("/FavoritesUsers");
-        handleCloseUserProfileMenu();
+        setAnchorElUser(null);
     }
 
     if (indexPage == 3) {
         logOutUser(history);
-        handleCloseUserProfileMenu();
+        setAnchorElUser(null);
     }
 };
 
