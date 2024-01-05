@@ -8,7 +8,7 @@ export const registerNewUser = async (inputs, setShowAlertShowAlertHaveLoginInDa
     const loginUser = inputs.login;
 
     registerCheckIfHaveThisUserInDataBase(loginUser)
-        .then((dataCategory) => { dataCategory ? alert("have") : !dataCategory?alert("no have"):null }
+        .then((dataCategory) => { dataCategory ? loginUser="" : !dataCategory?alert("no have"):null }
         )
         .catch((err) => console.log(err));
 
