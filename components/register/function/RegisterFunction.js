@@ -8,11 +8,11 @@ export const registerNewUser = async (inputs, setShowAlertShowAlertHaveLoginInDa
 
 
 
-    if (registerCheckIfHaveThisUserInDataBase(inputs.login) == "have") {
+    if (registerCheckIfHaveThisUserInDataBase(inputs.login)) {
         alert("have");
     }
     
-    if (registerCheckIfHaveThisUserInDataBase(inputs.login) == null) {
+    if (!registerCheckIfHaveThisUserInDataBase(inputs.login)) {
         alert("no have");
     }
 }
