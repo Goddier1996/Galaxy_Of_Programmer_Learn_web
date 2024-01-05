@@ -1,4 +1,4 @@
-import styles from "../../styles/about.module.css"
+import styles from "./about.module.css"
 import { motion } from "framer-motion"
 import { item } from "../StyleAnimation"
 

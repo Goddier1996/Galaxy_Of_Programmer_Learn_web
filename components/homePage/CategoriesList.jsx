@@ -1,5 +1,5 @@
-import styles from "../../styles/home.module.css"
-import CardModel from "../category/CardModel"
+import styles from "./home.module.css"
+import CardModel from "../category/showCardsCategoryHomePage/CardModel"
 
 
 const CategoriesList = ({ data }) => {

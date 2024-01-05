@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../../styles/SignIn.module.css";
+import styles from "./SignIn.module.css";
 import {
   connectUserToSite,
   connectDemoUser,

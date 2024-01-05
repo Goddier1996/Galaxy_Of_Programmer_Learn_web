@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from '/styles/modelSelectCursor.module.css'
+import styles from './modelSelectCursor.module.css'
 import { motion } from "framer-motion"
-import { container, item } from "../StyleAnimation"
+import { container, item } from "../../StyleAnimation"
 
 
 const ModelSelectCursors = ({ hide }) => {

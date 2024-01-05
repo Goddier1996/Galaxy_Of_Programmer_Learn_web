@@ -1,7 +1,7 @@
 import { Menu, Avatar, Tooltip } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import { motion } from "framer-motion"
-import styles from "./menu.module.css"
+import styles from "../../heater/menu.module.css"
 
 
 

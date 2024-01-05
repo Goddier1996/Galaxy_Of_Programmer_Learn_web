@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import BookmarkRemoveIcon from '@mui/icons-material/BookmarkRemove';
-import styles from "../../styles/infoCategoryPage.module.css"
+import styles from "../category/infoCategoryPage.module.css"
 import { favoriteRemoveIdUser } from "../../api-helpers/frontend/utils"
 import SnackBarShow from '../tools/SnackBarShow';
 

@@ -9,7 +9,7 @@ import { container, item } from "../StyleAnimation"
 import styles from "./menu.module.css"
 import dynamic from 'next/dynamic'
 import useMediaQuery from '@mui/material/useMediaQuery';
-import SelectCurser from './SelectCurser';
+import SelectCurser from '../tools/selectTypeCurser/SelectCurser';
 
 const SignIn = dynamic(() => import('../login/SignIn'), {
   ssr: false,

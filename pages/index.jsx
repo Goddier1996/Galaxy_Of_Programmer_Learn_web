@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { getAllCategories } from "../api-helpers/frontend/utils"
 import ShowHomeTitle from "../components/homePage/ShowHomeTitle";
 import dynamic from 'next/dynamic'
-import ModelSelectCursors from "../components/homePage/ModelSelectCursors";
+import ModelSelectCursors from "../components/tools/selectTypeCurser/ModelSelectCursors";
 import { useState } from "react";
 import { Modal, CircularProgress, useMediaQuery } from '@mui/material';
 

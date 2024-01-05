@@ -1,4 +1,4 @@
-import styles from "../../styles/profileUser.module.css"
+import styles from "./css/profileUser.module.css"
 import { useState, useEffect } from 'react'
 import UpdateProfileUser from "./UpdateProfileUser";
 import { Modal, Button } from '@mui/material';

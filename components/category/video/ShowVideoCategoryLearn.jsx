@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Box, CircularProgress } from '@mui/material';
 import { getCategoryIdInfoVideoLearn } from "../../../api-helpers/frontend/utils"
-import styles from "../../../styles/infoCategoryPage.module.css"
+import styles from "../infoCategoryPage.module.css"
 import ShowVideos from './ShowVideos';
 import { favoriteSaveIdUserVideo } from "../../../api-helpers/frontend/utils"
 

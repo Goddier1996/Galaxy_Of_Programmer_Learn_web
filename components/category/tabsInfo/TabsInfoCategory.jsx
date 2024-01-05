@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { motion } from "framer-motion"
-import { container, item } from "../StyleAnimation"
+import { container, item } from "../../StyleAnimation"
 import { Box, Tab, Tabs } from '@mui/material';
-import styles from "../../styles/infoCategoryPage.module.css"
-import ShowVideoCategoryLearn from './video/ShowVideoCategoryLearn';
-import ShowLinkCategoryLearn from './links/ShowLinkCategoryLearn';
-import ShowFilleCategoryLearn from './files/ShowFilleCategoryLearn';
+import styles from "../infoCategoryPage.module.css"
+import ShowVideoCategoryLearn from '../video/ShowVideoCategoryLearn';
+import ShowLinkCategoryLearn from '../links/ShowLinkCategoryLearn';
+import ShowFilleCategoryLearn from '../files/ShowFilleCategoryLearn';
 
 
 

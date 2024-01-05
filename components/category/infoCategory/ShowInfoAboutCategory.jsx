@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
-import { container, item } from "../StyleAnimation"
+import { container, item } from "../../StyleAnimation"
 import Image from 'next/image'
-import styles from "../../styles/infoCategoryPage.module.css"
+import styles from "../infoCategoryPage.module.css"
 
 
 

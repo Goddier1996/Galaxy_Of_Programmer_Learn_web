@@ -1,7 +1,7 @@
 import React from 'react'
 import { CircularProgress } from '@mui/material';
-import UserSaveFavorite from '../UserSaveFavorite';
-import styles from "../../../styles/infoCategoryPage.module.css"
+import UserSaveFavorite from '../optionUserClickSaveFavorite/UserSaveFavorite';
+import styles from "../infoCategoryPage.module.css"
 import UserDeleteFavorite from '../../profileUser/UserDeleteFavorite';
 
 

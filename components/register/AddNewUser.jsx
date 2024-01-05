@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { addUser } from '../../api-helpers/frontend/utils';
-import styles from "../../styles/register.module.css"
+import styles from "./register.module.css"
 import { Button } from '@mui/material';
 import { registerCheckIfHaveThisUserInDataBase } from "../../api-helpers/frontend/utils"
 import RobotBox from '../ReCAPTCHA/RobotBox';

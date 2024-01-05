@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Box, Table, TableBody, CircularProgress } from '@mui/material';
 import { getCategoryIdInfoLinkLearn } from "../../../api-helpers/frontend/utils"
-import styles from "../../../styles/infoCategoryPage.module.css"
+import styles from "../infoCategoryPage.module.css"
 import ShowFilesAndLinks from '../files/ShowFilesAndLinks';
 import { favoriteSaveIdUserLink } from "../../../api-helpers/frontend/utils"
 

@@ -1,4 +1,4 @@
-import styles from "../../styles/profileUser.module.css"
+import styles from "./css/profileUser.module.css"
 import { Button } from '@mui/material';
 
 

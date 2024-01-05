@@ -1,4 +1,4 @@
-import styles from "../../styles/profileUser.module.css"
+import styles from "./css/profileUser.module.css"
 import { useState } from 'react'
 import { updateUser } from '../../api-helpers/frontend/utils';
 import { useRouter } from 'next/router';

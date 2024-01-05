@@ -1,8 +1,8 @@
 import { TableCell, TableRow, Typography } from '@mui/material';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import LinkIcon from '@mui/icons-material/Link';
-import styles from "../../../styles/infoCategoryPage.module.css"
-import UserSaveFavorite from '../UserSaveFavorite';
+import styles from "../infoCategoryPage.module.css"
+import UserSaveFavorite from '../optionUserClickSaveFavorite/UserSaveFavorite';
 
 
 const ShowFilesAndLinks = ({ data, count, typeShow, title, link }) => {

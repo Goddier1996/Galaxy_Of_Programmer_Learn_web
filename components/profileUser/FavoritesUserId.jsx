@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import styles from "../../styles/favoriteUser.module.css"
-import styless from "../../styles/infoCategoryPage.module.css"
+import styles from "./css/favoriteUser.module.css"
+import styless from "../category/infoCategoryPage.module.css"
 import { Box, Tab, Tabs } from '@mui/material';
 import { motion } from "framer-motion"
 import { container, item } from "../StyleAnimation"

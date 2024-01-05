@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { container, item } from "../StyleAnimation"
-import styles from "../../styles/home.module.css"
+import styles from "./home.module.css"
 import Image from 'next/image'
 
 
