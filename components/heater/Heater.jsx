@@ -5,21 +5,21 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useRouter } from 'next/router';
 import Image from 'next/image'
 import { motion } from "framer-motion"
-import { container, item } from "./StyleAnimation"
-import styles from "../styles/menu.module.css"
+import { container, item } from "../StyleAnimation"
+import styles from "./menu.module.css"
 import dynamic from 'next/dynamic'
 import useMediaQuery from '@mui/material/useMediaQuery';
-import SelectCurser from './heater/SelectCurser';
+import SelectCurser from './SelectCurser';
 
-const SignIn = dynamic(() => import('./login/SignIn'), {
+const SignIn = dynamic(() => import('../login/SignIn'), {
   ssr: false,
 })
 
-const Register = dynamic(() => import('../pages/Register'), {
+const Register = dynamic(() => import('../../pages/Register'), {
   ssr: false,
 })
 
-const ProfileUser = dynamic(() => import('./profileUser/ProfileUser'), {
+const ProfileUser = dynamic(() => import('../profileUser/ProfileUser'), {
   ssr: false,
 })
 

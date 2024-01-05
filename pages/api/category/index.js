@@ -2,7 +2,6 @@ import { getCategoryAllInfo } from "../../../api-helpers/controllers/Category-co
 import { connectToDatabase } from "../../../api-helpers/utils";
 
 
-
 export default async function handler(req, res) {
 
     await connectToDatabase();
@@ -11,5 +10,4 @@ export default async function handler(req, res) {
     if (req.method === "GET") {
         return getCategoryAllInfo(req, res);
     }
-
 }

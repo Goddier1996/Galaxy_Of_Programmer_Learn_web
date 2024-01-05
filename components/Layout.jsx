@@ -1,10 +1,10 @@
 import dynamic from 'next/dynamic'
 
-const Heater = dynamic(() => import('./Heater'), {
+const Heater = dynamic(() => import('./heater/Heater'), {
     ssr: false,
 })
 
-const Footer = dynamic(() => import('./footer'), {
+const Footer = dynamic(() => import('./footer/Footer'), {
     ssr: false,
 })
 

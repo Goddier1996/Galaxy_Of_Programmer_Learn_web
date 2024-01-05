@@ -4,7 +4,8 @@
 }
 
 .fotrIcon a {
-  border-radius: 50%;
+  border-radius: 12%;
+  border: none;
 }
 
 .end p {

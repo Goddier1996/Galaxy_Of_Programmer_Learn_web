@@ -21,7 +21,6 @@
     "cookies-next": "^2.1.1",
     "framer-motion": "^10.12.10",
     "js-cookie": "^3.0.5",
-    "mdb-react-ui-kit": "^6.0.0",
     "mongodb": "^5.5.0",
     "mongoose": "^7.1.1",
     "next": "13.4.2",

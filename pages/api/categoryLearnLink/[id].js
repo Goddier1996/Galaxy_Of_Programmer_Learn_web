@@ -2,7 +2,6 @@ import { getCategoryIdInfoLinkLearn } from "../../../api-helpers/controllers/Cat
 import { connectToDatabase } from "../../../api-helpers/utils";
 
 
-
 export default async function handler(req, res) {
 
     await connectToDatabase();

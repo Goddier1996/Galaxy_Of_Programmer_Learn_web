@@ -39,7 +39,6 @@ const Index = ({ categories }) => {
 
   const hideModelSignIn = () => {
     window.location.reload(false);
-    // setShowModel(false);
   }
 
 
