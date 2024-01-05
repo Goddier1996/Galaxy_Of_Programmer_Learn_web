@@ -81,7 +81,6 @@ export const mainPagesChooseResponsiveScreenUserConnect = (indexPage, history, h
 };
 
 
-
 export const logOutUser = async (history) => {
 
     await sessionStorage.removeItem("user");
@@ -90,9 +89,9 @@ export const logOutUser = async (history) => {
 }
 
 
-export const applyCursorUserChoose = (urlImage,setSelectCurserHeater) => {
-    
+export const applyCursorUserChoose = (urlImage, setSelectCurserHeater) => {
+
     document.body.style.cursor = `url(${urlImage}), pointer`;
     sessionStorage.setItem("typeCursor", urlImage);
     setSelectCurserHeater(null);
-  }
+}
