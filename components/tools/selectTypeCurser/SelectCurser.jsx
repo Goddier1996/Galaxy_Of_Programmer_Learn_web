@@ -2,19 +2,20 @@ import { Menu, Avatar, Tooltip } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import { motion } from "framer-motion"
 import styles from "../../heater/menu.module.css"
+import dataOptionsCurser from './jsonSelectCursor/JsonOptionsCursor.json'
 
 
 
-const SelectCurser = ({ handleOpenSelectCurserHeater, ChangeStyleCurserInHeater, applyCursorUserChoose, selectCurserHeater, handleCloseSelectCurserHeater }) => {
+const SelectCurser = ({ handleOpenSelectCurserHeater, ChangeStyleCurserInHeater, applyCursorUserChoose,setSelectCurserHeater, selectCurserHeater, handleCloseSelectCurserHeater }) => {
 
-    const arrayCursors =
-        [
-            { id: 1, LinkImage: 'https://cur.cursors-4u.net/others/oth-8/oth756.cur' },
-            { id: 2, LinkImage: 'https://cur.cursors-4u.net/mechanics/mec-4/mec318.cur' },
-            { id: 3, LinkImage: 'https://cur.cursors-4u.net/mechanics/mec-4/mec329.cur' },
-            { id: 4, LinkImage: 'https://cur.cursors-4u.net/mechanics/mec-4/mec324.cur' },
-            { id: 5, LinkImage: 'https://cur.cursors-4u.net/mechanics/mec-4/mec326.cur' }
-        ];
+    // const arrayCursors =
+    //     [
+    //         { id: 1, LinkImage: 'https://cur.cursors-4u.net/others/oth-8/oth756.cur' },
+    //         { id: 2, LinkImage: 'https://cur.cursors-4u.net/mechanics/mec-4/mec318.cur' },
+    //         { id: 3, LinkImage: 'https://cur.cursors-4u.net/mechanics/mec-4/mec329.cur' },
+    //         { id: 4, LinkImage: 'https://cur.cursors-4u.net/mechanics/mec-4/mec324.cur' },
+    //         { id: 5, LinkImage: 'https://cur.cursors-4u.net/mechanics/mec-4/mec326.cur' }
+    //     ];
 
     return (
         <>
@@ -51,9 +52,9 @@ const SelectCurser = ({ handleOpenSelectCurserHeater, ChangeStyleCurserInHeater,
 
                     <h1>Select Cursor</h1>
 
-                    {arrayCursors.map((item) =>
+                    {dataOptionsCurser.arrayCursors.map((item) =>
                         <motion.div variants={item} className={styles.cursorsImage} key={item.id}>
-                            <img src={item.LinkImage} onClick={() => applyCursorUserChoose(item.LinkImage)} />
+                            <img src={item.LinkImage} onClick={() => applyCursorUserChoose(item.LinkImage,setSelectCurserHeater)} />
                         </motion.div>
                     )}
                 </div>

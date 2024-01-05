@@ -33,4 +33,4 @@ const TitleInfoAbout = () => {
     )
 }
 
-export default TitleInfoAbout
+export default TitleInfoAbout;

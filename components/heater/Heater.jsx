@@ -10,6 +10,8 @@ import styles from "./menu.module.css"
 import dynamic from 'next/dynamic'
 import useMediaQuery from '@mui/material/useMediaQuery';
 import SelectCurser from '../tools/selectTypeCurser/SelectCurser';
+import {mainPagesChoose,mainPagesChooseLoginRegister,hamburgerNavbarResponsiveScreen,hamburgerNavbarResponsiveScreenUserConnect,mainPagesChooseResponsiveScreenUserConnect,applyCursorUserChoose} from "./function/HeaterFunction"
+import dataOptionsMenu from './jsonOptionsMenu/OptionsMenu.json'
 
 const SignIn = dynamic(() => import('../login/SignIn'), {
   ssr: false,
@@ -32,18 +34,18 @@ const Header = () => {
   let typeCursor = sessionStorage.getItem("typeCursor");
 
   // values menu
-  const mainPages = [{ id: '1', namePage: 'Home' }, { id: '2', namePage: 'About' }];
+  // const mainPages = [{ id: '1', namePage: 'Home' }, { id: '2', namePage: 'About' }];
 
-  const mainPagesResponsiveScreen = [{ id: '1', namePage: 'Home' }, { id: '2', namePage: 'About' }, { id: '3', namePage: 'Login' }, { id: '4', namePage: 'Register' }];
-  const mainPagesResponsiveScreenUserConnect = [{ id: '1', namePage: 'Home' }, { id: '2', namePage: 'About' }];
+  // const mainPagesResponsiveScreen = [{ id: '1', namePage: 'Home' }, { id: '2', namePage: 'About' }, { id: '3', namePage: 'Login' }, { id: '4', namePage: 'Register' }];
+  // const mainPagesResponsiveScreenUserConnect = [{ id: '1', namePage: 'Home' }, { id: '2', namePage: 'About' }];
 
-  const controlPages = [{ id: '1', namePage: 'Login' }, { id: '2', namePage: 'Register' }];
-  const ProfileUserOptions = [{ id: '1', option: 'Profile' }, { id: '2', option: 'favorites' }, { id: '3', option: 'Logout' }];
+  // const controlPages = [{ id: '1', namePage: 'Login' }, { id: '2', namePage: 'Register' }];
+  // const ProfileUserOptions = [{ id: '1', option: 'Profile' }, { id: '2', option: 'favorites' }, { id: '3', option: 'Logout' }];
 
   const ChangeStyleCurserInHeater = [{ id: 1, typeStyleCurser: (typeCursor == null) ? "https://i.postimg.cc/3RhrRvpp/cursor-png-1137.png" : typeCursor }]
 
 
-  const router = useRouter();
+  const history = useRouter();
 
   const [SaveDataUserFromSessionStorage, setSaveDataUserFromSessionStorage] = useState({});
 
@@ -66,155 +68,152 @@ const Header = () => {
 
 
   // open close menu responsive Mobile
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
+  // const handleOpenNavMenu = (event) => {
+  //   setAnchorElNav(event.currentTarget);
+  // };
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  }
+  // const handleCloseNavMenu = () => {
+  //   setAnchorElNav(null);
+  // }
 
 
 
   // open close avatar user profile
-  const handleOpenUserProfileMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
+  // const handleOpenUserProfileMenu = (event) => {
+  //   setAnchorElUser(event.currentTarget);
+  // };
 
-  const handleCloseUserProfileMenu = () => {
-    setAnchorElUser(null);
-  };
-
-
-  const handleOpenSelectCurserHeater = (event) => {
-    setSelectCurserHeater(event.currentTarget);
-  };
-
-  const handleCloseSelectCurserHeater = () => {
-    setSelectCurserHeater(null);
-  };
+  // const handleCloseUserProfileMenu = () => {
+  //   setAnchorElUser(null);
+  // };
 
 
+  // const handleOpenSelectCurserHeater = (event) => {
+  //   setSelectCurserHeater(event.currentTarget);
+  // };
 
-  const mainPagesChoose = (indexPage) => {
-
-    if (indexPage == 1) {
-      router.push("/")
-    }
-
-    if (indexPage == 2) {
-      router.push("/About")
-    }
-  };
+  // const handleCloseSelectCurserHeater = () => {
+  //   setSelectCurserHeater(null);
+  // };
 
 
 
-  const mainPagesChooseLoginRegister = (indexPage) => {
+  // const mainPagesChoose = (indexPage) => {
 
-    if (indexPage == 1) {
-      handleShowModelSignIn();
-    }
+  //   if (indexPage == 1) {
+  //     history.push("/")
+  //   }
 
-    if (indexPage == 2) {
-      handleShowModelRegister();
-    }
-  };
-
-
-
-  const hamburgerNavbarResponsiveScreen = (indexPage) => {
-
-    if (indexPage == 1) {
-      router.push("/")
-      handleCloseNavMenu()
-    }
-
-    if (indexPage == 2) {
-      router.push("/About")
-      handleCloseNavMenu()
-    }
-
-    if (indexPage == 3) {
-      handleShowModelSignIn();
-      handleCloseNavMenu()
-    }
-
-    if (indexPage == 4) {
-      handleShowModelRegister();
-      handleCloseNavMenu()
-    }
-
-  };
-
-
-  const hamburgerNavbarResponsiveScreenUserConnect = (indexPage) => {
-
-    if (indexPage == 1) {
-      router.push("/")
-      handleCloseNavMenu()
-    }
-
-    if (indexPage == 2) {
-      router.push("/About")
-      handleCloseNavMenu()
-    }
-  };
+  //   if (indexPage == 2) {
+  //     history.push("/About")
+  //   }
+  // };
 
 
 
+  // const mainPagesChooseLoginRegister = (indexPage) => {
 
-  const mainPagesChooseResponsiveScreenUserConnect = (indexPage) => {
+  //   if (indexPage == 1) {
+  //     handleShowModelSignIn();
+  //   }
 
-    if (indexPage == 1) {
-      handleShowModelProfileUser();
-      handleCloseUserProfileMenu();
-    }
-
-    if (indexPage == 2) {
-      router.push("/FavoritesUsers");
-      handleCloseUserProfileMenu();
-    }
-
-    if (indexPage == 3) {
-      logOutUser();
-      handleCloseUserProfileMenu();
-    }
-
-  };
+  //   if (indexPage == 2) {
+  //     handleShowModelRegister();
+  //   }
+  // };
 
 
 
-  const logOutUser = async () => {
-    await sessionStorage.removeItem("user");
-    await router.push("/")
-    window.location.reload(false);
-  }
+  // const hamburgerNavbarResponsiveScreen = (indexPage) => {
+
+  //   if (indexPage == 1) {
+  //     history.push("/")
+  //     setAnchorElNav(null)
+  //   }
+
+  //   if (indexPage == 2) {
+  //     history.push("/About")
+  //     setAnchorElNav(null)
+  //   }
+
+  //   if (indexPage == 3) {
+  //     handleShowModelSignIn();
+  //     setAnchorElNav(null)
+  //   }
+
+  //   if (indexPage == 4) {
+  //     handleShowModelRegister();
+  //     setAnchorElNav(null)
+  //   }
+
+  // };
+
+
+  // const hamburgerNavbarResponsiveScreenUserConnect = (indexPage) => {
+
+  //   if (indexPage == 1) {
+  //     history.push("/")
+  //     handleCloseNavMenu()
+  //   }
+
+  //   if (indexPage == 2) {
+  //     history.push("/About")
+  //     handleCloseNavMenu()
+  //   }
+  // };
 
 
 
-  const hideModelRegister = () => {
 
-    setShowModelRegister(false);
-  }
+  // const mainPagesChooseResponsiveScreenUserConnect = (indexPage,history,handleShowModelProfileUser,handleCloseUserProfileMenu) => {
 
-  const hideModelSignIn = () => {
+  //   if (indexPage == 1) {
+  //     handleShowModelProfileUser();
+  //     handleCloseUserProfileMenu();
+  //   }
 
-    setShowModelSignIn(false);
-  }
+  //   if (indexPage == 2) {
+  //     history.push("/FavoritesUsers");
+  //     handleCloseUserProfileMenu();
+  //   }
 
-  const hideModelProfileUser = () => {
+  //   if (indexPage == 3) {
+  //     logOutUser();
+  //     handleCloseUserProfileMenu();
+  //   }
 
-    setShowModelProfileUser(false);
-  }
+  // };
 
 
 
-  const applyCursorUserChoose = (urlImage) => {
+  // const logOutUser = async () => {
+  //   await sessionStorage.removeItem("user");
+  //   await history.push("/")
+  //   window.location.reload(false);
+  // }
 
-    document.body.style.cursor = `url(${urlImage}), pointer`;
-    sessionStorage.setItem("typeCursor", urlImage);
-    handleCloseSelectCurserHeater();
-  }
+
+
+  // const hideModelRegister = () => {
+  //   setShowModelRegister(false);
+  // }
+
+  // const hideModelSignIn = () => {
+  //   setShowModelSignIn(false);
+  // }
+
+  // const hideModelProfileUser = () => {
+  //   setShowModelProfileUser(false);
+  // }
+
+
+
+  // const applyCursorUserChoose = (urlImage) => {
+
+  //   document.body.style.cursor = `url(${urlImage}), pointer`;
+  //   sessionStorage.setItem("typeCursor", urlImage);
+  //   setSelectCurserHeater(null);
+  // }
 
 
 
@@ -225,11 +224,9 @@ const Header = () => {
     if (userData != null) {
       setSaveDataUserFromSessionStorage(userData.connectUser);
     }
-
     else {
       setSaveDataUserFromSessionStorage()
     }
-
   }, []);
 
 
@@ -246,7 +243,8 @@ const Header = () => {
             <Container variants={item} maxWidth="xl" >
               <Toolbar disableGutters>
 
-                {/* responsive screen mobile */}
+                
+                {/* RESPONSIVE screen mobile */}
                 <Typography
                   noWrap
                   component="a"
@@ -268,7 +266,6 @@ const Header = () => {
                   </div>
                 </Typography>
 
-
                 {(SaveDataUserFromSessionStorage == null) ?
 
                   <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -277,7 +274,7 @@ const Header = () => {
                       aria-label="account of current user"
                       aria-controls="menu-appbar"
                       aria-haspopup="true"
-                      onClick={handleOpenNavMenu}
+                      onClick={(event)=>setAnchorElNav(event.currentTarget)}
                       color="inherit"
                     >
                       <MenuIcon />
@@ -295,14 +292,14 @@ const Header = () => {
                         horizontal: 'left',
                       }}
                       open={Boolean(anchorElNav)}
-                      onClose={handleCloseNavMenu}
+                      onClose={()=>setAnchorElNav(null)}
                       sx={{
                         display: { xs: 'block', md: 'none' },
                       }}
                     >
                       <div className={styles.SelectCursor} >
-                        {mainPagesResponsiveScreen.map((page) => (
-                          <MenuItem key={page.id} onClick={() => hamburgerNavbarResponsiveScreen(page.id)}>
+                        {dataOptionsMenu.mainPagesResponsiveScreen.map((page) => (
+                          <MenuItem key={page.id} onClick={() => hamburgerNavbarResponsiveScreen(page.id,history,setAnchorElNav,handleShowModelSignIn,handleShowModelRegister)}>
                             <Typography textAlign="center">{page.namePage}</Typography>
                           </MenuItem>
                         ))}
@@ -317,7 +314,7 @@ const Header = () => {
                       aria-label="account of current user"
                       aria-controls="menu-appbar"
                       aria-haspopup="true"
-                      onClick={handleOpenNavMenu}
+                      onClick={(event)=>setAnchorElNav(event.currentTarget)}
                       color="inherit"
                     >
                       <MenuIcon />
@@ -335,15 +332,15 @@ const Header = () => {
                         horizontal: 'left',
                       }}
                       open={Boolean(anchorElNav)}
-                      onClose={handleCloseNavMenu}
+                      onClose={()=>setAnchorElNav(null)}
                       sx={{
                         display: { xs: 'block', md: 'none' },
                       }}
                     >
 
                       <div className={styles.SelectCursor} >
-                        {mainPagesResponsiveScreenUserConnect.map((page) => (
-                          <MenuItem key={page.id} onClick={() => hamburgerNavbarResponsiveScreenUserConnect(page.id)}>
+                        {dataOptionsMenu.mainPagesResponsiveScreenUserConnect.map((page) => (
+                          <MenuItem key={page.id} onClick={() => hamburgerNavbarResponsiveScreenUserConnect(page.id,history,handleCloseNavMenu)}>
                             <Typography textAlign="center">{page.namePage}</Typography>
                           </MenuItem>
                         ))}
@@ -355,7 +352,7 @@ const Header = () => {
 
 
 
-                {/* menu value desktop screen */}
+                {/* DESKTOP screen */}
                 <Typography
                   noWrap
                   component="a"
@@ -379,10 +376,10 @@ const Header = () => {
                 </Typography>
 
                 <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                  {mainPages.map((page) => (
+                  {dataOptionsMenu.mainPages.map((page) => (
                     <Button
                       key={page.id}
-                      onClick={() => mainPagesChoose(page.id)}
+                      onClick={() => mainPagesChoose(page.id,history)}
                       sx={{ my: 2, color: 'white', display: 'block', fontWeight: "600", fontSize: "16px" }}
                     >
                       {page.namePage}
@@ -390,11 +387,10 @@ const Header = () => {
                   ))}
                 </Box>
 
-
                 {(SaveDataUserFromSessionStorage) ?
                   < Box sx={{ flexGrow: 0 }}>
                     <Tooltip title="Menu User">
-                      <IconButton onClick={handleOpenUserProfileMenu} sx={{ p: 0 }}>
+                      <IconButton onClick={(event)=>setAnchorElUser(event.currentTarget)} sx={{ p: 0 }}>
                         <Avatar alt="avatar user" src={SaveDataUserFromSessionStorage.avatarUser}
                           style={mobileScreen ? { height: "60px", width: "60px", marginTop: "5px", marginRight: "50px" } :
                             { height: "60px", width: "60px", marginTop: "5px" }} />
@@ -414,11 +410,11 @@ const Header = () => {
                         horizontal: 'left',
                       }}
                       open={Boolean(anchorElUser)}
-                      onClose={handleCloseUserProfileMenu}
+                      onClose={()=>setAnchorElUser(null)}
                     >
                       <div className={styles.SelectCursor} >
-                        {ProfileUserOptions.map((setting) => (
-                          <MenuItem key={setting.id} onClick={() => mainPagesChooseResponsiveScreenUserConnect(setting.id)}>
+                        {dataOptionsMenu.ProfileUserOptions.map((setting) => (
+                          <MenuItem key={setting.id} onClick={() => mainPagesChooseResponsiveScreenUserConnect(setting.id,history,handleShowModelProfileUser,handleCloseUserProfileMenu)}>
                             <Typography textAlign="center">{setting.option}</Typography>
                           </MenuItem>
                         ))}
@@ -427,10 +423,10 @@ const Header = () => {
                   </Box>
                   :
                   <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }} style={{ margin: "20px" }}>
-                    {controlPages.map((page) => (
+                    {dataOptionsMenu.controlPages.map((page) => (
                       <Button
                         key={page.id}
-                        onClick={() => mainPagesChooseLoginRegister(page.id)}
+                        onClick={() => mainPagesChooseLoginRegister(page.id,handleShowModelSignIn,handleShowModelRegister)}
                         sx={{ my: 2, color: 'white', display: 'block', fontWeight: "600", fontSize: "16px" }}
                       >
                         {page.namePage}
@@ -439,17 +435,17 @@ const Header = () => {
                 }
 
 
-                {/* show Select Curser style */}
+                {/* show SELECT Curser style */}
                 <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
 
                   <SelectCurser
-                    handleOpenSelectCurserHeater={handleOpenSelectCurserHeater}
+                    handleOpenSelectCurserHeater={(event)=> setSelectCurserHeater(event.currentTarget)}
                     ChangeStyleCurserInHeater={ChangeStyleCurserInHeater}
                     applyCursorUserChoose={applyCursorUserChoose}
+                    setSelectCurserHeater={setSelectCurserHeater}
                     selectCurserHeater={selectCurserHeater}
-                    handleCloseSelectCurserHeater={handleCloseSelectCurserHeater}
+                    handleCloseSelectCurserHeater={()=>setSelectCurserHeater(null)}
                   />
-                  
                 </Box>
 
               </Toolbar>
@@ -463,25 +459,25 @@ const Header = () => {
 
       {/* model popup show Register */}
       <Modal open={showModelRegister}  >
-        <div>
-          <Register hideRegisterFun={hideModelRegister} />
-        </div>
+        <>
+          <Register hideRegisterFun={()=>setShowModelRegister(false)} />
+        </>
       </Modal>
 
 
       {/* model popup show Sign in */}
       <Modal open={showModelSignIn} >
-        <div>
-          <SignIn hideSignInFun={hideModelSignIn} />
-        </div>
+        <>
+          <SignIn hideSignInFun={()=>setShowModelSignIn(false)} />
+        </>
       </Modal>
 
 
       {/* model popup show Sign in */}
       <Modal open={showModelProfileUser} >
-        <div>
-          <ProfileUser hideSignInFun={hideModelProfileUser} />
-        </div>
+        <>
+          <ProfileUser hideSignInFun={()=>setShowModelProfileUser(false)} />
+        </>
       </Modal>
     </>
   );

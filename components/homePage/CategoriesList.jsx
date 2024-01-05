@@ -15,4 +15,4 @@ const CategoriesList = ({ data }) => {
     )
 }
 
-export default CategoriesList
+export default CategoriesList;

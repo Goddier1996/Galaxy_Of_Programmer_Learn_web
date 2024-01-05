@@ -1,0 +1,75 @@
+{
+    "mainPages": [
+        
+        {
+            "id": "1",
+            "namePage": "Home"
+        },
+        {
+            "id": "2",
+            "namePage": "About"
+        }
+
+    ],
+
+    "mainPagesResponsiveScreen": [
+
+        {
+            "id": "1",
+            "namePage": "Home"
+        },
+        {
+            "id": "2",
+            "namePage": "About"
+        },
+        {
+            "id": "3",
+            "namePage": "Login"
+        },
+        {
+            "id": "4",
+            "namePage": "Register"
+        }
+    ],
+
+    "mainPagesResponsiveScreenUserConnect": [
+
+        {
+            "id": "1",
+            "namePage": "Home"
+        },
+        {
+            "id": "2",
+            "namePage": "About"
+        }
+    ],
+
+
+    "controlPages": [
+
+        {
+            "id": "1",
+            "namePage": "Login"
+        },
+        {
+            "id": "2",
+            "namePage": "Register"
+        }
+    ],
+
+    "ProfileUserOptions": [
+
+        {
+            "id": "1",
+            "namePage": "Profile"
+        },
+        {
+            "id": "2",
+            "namePage": "favorites"
+        },
+        {
+            "id": "3",
+            "namePage": "Logout"
+        }
+    ]
+}

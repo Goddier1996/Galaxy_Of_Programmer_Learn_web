@@ -57,4 +57,4 @@ const ShowCountAllItemsImApp = () => {
 }
 
 
-export default ShowCountAllItemsImApp
+export default ShowCountAllItemsImApp;

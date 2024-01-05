@@ -51,4 +51,4 @@ const ShowHomeTitle = () => {
     )
 }
 
-export default ShowHomeTitle
+export default ShowHomeTitle;
