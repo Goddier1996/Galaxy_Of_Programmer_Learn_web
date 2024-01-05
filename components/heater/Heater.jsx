@@ -336,8 +336,8 @@ const Header = () => {
                               mainPagesChooseResponsiveScreenUserConnect(
                                 page.id,
                                 history,
-                                handleShowModelProfileUser,
-                                handleCloseUserProfileMenu
+                                ()=>handleShowModelProfileUser(),
+                                ()=>handleCloseUserProfileMenu()
                               )
                             }
                           >

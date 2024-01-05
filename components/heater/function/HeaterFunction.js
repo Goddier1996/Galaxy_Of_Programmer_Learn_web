@@ -62,6 +62,14 @@ export const hamburgerNavbarResponsiveScreenUserConnect = (indexPage, history, h
 };
 
 
+export const logOutUser = async (history) => {
+
+    await sessionStorage.removeItem("user");
+    await history.push("/")
+    window.location.reload(false);
+}
+
+
 export const mainPagesChooseResponsiveScreenUserConnect = (indexPage, history, handleShowModelProfileUser, handleCloseUserProfileMenu) => {
 
     if (indexPage == 1) {
@@ -80,13 +88,6 @@ export const mainPagesChooseResponsiveScreenUserConnect = (indexPage, history, h
     }
 };
 
-
-export const logOutUser = async (history) => {
-
-    await sessionStorage.removeItem("user");
-    await history.push("/")
-    window.location.reload(false);
-}
 
 
 export const applyCursorUserChoose = (urlImage, setSelectCurserHeater) => {
