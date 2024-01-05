@@ -200,10 +200,7 @@ export const registerCheckIfHaveThisUserInDataBase = async (login) => {
 
 
     const data = await res.data;
-
-        return data;
-    
-
+    return data.login;
 }
 
 
