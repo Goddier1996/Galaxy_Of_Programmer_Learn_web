@@ -2,27 +2,27 @@
     "arrayCursors": [
 
         {
-            "id": "1",
+            "id": 1,
             "LinkImage": "https://cur.cursors-4u.net/others/oth-8/oth756.cur"
         },
 
         {
-            "id": "2",
+            "id": 2,
             "LinkImage": "https://cur.cursors-4u.net/mechanics/mec-4/mec318.cur"
         },
 
         {
-            "id": "3",
+            "id": 3,
             "LinkImage": "https://cur.cursors-4u.net/mechanics/mec-4/mec329.cur"
         },
 
         {
-            "id": "4",
+            "id": 4,
             "LinkImage": "https://cur.cursors-4u.net/mechanics/mec-4/mec324.cur"
         },
 
         {
-            "id": "5",
+            "id": 5,
             "LinkImage": "https://cur.cursors-4u.net/mechanics/mec-4/mec326.cur"
         }
 

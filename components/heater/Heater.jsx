@@ -44,7 +44,7 @@ const ProfileUser = dynamic(() => import("../profileUser/ProfileUser"), {
   ssr: false,
 });
 
-
+// ProfileUserOptions
 
 const Header = () => {
 
@@ -329,12 +329,12 @@ const Header = () => {
                       onClose={() => setAnchorElUser(null)}
                     >
                       <div className={styles.SelectCursor}>
-                        {dataOptionsMenu.ProfileUserOptions.map((setting) => (
+                        {dataOptionsMenu.ProfileUserOptions.map((page) => (
                           <MenuItem
-                            key={setting.id}
+                            key={page.id}
                             onClick={() =>
                               mainPagesChooseResponsiveScreenUserConnect(
-                                setting.id,
+                                page.id,
                                 history,
                                 handleShowModelProfileUser,
                                 handleCloseUserProfileMenu
@@ -342,7 +342,7 @@ const Header = () => {
                             }
                           >
                             <Typography textAlign="center">
-                              {setting.namePage}
+                              {page.namePage}
                             </Typography>
                           </MenuItem>
                         ))}
