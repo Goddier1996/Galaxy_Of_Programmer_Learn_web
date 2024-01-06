@@ -26,6 +26,7 @@ const DesktopMenu = ({
   SaveDataUserFromSessionStorage,
   handleShowModelRegister,
   handleShowModelSignIn,
+  handleShowModelProfileUser
 }) => {
 
 

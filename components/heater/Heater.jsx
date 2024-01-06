@@ -92,6 +92,7 @@ const Header = () => {
                   }
                   handleShowModelRegister={handleShowModelRegister}
                   handleShowModelSignIn={handleShowModelSignIn}
+                  handleShowModelProfileUser={handleShowModelProfileUser}
                 />
 
                 
