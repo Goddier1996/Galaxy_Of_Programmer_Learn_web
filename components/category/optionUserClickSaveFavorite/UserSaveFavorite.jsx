@@ -7,7 +7,7 @@ import { SaveFavorite } from './function/SaveFavoride';
 
 
 
-const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
+const UserSaveFavorite = ( favorite, title, type, idFavorite ) => {
 
 
     const [showAlertUserAddFavorite, setShowAlertUserAddFavorite] = useState(false);
