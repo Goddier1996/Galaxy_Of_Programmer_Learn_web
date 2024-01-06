@@ -7,7 +7,7 @@ export const SaveFavorite = async (dataUser, dataInfoSave, setShowAlertUserAddFa
 
         let idUser = dataUser._id;
 
-        await checkIfUserHaveThisFavorite(idUser, idFavorite)
+        await checkIfUserHaveThisFavorite(idUser, dataInfoSave.idFavorite)
             .then(() => {
 
                 let favoriteData = JSON.parse(window.sessionStorage.getItem("favorite"));
