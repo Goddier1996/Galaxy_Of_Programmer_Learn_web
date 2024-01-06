@@ -1,5 +1,4 @@
 import React from 'react'
-import { CircularProgress } from '@mui/material';
 import UserSaveFavorite from '../optionUserClickSaveFavorite/UserSaveFavorite';
 import styles from "../infoCategoryPage.module.css"
 import UserDeleteFavorite from '../../profileUser/UserDeleteFavorite';
@@ -37,7 +36,6 @@ const ShowVideos = ({ data, use }) => {
             {use == "info" ?
                 <>
                     <div className={styles.videoInfoCategory} key={_id}>
-                        {(_id) ?
                             <>
                                 <p>{titleVideo}
                                     <UserSaveFavorite
@@ -48,30 +46,19 @@ const ShowVideos = ({ data, use }) => {
                                     />
                                 </p>
                                 <iframe allowFullScreen='allowFullScreen' src={video} alt="video Learn" />
-                            </>
-                            :
-                            <div style={{ color: "gray" }}>
-                                <CircularProgress color="inherit" size={25} />
-                            </div>
-                        }
+                            </>         
                     </div>
                 </>
-
                 :
                 use == "user" ?
                     <div className={styles.videoInfoCategory} key={_id}>
-                        {(_id) ?
                             <>
                                 <p>{title}
                                     <UserDeleteFavorite id={_id} />
                                 </p>
                                 <iframe allowFullScreen='allowFullScreen' src={favorite} alt="video Learn" />
                             </>
-                            :
-                            <div style={{ color: "gray" }}>
-                                <CircularProgress color="inherit" size={25} />
-                            </div>
-                        }
+                            :                   
                     </div> : ""
             }
         </>
