@@ -3,9 +3,9 @@ import { addUserFavorite, checkIfUserHaveThisFavorite } from '../../../../api-he
 
 export const SaveFavorite = async (idFavorite) => {
 
-    alert(idFavorite)
-    // let userData = JSON.parse(window.sessionStorage.getItem('user'))
-
+    
+    let userData = JSON.parse(window.sessionStorage.getItem('user'))
+    alert(dataUser._id)
     // if (userData) {
 
     //             let idUser = dataUser._id;
