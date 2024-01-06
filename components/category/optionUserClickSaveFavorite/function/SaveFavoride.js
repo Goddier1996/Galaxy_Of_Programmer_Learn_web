@@ -12,18 +12,18 @@ export const SaveFavorite = async (dataInfoSave, setShowAlertUserAddFavorite, se
 
                 let favoriteData = JSON.parse(window.sessionStorage.getItem("favorite"));
 
-                // if (favoriteData.length === 0) {
+                if (favoriteData.length === 0) {
+                    setShowAlertUserAddFavorite(true)
+                    // addUserFavorite(dataInfoSave.favorite, dataInfoSave.title, dataInfoSave.type, userData._id, dataInfoSave.idFavorite)
+                    //     .then(() => { setShowAlertUserAddFavorite(true) })
+                    //     .then(() => { sessionStorage.removeItem("favorite") })
+                    //     .catch(err => console.log(err));
+                }
 
-                //     addUserFavorite(dataInfoSave.favorite, dataInfoSave.title, dataInfoSave.type, userData._id, dataInfoSave.idFavorite)
-                //         .then(() => { setShowAlertUserAddFavorite(true) })
-                //         .then(() => { sessionStorage.removeItem("favorite") })
-                //         .catch(err => console.log(err));
-                // }
-
-                // else {
-                //     setShowAlertUserHaveThisFavorite(true)
-                //     sessionStorage.removeItem("favorite");
-                // }
+                else {
+                    setShowAlertUserHaveThisFavorite(true)
+                    sessionStorage.removeItem("favorite");
+                }
             })
             .catch((err) => console.log(err));
     }
