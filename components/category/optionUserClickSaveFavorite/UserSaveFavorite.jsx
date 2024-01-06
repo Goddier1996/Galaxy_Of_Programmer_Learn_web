@@ -3,6 +3,7 @@ import { Snackbar, Alert } from '@mui/material';
 import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
 import styles from "../infoCategoryPage.module.css"
 import { addUserFavorite, checkIfUserHaveThisFavorite } from '../../../api-helpers/frontend/utils';
+import ShowAlertFavorite from './alerts/ShowAlertFavorite';
 
 
 
@@ -73,7 +74,6 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
                 <BookmarkAddIcon onClick={SaveFavorite} className={styles.buttonSave} />
             </b>
 
-
             {showAlertUserAddFavorite && (
         <ShowAlertFavorite
           showAlert={showAlertUserAddFavorite}
@@ -100,9 +100,6 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
           type={null}
         />
       )}
-
-
-            
         </>
     )
 }
