@@ -1,13 +1,13 @@
 import { addUserFavorite, checkIfUserHaveThisFavorite } from '../../../../api-helpers/frontend/utils';
 
 
-export const SaveFavorite = async (dataUser, dataInfoSave, setShowAlertUserAddFavorite, setShowAlertUserHaveThisFavorite, setShowAlertUserNeedConnectToAddFavorite) => {
+export const SaveFavorite = async (dataInfoSave, setShowAlertUserAddFavorite, setShowAlertUserHaveThisFavorite, setShowAlertUserNeedConnectToAddFavorite) => {
 
-    if (dataUser) {
+    let userData = JSON.parse(window.sessionStorage.getItem('user'))
 
-        let idUser = dataUser._id;
+    if (userData) {
 
-        await checkIfUserHaveThisFavorite(idUser, dataInfoSave.idFavorite)
+        await checkIfUserHaveThisFavorite(userData._id, dataInfoSave.idFavorite)
             .then(() => {
 
                 let favoriteData = JSON.parse(window.sessionStorage.getItem("favorite"));

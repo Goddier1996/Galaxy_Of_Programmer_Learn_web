@@ -14,7 +14,6 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
     const [showAlertUserHaveThisFavorite, setShowAlertUserHaveThisFavorite] = useState(false);
 
 
-    const [dataUser, setDataUser] = useState({});
     const [dataInfoSave] = useState({
         favorite: favorite,
         title: title,
@@ -23,23 +22,6 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
     });
 
 
-
-
-
-
-    useEffect(() => {
-
-        let userData = JSON.parse(window.sessionStorage.getItem('user'))
-
-        if (userData != null) {
-            setDataUser(userData.connectUser);
-        }
-
-        else {
-            setDataUser()
-        }
-
-    }, [])
 
 
 
