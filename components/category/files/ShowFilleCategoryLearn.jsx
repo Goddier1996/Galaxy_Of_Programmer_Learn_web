@@ -21,7 +21,7 @@ const ShowFilleCategoryLearn = ({ idCategoryFille, howUse }) => {
         setLoadingFIle(true);
 
         {
-            howUse == "userProfile" ?
+            howUse == "user" ?
                 favoriteSaveIdUserFIle(idCategoryFille, { signal: controller.signal })
                     .then((data) => setInfoCategoryFileLearn(data))
                     .then(() => setLoadingFIle(false))
@@ -72,7 +72,7 @@ const ShowFilleCategoryLearn = ({ idCategoryFille, howUse }) => {
                                                             link={FileInfo.linkFIleLinkLearn}
                                                         />
                                                         :
-                                                        howUse == "userProfile" ?
+                                                        howUse == "user" ?
                                                             <ShowFilesAndLinks
                                                                 data={FileInfo}
                                                                 count={countLinkLinkFIleCategory++}
