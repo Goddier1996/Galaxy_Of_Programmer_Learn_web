@@ -7,14 +7,17 @@ export const SaveFavorite = async (dataInfoSave, setShowAlertUserAddFavorite, se
 
     if (userData) {
 
-        await checkIfUserHaveThisFavorite(userData._id, dataInfoSave.idFavorite)
+                let idUser = dataUser._id;
+
+
+        await checkIfUserHaveThisFavorite(idUser, dataInfoSave.idFavorite)
             .then(() => {
 
                 let favoriteData = JSON.parse(window.sessionStorage.getItem("favorite"));
 
                 if (favoriteData.length === 0) {
                     setShowAlertUserAddFavorite(true)
-                    // addUserFavorite(dataInfoSave.favorite, dataInfoSave.title, dataInfoSave.type, userData._id, dataInfoSave.idFavorite)
+                    // addUserFavorite(dataInfoSave.favorite, dataInfoSave.title, dataInfoSave.type, idUser, dataInfoSave.idFavorite)
                     //     .then(() => { setShowAlertUserAddFavorite(true) })
                     //     .then(() => { sessionStorage.removeItem("favorite") })
                     //     .catch(err => console.log(err));
