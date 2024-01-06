@@ -70,6 +70,7 @@ const ShowFilleCategoryLearn = ({ idCategoryFille, howUse }) => {
                                                             typeShow={"file"}
                                                             title={FileInfo.titleFIleLink}
                                                             link={FileInfo.linkFIleLinkLearn}
+                                                            use={howUse}
                                                         />
                                                         :
                                                         howUse == "user" ?
@@ -79,6 +80,7 @@ const ShowFilleCategoryLearn = ({ idCategoryFille, howUse }) => {
                                                                 typeShow={"file"}
                                                                 title={FileInfo.title}
                                                                 link={FileInfo.favorite}
+                                                                use={howUse}
                                                             /> : ""
                                                     }
                                                 </>

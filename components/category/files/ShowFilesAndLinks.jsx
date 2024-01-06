@@ -1,62 +1,62 @@
-import { TableCell, TableRow, Typography } from '@mui/material';
-import FileDownloadIcon from '@mui/icons-material/FileDownload';
-import LinkIcon from '@mui/icons-material/Link';
-import styles from "../infoCategoryPage.module.css"
-import UserSaveFavorite from '../optionUserClickSaveFavorite/UserSaveFavorite';
+import { TableCell, TableRow, Typography } from "@mui/material";
+import FileDownloadIcon from "@mui/icons-material/FileDownload";
+import LinkIcon from "@mui/icons-material/Link";
+import styles from "../infoCategoryPage.module.css";
+import UserSaveFavorite from "../optionUserClickSaveFavorite/UserSaveFavorite";
+import UserDeleteFavorite from "../../profileUser/UserDeleteFavorite";
 
 
-const ShowFilesAndLinks = ({ data, count, typeShow, title, link }) => {
 
-    const { _id, type } = data;
-
-
-    return (
-        <TableRow
-            key={_id}
-            style={{ borderBottom: "2px solid #b0c4cf" }}
-        >
-
-            <TableCell style={{ color: "white" }} align="center">
-                <p className={styles.fileLinkAboutCategory}>
-                    {count}.
-                </p>
-            </TableCell>
-
-            <TableCell style={{ color: "white" }} align="center">
-                <p className={styles.fileLinkAboutCategory}>
-                    {title}
-                </p>
-            </TableCell>
+const ShowFilesAndLinks = ({ data, count, typeShow, title, link, use }) => {
 
 
-            <TableCell style={{ color: "white" }} align="center">
-                <div className={styles.fileLinkAboutCategory}>
-                    <a target="_blank" href={link} >
+  const { _id, type } = data;
 
-                        {typeShow == "file" ?
-                            <FileDownloadIcon /> :
-                            typeShow == "link" ?
-                                <LinkIcon /> : ""
-                        }
-                    </a>
-                </div>
-            </TableCell>
+    
+    
+  return (
+    <TableRow key={_id} style={{ borderBottom: "2px solid #b0c4cf" }}>
+      <TableCell style={{ color: "white" }} align="center">
+        <p className={styles.fileLinkAboutCategory}>{count}.</p>
+      </TableCell>
 
-            <TableCell style={{ color: "white" }} align="center">
-                <Typography className={styles.fileLinkAboutCategory}>
+      <TableCell style={{ color: "white" }} align="center">
+        <p className={styles.fileLinkAboutCategory}>{title}</p>
+      </TableCell>
 
-                    <UserSaveFavorite
-                        favorite={link}
-                        title={title}
-                        type={type}
-                        idFavorite={_id}
-                    />
+      <TableCell style={{ color: "white" }} align="center">
+        <div className={styles.fileLinkAboutCategory}>
+          <a target="_blank" href={link}>
+            {typeShow == "file" ? (
+              <FileDownloadIcon />
+            ) : typeShow == "link" ? (
+              <LinkIcon />
+            ) : (
+              ""
+            )}
+          </a>
+        </div>
+      </TableCell>
 
-                </Typography>
-            </TableCell>
+      <TableCell style={{ color: "white" }} align="center">
+        <Typography className={styles.fileLinkAboutCategory}>
+          {use == "info" ? (
+            <UserSaveFavorite
+              favorite={link}
+              title={title}
+              type={type}
+              idFavorite={_id}
+            />
+          ) : use == "user" ? (
+            <UserDeleteFavorite id={_id} />
+          ) : (
+            ""
+          )}
+        </Typography>
+      </TableCell>
+    </TableRow>
+  );
+};
 
-        </TableRow>
-    )
-}
 
 export default ShowFilesAndLinks;
