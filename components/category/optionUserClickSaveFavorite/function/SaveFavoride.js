@@ -14,7 +14,7 @@ export const SaveFavorite = async (dataInfoSave, setShowAlertUserAddFavorite, se
 
                 if (favoriteData.length === 0) {
 
-                    addUserFavorite(dataInfoSave.favorite, dataInfoSave.title, dataInfoSave.type, idUser, dataInfoSave.idFavorite)
+                    addUserFavorite(dataInfoSave.favorite, dataInfoSave.title, dataInfoSave.type, userData._id, dataInfoSave.idFavorite)
                         .then(() => { setShowAlertUserAddFavorite(true) })
                         .then(() => { sessionStorage.removeItem("favorite") })
                         .catch(err => console.log(err));
