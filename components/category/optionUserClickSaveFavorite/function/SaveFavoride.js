@@ -7,7 +7,6 @@ export const SaveFavorite = async (dataInfoSave, setShowAlertUserAddFavorite, se
 
     if (userData) {
 
-
         await checkIfUserHaveThisFavorite(userData.connectUser._id, dataInfoSave.idFavorite)
             .then(() => {
 

@@ -16,7 +16,7 @@ const ShowAlertFavorite = ({ showAlert, setShow, text, type }) => {
         severity="success"
         sx={{ width: "100%", fontSize: "17px", textAlign: "center" }}
       >
-        {text ? text : null} {type ? text : null}
+        {text ? text : ""} {type ? type : ""}
         <br />
         {title}
       </Alert>
