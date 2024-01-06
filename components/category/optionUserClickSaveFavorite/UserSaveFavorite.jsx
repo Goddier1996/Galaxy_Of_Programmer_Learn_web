@@ -15,7 +15,12 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
 
 
     const [dataUser, setDataUser] = useState({});
-    const [dataInfoSave, setDataInfoSave] = useState({});
+    const [dataInfoSave] = useState({
+        favorite: favorite,
+        title: title,
+        type: type,
+        idFavorite:idFavorite
+    });
 
 
 
@@ -28,13 +33,6 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
 
         if (userData != null) {
             setDataUser(userData.connectUser);
-
-            setDataInfoSave({
-                favorite: favorite,
-                title: title,
-                type: type,
-                idFavorite:idFavorite
-            })
         }
 
         else {
