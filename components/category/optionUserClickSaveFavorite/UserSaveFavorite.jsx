@@ -30,7 +30,7 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
 
                     // let favoriteData = JSON.parse(window.sessionStorage.getItem("favorite"));
 
-                    if (!checkIfHaveFavorite) {
+                    if (checkIfHaveFavorite.length === 0) {
 
                         addUserFavorite(favorite, title, type, idUser, idFavorite)
                             .then(() => { setShowAlertUserAddFavorite(true) })
