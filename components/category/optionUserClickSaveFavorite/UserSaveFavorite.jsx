@@ -64,7 +64,7 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
       text={"Please SignIn Or Register"}
       type={""}
       title={""}
-      typeAlert={"filled"}
+      typeAlert={"warning"}
     />
   )}
 
