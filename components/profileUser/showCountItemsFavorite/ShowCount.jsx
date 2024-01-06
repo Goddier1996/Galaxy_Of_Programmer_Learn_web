@@ -1,7 +1,7 @@
-import styles from "./css/favoriteUser.module.css"
+import styles from "../css/favoriteUser.module.css"
 import { CircularProgress } from '@mui/material';
 import { motion } from "framer-motion"
-import { container, item } from "../StyleAnimation"
+import { container, item } from "../../StyleAnimation"
 
 
 const ShowCount = ({ img, count, typeCount }) => {

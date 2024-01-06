@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from "../profileUser/css/favoriteUser.module.css"
+import styles from "../../profileUser/css/favoriteUser.module.css"
 import { motion } from "framer-motion"
-import { container, item } from "../StyleAnimation"
+import { container, item } from "../../StyleAnimation"
 import Image from 'next/image'
 import CircularProgress from '@mui/material/CircularProgress';
 

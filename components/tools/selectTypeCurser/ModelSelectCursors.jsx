@@ -3,19 +3,12 @@ import styles from "./modelSelectCursor.module.css";
 import { motion } from "framer-motion";
 import { container, item } from "../../StyleAnimation";
 import dataOptionsCurser from "./jsonSelectCursor/JsonOptionsCursor.json";
+import { applyCursorUserChoose } from "./function/ApplyCursor";
 
 
 const ModelSelectCursors = ({ hide }) => {
 
 
-  const applyCursorUserChoose = (urlImage) => {
-    
-    document.body.style.cursor = `url(${urlImage}), pointer`;
-    sessionStorage.setItem("typeCursor", urlImage);
-    hide();
-  };
-
-    
   return (
     <div className={styles.positionPopUp}>
       <motion.div
@@ -43,7 +36,7 @@ const ModelSelectCursors = ({ hide }) => {
             >
               <img
                 src={item.LinkImage}
-                onClick={() => applyCursorUserChoose(item.LinkImage)}
+                onClick={() => applyCursorUserChoose(item.LinkImage, hide)}
               />
             </motion.div>
           ))}

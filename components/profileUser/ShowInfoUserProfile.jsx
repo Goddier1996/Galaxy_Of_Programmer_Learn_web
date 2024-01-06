@@ -41,4 +41,4 @@ const ShowInfoUserProfile = ({ hideSignInFun, name, avatarUser, login }) => {
     )
 }
 
-export default ShowInfoUserProfile
+export default ShowInfoUserProfile;

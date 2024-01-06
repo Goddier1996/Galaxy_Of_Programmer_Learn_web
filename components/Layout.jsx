@@ -9,7 +9,6 @@ const Footer = dynamic(() => import('./footer/Footer'), {
 })
 
 
-
 const Layout = ({ children }) => {
 
 

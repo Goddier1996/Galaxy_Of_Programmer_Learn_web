@@ -74,7 +74,6 @@ const Header = () => {
             <Container variants={item} maxWidth="xl">
               <Toolbar disableGutters>
 
-
                 {/* RESPONSIVE screen mobile */}
                 <ResponsiveMenu
                   SaveDataUserFromSessionStorage={
@@ -84,7 +83,6 @@ const Header = () => {
                   handleShowModelRegister={handleShowModelRegister}
                 />
 
-                
                 {/* DESKTOP screen */}
                 <DesktopMenu
                   SaveDataUserFromSessionStorage={
@@ -95,7 +93,6 @@ const Header = () => {
                   handleShowModelProfileUser={handleShowModelProfileUser}
                 />
 
-                
                 {/* show SELECT Curser style */}
                 <Box sx={{ flexGrow: 0, display: { xs: "none", md: "flex" } }}>
                   <SelectCurser
@@ -119,7 +116,6 @@ const Header = () => {
       </motion.div>
 
       
-
       {/* model popup show Register */}
       <Modal open={showModelRegister}>
         <>

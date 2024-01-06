@@ -1,4 +1,4 @@
-import ShowCountAllItemsImApp from "../components/infoAboutApp/ShowCountAllItemsImApp"
+import ShowCountAllItemsImApp from "../components/infoAboutApp/showCountInfo/ShowCountAllItemsImApp"
 import { motion } from "framer-motion"
 import { container } from "../components/StyleAnimation"
 import TitleInfoAbout from "../components/infoAboutApp/TitleInfoAbout"

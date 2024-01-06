@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 import { container, item } from "../StyleAnimation"
 import Image from 'next/image'
 import { favoriteSaveIdUserFIle, favoriteSaveIdUserVideo, favoriteSaveIdUserLink } from "../../api-helpers/frontend/utils"
-import ShowCount from './ShowCount';
+import ShowCount from './showCountItemsFavorite/ShowCount';
 import ShowLinkCategoryLearn from '../category/links/ShowLinkCategoryLearn';
 import ShowFilleCategoryLearn from '../category/files/ShowFilleCategoryLearn';
 import ShowVideoCategoryLearn from '../category/video/ShowVideoCategoryLearn';

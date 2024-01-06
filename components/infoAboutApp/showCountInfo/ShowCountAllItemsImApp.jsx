@@ -1,6 +1,6 @@
-import styles from "../profileUser/css/favoriteUser.module.css"
+import styles from "../../profileUser/css/favoriteUser.module.css"
 import { useEffect, useState } from "react"
-import { getAllCategories, getCategoryAllInfoVideoLearn, getCategoryAllInfoLinkLearn, getCategoryAllInfoFilesLearn, getAllUsers } from "../../api-helpers/frontend/utils"
+import { getAllCategories, getCategoryAllInfoVideoLearn, getCategoryAllInfoLinkLearn, getCategoryAllInfoFilesLearn, getAllUsers } from "../../../api-helpers/frontend/utils"
 import ModelCountAndType from "./ModelCountAndType"
 
 
