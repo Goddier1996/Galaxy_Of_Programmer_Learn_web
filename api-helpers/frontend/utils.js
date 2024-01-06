@@ -235,8 +235,7 @@ export const checkIfUserHaveThisFavorite = async (idUser, idFavorite) => {
     const data = await res.data;
     const typeFavorite = data.filter((data) => data.idFavorite === idFavorite);
 
-    // sessionStorage.setItem("favorite", JSON.stringify(typeFavorite));
-    return typeFavorite;
+    sessionStorage.setItem("favorite", JSON.stringify(typeFavorite));
 }
 
 

@@ -15,7 +15,6 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
 
 
     const [dataUser, setDataUser] = useState({});
-    const [checkIfHaveFavorite, setCheckIfHaveFavorite] = useState({});
 
 
     const SaveFavorite = async () => {
@@ -25,22 +24,21 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
             let idUser = dataUser._id;
 
             await checkIfUserHaveThisFavorite(idUser, idFavorite)
-                .then((data)=>setCheckIfHaveFavorite(data))
                 .then(() => {
 
-                    // let favoriteData = JSON.parse(window.sessionStorage.getItem("favorite"));
+                    let favoriteData = JSON.parse(window.sessionStorage.getItem("favorite"));
 
-                    if (checkIfHaveFavorite.length === 0) {
+                    if (favoriteData.length === 0) {
 
                         addUserFavorite(favorite, title, type, idUser, idFavorite)
                             .then(() => { setShowAlertUserAddFavorite(true) })
-                            // .then(() => { sessionStorage.removeItem("favorite") })
+                            .then(() => { sessionStorage.removeItem("favorite") })
                             .catch(err => console.log(err));
                     }
 
                     else {
                         setShowAlertUserHaveThisFavorite(true)
-                        // sessionStorage.removeItem("favorite");
+                        sessionStorage.removeItem("favorite");
                     }
                 })
                 .catch((err) => console.log(err));
