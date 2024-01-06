@@ -7,7 +7,7 @@ import { SaveFavorite } from './function/SaveFavoride';
 
 
 
-const UserSaveFavorite = ( favorite, title, type, idFavorite ) => {
+const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
 
 
     const [showAlertUserAddFavorite, setShowAlertUserAddFavorite] = useState(false);
@@ -73,7 +73,7 @@ const UserSaveFavorite = ( favorite, title, type, idFavorite ) => {
             <b className={styles.SaveBookMarkInfoUser}>
                 <BookmarkAddIcon onClick={()=>SaveFavorite(
 
-idFavorite={idFavorite}
+idFavorite={title}
                 )} className={styles.buttonSave} />
             </b>
 
