@@ -63,7 +63,6 @@ const ShowLinkCategoryLearn = ({ idCategoryLink, howUse }) => {
                                     {((InfoCategoryLinkLearn.length !== 0) ?
                                         <>
                                             {InfoCategoryLinkLearn.map((linksInfo) => (
-
                                                 <>
                                                     {howUse == "info" ?
                                                         <ShowFilesAndLinks
@@ -72,6 +71,7 @@ const ShowLinkCategoryLearn = ({ idCategoryLink, howUse }) => {
                                                             typeShow={"link"}
                                                             title={linksInfo.titlelinkWebSite}
                                                             link={linksInfo.linkWebSiteLearn}
+                                                            use={howUse}
                                                         />
                                                         :
                                                         howUse == "user" ?
@@ -81,6 +81,7 @@ const ShowLinkCategoryLearn = ({ idCategoryLink, howUse }) => {
                                                                 typeShow={"link"}
                                                                 title={linksInfo.title}
                                                                 link={linksInfo.favorite}
+                                                                use={howUse}
                                                             /> : ""
                                                     }
                                                 </>

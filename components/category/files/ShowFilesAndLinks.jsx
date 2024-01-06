@@ -13,7 +13,6 @@ const ShowFilesAndLinks = ({ data, count, typeShow, title, link, use }) => {
   const { _id, type } = data;
 
     
-    
   return (
     <TableRow key={_id} style={{ borderBottom: "2px solid #b0c4cf" }}>
       <TableCell style={{ color: "white" }} align="center">
@@ -24,6 +23,7 @@ const ShowFilesAndLinks = ({ data, count, typeShow, title, link, use }) => {
         <p className={styles.fileLinkAboutCategory}>{title}</p>
       </TableCell>
 
+          
       <TableCell style={{ color: "white" }} align="center">
         <div className={styles.fileLinkAboutCategory}>
           <a target="_blank" href={link}>
@@ -38,6 +38,7 @@ const ShowFilesAndLinks = ({ data, count, typeShow, title, link, use }) => {
         </div>
       </TableCell>
 
+          
       <TableCell style={{ color: "white" }} align="center">
         <Typography className={styles.fileLinkAboutCategory}>
           {use == "info" ? (
