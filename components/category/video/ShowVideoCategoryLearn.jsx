@@ -6,7 +6,6 @@ import ShowVideos from "./ShowVideos";
 import { favoriteSaveIdUserVideo } from "../../../api-helpers/frontend/utils";
 
 
-
 const ShowVideoCategoryLearn = ({ idCategoryVideo, howUse }) => {
 
 
@@ -14,47 +13,44 @@ const ShowVideoCategoryLearn = ({ idCategoryVideo, howUse }) => {
   const [loadingVideo, setLoadingVideo] = useState(false);
 
 
-  const loadingDataVideoInfo = () => {
-    
+
+  useEffect(() => {
+
     const controller = new AbortController();
 
     setLoadingVideo(true);
 
     switch (howUse) {
-        case "userProfile":
-            favoriteSaveIdUserVideo(idCategoryVideo, { signal: controller.signal })
-            .then((data) => setInfoCategoryVideoLearn(data))
-            .then(() => setLoadingVideo(false))
-                .catch((err) => console.log(err))
-            break;
-            case "info":
-                getCategoryIdInfoVideoLearn(idCategoryVideo, { signal: controller.signal })
-                    .then((dataCategory) => setInfoCategoryVideoLearn(dataCategory))
-                    .then(() => setLoadingVideo(false))
-                .catch((err) => console.log(err))
-            break;
-        default:
-            console.log("not have any data")
+      case "userProfile":
+        favoriteSaveIdUserVideo(idCategoryVideo, { signal: controller.signal })
+          .then((data) => setInfoCategoryVideoLearn(data))
+          .then(() => setLoadingVideo(false))
+          .catch((err) => console.log(err));
+        break;
+      case "info":
+        getCategoryIdInfoVideoLearn(idCategoryVideo, {
+          signal: controller.signal,
+        })
+          .then((dataCategory) => setInfoCategoryVideoLearn(dataCategory))
+          .then(() => setLoadingVideo(false))
+          .catch((err) => console.log(err));
+        break;
+      default:
+        console.log("not have any data");
     }
 
     return () => {
       controller.abort();
     };
-  }
-    
-    
-  useEffect(() => {
 
-    loadingDataVideoInfo()
-    
   }, [idCategoryVideo]);
 
-    
-    
+
+
   return (
     <Box>
       <div className={styles.line}>
-        {(loadingVideo) ? (
+        {loadingVideo ? (
           <div
             style={{ color: "gray", display: "flex", justifyContent: "center" }}
           >
@@ -62,7 +58,7 @@ const ShowVideoCategoryLearn = ({ idCategoryVideo, howUse }) => {
           </div>
         ) : (
           <div className={styles.StyleAllShowData}>
-            {(InfoCategoryVideoLearn.length !== 0) ? (
+            {InfoCategoryVideoLearn.length !== 0 ? (
               <>
                 {InfoCategoryVideoLearn.map((InfoCategoryVideo) => (
                   <ShowVideos data={InfoCategoryVideo} use={howUse} />
