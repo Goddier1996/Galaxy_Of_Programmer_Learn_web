@@ -30,7 +30,6 @@ export const SaveFavorite = async (dataInfoSave, setShowAlertUserAddFavorite, se
     }
 
     else {
-        // setShowAlertUserNeedConnectToAddFavorite(true)
-        alert("no")
+        setShowAlertUserNeedConnectToAddFavorite(true)
     }
 }
