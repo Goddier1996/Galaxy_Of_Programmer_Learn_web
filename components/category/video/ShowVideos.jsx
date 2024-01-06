@@ -6,7 +6,7 @@ import UserDeleteFavorite from "../../profileUser/UserDeleteFavorite";
 
 const ShowVideos = ({ data, use }) => {
 
-
+  
   return (
     <div className={styles.videoInfoCategory} key={data._id}>
       <p>

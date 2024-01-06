@@ -13,52 +13,40 @@ const ShowVideoCategoryLearn = ({ idCategoryVideo, howUse }) => {
   const [InfoCategoryVideoLearn, setInfoCategoryVideoLearn] = useState([]);
   const [loadingVideo, setLoadingVideo] = useState(false);
 
+
+  const loadingDataVideoInfo = () => {
     
-    
-  useEffect(() => {
     const controller = new AbortController();
 
     setLoadingVideo(true);
 
-    // show if howUse = userProfile , we show in profile , or info show in page info category
-    {
-      howUse == "user"
-        ? favoriteSaveIdUserVideo(idCategoryVideo, {
-            signal: controller.signal,
-          })
+    switch (howUse) {
+        case "userProfile":
+            favoriteSaveIdUserVideo(idCategoryVideo, { signal: controller.signal })
             .then((data) => setInfoCategoryVideoLearn(data))
             .then(() => setLoadingVideo(false))
-            .catch((err) => console.log(err))
-        : howUse == "info"
-        ? getCategoryIdInfoVideoLearn(idCategoryVideo, {
-            signal: controller.signal,
-          })
-            .then((dataCategory) => setInfoCategoryVideoLearn(dataCategory))
-            .then(() => setLoadingVideo(false))
-            .catch((err) => console.log(err))
-        : "";
+                .catch((err) => console.log(err))
+            break;
+            case "info":
+                getCategoryIdInfoVideoLearn(idCategoryVideo, { signal: controller.signal })
+                    .then((dataCategory) => setInfoCategoryVideoLearn(dataCategory))
+                    .then(() => setLoadingVideo(false))
+                .catch((err) => console.log(err))
+            break;
+        default:
+            console.log("not have any data")
     }
-
-    // switch (howUse) {
-    //     case "userProfile":
-    //         favoriteSaveIdUserVideo(idCategoryVideo, { signal: controller.signal })
-    //         .then((data) => setInfoCategoryVideoLearn(data))
-    //         .then(() => setLoadingVideo(false))
-    //             .catch((err) => console.log(err))
-    //         break;
-    //         case "info":
-    //             getCategoryIdInfoVideoLearn(idCategoryVideo, { signal: controller.signal })
-    //                 .then((dataCategory) => setInfoCategoryVideoLearn(dataCategory))
-    //                 .then(() => setLoadingVideo(false))
-    //             .catch((err) => console.log(err))
-    //         break;
-    //     default:
-    //         console.log("not have any data")
-    // }
 
     return () => {
       controller.abort();
     };
+  }
+    
+    
+  useEffect(() => {
+
+    loadingDataVideoInfo()
+    
   }, [idCategoryVideo]);
 
     
