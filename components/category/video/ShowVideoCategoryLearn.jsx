@@ -21,7 +21,7 @@ const ShowVideoCategoryLearn = ({ idCategoryVideo, howUse }) => {
     setLoadingVideo(true);
 
     switch (howUse) {
-      case "userProfile":
+      case "user":
         favoriteSaveIdUserVideo(idCategoryVideo, { signal: controller.signal })
           .then((data) => setInfoCategoryVideoLearn(data))
           .then(() => setLoadingVideo(false))
