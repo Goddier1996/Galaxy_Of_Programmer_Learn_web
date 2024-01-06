@@ -1,26 +1,22 @@
 import { useState } from "react";
-import { Snackbar, Alert } from "@mui/material";
 import BookmarkAddIcon from "@mui/icons-material/BookmarkAdd";
 import styles from "../infoCategoryPage.module.css";
 import { SaveFavorite } from "./function/SaveFavoride";
-import ShowAlertFavorite from "./alerts/ShowAlertFavorite";
-
 
 
 const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
 
 
   const [showAlertUserAddFavorite, setShowAlertUserAddFavorite] =
-        useState(false);
-    
+    useState(false);
+
   const [
     showAlertUserNeedConnectToAddFavorite,
     setShowAlertUserNeedConnectToAddFavorite,
-    ] = useState(false);
-    
+  ] = useState(false);
+
   const [showAlertUserHaveThisFavorite, setShowAlertUserHaveThisFavorite] =
     useState(false);
-
 
   const [dataInfoSave] = useState({
     favorite: favorite,
@@ -29,6 +25,7 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
     idFavorite: idFavorite,
   });
 
+    
     
   return (
     <>
@@ -47,31 +44,34 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
       </b>
 
       {showAlertUserAddFavorite && (
-    <ShowAlertFavorite
-      showAlert={()=>showAlertUserAddFavorite()}
-      setShow={() => setShowAlertUserAddFavorite()}
-      text={"favorite save"}
-      type={type}
-    />
-  )}
+        <ShowAlertFavorite
+          showAlert={showAlertUserAddFavorite}
+          setShow={() => setShowAlertUserAddFavorite}
+          text={"favorite save"}
+          type={type}
+          title={title}
+        />
+      )}
 
-  {showAlertUserNeedConnectToAddFavorite && (
-    <ShowAlertFavorite
-      showAlert={()=>showAlertUserNeedConnectToAddFavorite()}
-      setShow={() => setShowAlertUserNeedConnectToAddFavorite()}
-      text={"Please SignIn Or Register"}
-      type={""}
-    />
-  )}
+      {showAlertUserNeedConnectToAddFavorite && (
+        <ShowAlertFavorite
+          showAlert={showAlertUserNeedConnectToAddFavorite}
+          setShow={() => setShowAlertUserNeedConnectToAddFavorite}
+          text={"Please SignIn Or Register"}
+          type={""}
+          title={""}
+        />
+      )}
 
-  {showAlertUserHaveThisFavorite && (
-    <ShowAlertFavorite
-      showAlert={()=>showAlertUserHaveThisFavorite()}
-      setShow={() => setShowAlertUserHaveThisFavorite()}
-      text={"You Have This Favorite"}
-      type={""}
-    />
-  )}
+      {showAlertUserHaveThisFavorite && (
+        <ShowAlertFavorite
+          showAlert={showAlertUserHaveThisFavorite}
+          setShow={() => setShowAlertUserHaveThisFavorite}
+          text={"You Have This Favorite"}
+          type={""}
+          title={""}
+        />
+      )}
     </>
   );
 };

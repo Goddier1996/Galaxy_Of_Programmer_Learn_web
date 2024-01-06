@@ -1,7 +1,8 @@
 import { Snackbar, Alert } from "@mui/material";
 
 
-const ShowAlertFavorite = ({ showAlert, setShow, text, type }) => {
+
+const ShowAlertFavorite = ({ showAlert, setShow, text, type, title }) => {
 
   return (
     <Snackbar
@@ -18,7 +19,7 @@ const ShowAlertFavorite = ({ showAlert, setShow, text, type }) => {
       >
         {text ? text : ""} {type ? type : ""}
         <br />
-        {title}
+        {title ? title : ""}
       </Alert>
     </Snackbar>
   );
