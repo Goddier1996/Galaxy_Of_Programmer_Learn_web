@@ -1,8 +1,15 @@
-import React from 'react'
+import React from "react";
 import { Snackbar, Alert } from "@mui/material";
 
 
-const ShowAlertFavorite = ({ showAlert, setShow, text, type, title,typeAlert }) => {
+const ShowAlertFavorite = ({
+  showAlert,
+  setShow,
+  text,
+  type,
+  title,
+  typeAlert,
+}) => {
 
   return (
     <Snackbar
