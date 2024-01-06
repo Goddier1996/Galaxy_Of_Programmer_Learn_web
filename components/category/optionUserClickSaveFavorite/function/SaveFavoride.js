@@ -5,7 +5,7 @@ export const SaveFavorite = async (idFavorite) => {
 
     
     let userData = JSON.parse(window.sessionStorage.getItem('user'))
-    alert(dataUser._id)
+    alert(userData._id)
     // if (userData) {
 
     //             let idUser = dataUser._id;
