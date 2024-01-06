@@ -1,7 +1,6 @@
 import { Snackbar, Alert } from "@mui/material";
 
 
-
 const ShowAlertFavorite = ({ showAlert, setShow, text, type, title }) => {
 
   return (

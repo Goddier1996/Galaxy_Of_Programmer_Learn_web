@@ -2,6 +2,7 @@ import { useState } from "react";
 import BookmarkAddIcon from "@mui/icons-material/BookmarkAdd";
 import styles from "../infoCategoryPage.module.css";
 import { SaveFavorite } from "./function/SaveFavoride";
+import ShowAlertFavorite from "./alerts/ShowAlertFavorite";
 
 
 const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
