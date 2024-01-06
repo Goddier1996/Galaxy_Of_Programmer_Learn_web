@@ -3,6 +3,7 @@ import { Snackbar, Alert } from '@mui/material';
 import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
 import styles from "../infoCategoryPage.module.css"
 import { addUserFavorite, checkIfUserHaveThisFavorite } from '../../../api-helpers/frontend/utils';
+import { SaveFavorite } from './function/SaveFavoride';
 
 
 
@@ -17,37 +18,37 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
     const [dataUser, setDataUser] = useState({});
 
 
-    const SaveFavorite = async () => {
+    // const SaveFavorite = async () => {
 
-        if (dataUser) {
+    //     if (dataUser) {
 
-            let idUser = dataUser._id;
+    //         let idUser = dataUser._id;
 
-            await checkIfUserHaveThisFavorite(idUser, idFavorite)
-                .then(() => {
+    //         await checkIfUserHaveThisFavorite(idUser, idFavorite)
+    //             .then(() => {
 
-                    let favoriteData = JSON.parse(window.sessionStorage.getItem("favorite"));
+    //                 let favoriteData = JSON.parse(window.sessionStorage.getItem("favorite"));
 
-                    if (favoriteData.length === 0) {
+    //                 if (favoriteData.length === 0) {
 
-                        addUserFavorite(favorite, title, type, idUser, idFavorite)
-                            .then(() => { setShowAlertUserAddFavorite(true) })
-                            .then(() => { sessionStorage.removeItem("favorite") })
-                            .catch(err => console.log(err));
-                    }
+    //                     addUserFavorite(favorite, title, type, idUser, idFavorite)
+    //                         .then(() => { setShowAlertUserAddFavorite(true) })
+    //                         .then(() => { sessionStorage.removeItem("favorite") })
+    //                         .catch(err => console.log(err));
+    //                 }
 
-                    else {
-                        setShowAlertUserHaveThisFavorite(true)
-                        sessionStorage.removeItem("favorite");
-                    }
-                })
-                .catch((err) => console.log(err));
-        }
+    //                 else {
+    //                     setShowAlertUserHaveThisFavorite(true)
+    //                     sessionStorage.removeItem("favorite");
+    //                 }
+    //             })
+    //             .catch((err) => console.log(err));
+    //     }
 
-        else {
-            setShowAlertUserNeedConnectToAddFavorite(true)
-        }
-    }
+    //     else {
+    //         setShowAlertUserNeedConnectToAddFavorite(true)
+    //     }
+    // }
 
 
 
@@ -70,7 +71,10 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
     return (
         <>
             <b className={styles.SaveBookMarkInfoUser}>
-                <BookmarkAddIcon onClick={SaveFavorite} className={styles.buttonSave} />
+                <BookmarkAddIcon onClick={()=>SaveFavorite(
+
+idFavorite={idFavorite}
+                )} className={styles.buttonSave} />
             </b>
 
 
