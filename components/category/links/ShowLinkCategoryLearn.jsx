@@ -22,8 +22,7 @@ const ShowLinkCategoryLearn = ({ idCategoryLink, howUse }) => {
 
         setLoadingLink(true)
 
-        {
-            howUse == "user" ?
+        {howUse == "user" ?
                 favoriteSaveIdUserLink(idCategoryLink, { signal: controller.signal })
                     .then((data) => setInfoCategoryLinkLearn(data))
                     .then(() => setLoadingLink(false))
@@ -47,7 +46,6 @@ const ShowLinkCategoryLearn = ({ idCategoryLink, howUse }) => {
 
 
     return (
-        <>
             <Box>
                 {(loadingLink) ?
                     <div style={{ color: "gray", display: "flex", justifyContent: "center" }}>
@@ -98,7 +96,6 @@ const ShowLinkCategoryLearn = ({ idCategoryLink, howUse }) => {
                     </div>
                 }
             </Box>
-        </>
     )
 }
 

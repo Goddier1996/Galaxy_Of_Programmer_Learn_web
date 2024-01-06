@@ -66,7 +66,7 @@ const ShowVideoCategoryLearn = ({ idCategoryVideo, howUse }) => {
   return (
     <Box>
       <div className={styles.line}>
-        {loadingVideo ? (
+        {(loadingVideo) ? (
           <div
             style={{ color: "gray", display: "flex", justifyContent: "center" }}
           >
@@ -74,7 +74,7 @@ const ShowVideoCategoryLearn = ({ idCategoryVideo, howUse }) => {
           </div>
         ) : (
           <div className={styles.StyleAllShowData}>
-            {InfoCategoryVideoLearn.length !== 0 ? (
+            {(InfoCategoryVideoLearn.length !== 0) ? (
               <>
                 {InfoCategoryVideoLearn.map((InfoCategoryVideo) => (
                   <ShowVideos data={InfoCategoryVideo} use={howUse} />

@@ -11,7 +11,6 @@ const TabsInfoCategory = dynamic(() => import('../tabsInfo/TabsInfoCategory'), {
 const InfoCategory = ({ data }) => {
 
   return (
-
     <>
       {(data.codeCategory) ?
         <>
