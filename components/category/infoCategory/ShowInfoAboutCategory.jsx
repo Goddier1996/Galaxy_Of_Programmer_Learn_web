@@ -4,7 +4,6 @@ import Image from "next/image";
 import styles from "../infoCategoryPage.module.css";
 
 
-
 const ShowInfoAboutCategory = ({ data }) => {
 
 

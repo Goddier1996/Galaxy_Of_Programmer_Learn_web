@@ -13,36 +13,39 @@ const ShowFilleCategoryLearn = ({ idCategoryFille, howUse }) => {
   const [InfoCategoryFileLearn, setInfoCategoryFileLearn] = useState([]);
   const [loadingFIle, setLoadingFIle] = useState(false);
 
-    
-    
+
+
   useEffect(() => {
+
     const controller = new AbortController();
 
     setLoadingFIle(true);
 
-    {
-      howUse == "user"
-        ? favoriteSaveIdUserFIle(idCategoryFille, { signal: controller.signal })
-            .then((data) => setInfoCategoryFileLearn(data))
-            .then(() => setLoadingFIle(false))
-            .catch((err) => console.log(err))
-        : howUse == "info"
-        ? getCategoryIdInfoFilesLearn(idCategoryFille, {
-            signal: controller.signal,
-          })
-            .then((dataCategory) => setInfoCategoryFileLearn(dataCategory))
-            .then(() => setLoadingFIle(false))
-            .catch((err) => console.log(err))
-        : "";
+    switch (howUse) {
+      case "user":
+        favoriteSaveIdUserFIle(idCategoryFille, { signal: controller.signal })
+          .then((data) => setInfoCategoryFileLearn(data))
+          .then(() => setLoadingFIle(false))
+          .catch((err) => console.log(err));
+        break;
+      case "info":
+        getCategoryIdInfoFilesLearn(idCategoryFille, {
+          signal: controller.signal,
+        })
+          .then((dataCategory) => setInfoCategoryFileLearn(dataCategory))
+          .then(() => setLoadingFIle(false))
+          .catch((err) => console.log(err));
+        break;
+      default:
+        console.log("not have any data");
     }
 
     return () => {
       controller.abort();
     };
+
   }, [idCategoryFille]);
 
-    
-    
   return (
     <Box>
       {loadingFIle ? (
