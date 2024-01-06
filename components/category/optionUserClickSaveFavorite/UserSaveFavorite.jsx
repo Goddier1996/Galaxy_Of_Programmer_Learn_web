@@ -9,36 +9,40 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
 
 
   const [showAlertUserAddFavorite, setShowAlertUserAddFavorite] =
-        useState(false);
-    
+    useState(false);
+
   const [
     showAlertUserNeedConnectToAddFavorite,
     setShowAlertUserNeedConnectToAddFavorite,
-    ] = useState(false);
-    
+  ] = useState(false);
+
   const [showAlertUserHaveThisFavorite, setShowAlertUserHaveThisFavorite] =
     useState(false);
 
   const [dataUser, setDataUser] = useState({});
+  const [dataInfoSave, setDataInfoSave] = useState({});
 
-  const dataInfoSave = {
-    favorite: favorite,
-    title: title,
-    type: type,
-    idFavorite: idFavorite,
-  };
-
+    
     
   useEffect(() => {
     let userData = JSON.parse(window.sessionStorage.getItem("user"));
 
     if (userData != null) {
       setDataUser(userData.connectUser);
+      
+      setDataInfoSave({
+        favorite: favorite,
+        title: title,
+        type: type,
+        idFavorite: idFavorite,
+      });
+        
     } else {
       setDataUser();
     }
   }, []);
 
+    
     
   return (
     <>
@@ -61,7 +65,7 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
       {showAlertUserAddFavorite && (
         <ShowAlertFavorite
           showAlert={showAlertUserAddFavorite}
-          setShow={setShowAlertUserAddFavorite}
+          setShow={() => setShowAlertUserAddFavorite}
           text={null}
           type={type}
         />
@@ -70,7 +74,7 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
       {showAlertUserNeedConnectToAddFavorite && (
         <ShowAlertFavorite
           showAlert={showAlertUserNeedConnectToAddFavorite}
-          setShow={setShowAlertUserNeedConnectToAddFavorite}
+          setShow={() => setShowAlertUserNeedConnectToAddFavorite}
           text={"Please SignIn Or Register"}
           type={null}
         />
@@ -79,7 +83,7 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
       {showAlertUserHaveThisFavorite && (
         <ShowAlertFavorite
           showAlert={showAlertUserHaveThisFavorite}
-          setShow={setShowAlertUserHaveThisFavorite}
+          setShow={() => setShowAlertUserHaveThisFavorite}
           text={"You Have This Favorite"}
           type={null}
         />
@@ -87,6 +91,5 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
     </>
   );
 };
-
 
 export default UserSaveFavorite;
