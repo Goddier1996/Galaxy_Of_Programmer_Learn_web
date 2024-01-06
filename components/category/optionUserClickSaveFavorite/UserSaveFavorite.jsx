@@ -63,6 +63,7 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
         else {
             setDataUser()
         }
+        alert(idFavorite)
 
     }, [])
 
