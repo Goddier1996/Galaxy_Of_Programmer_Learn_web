@@ -166,12 +166,7 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
     const [showAlertUserHaveThisFavorite, setShowAlertUserHaveThisFavorite] = useState(false);
 
 
-    const [dataInfoSave] = useState({
-        favorite: favorite,
-        title: title,
-        type: type,
-        idFavorite:idFavorite
-    });
+
 
 
 
@@ -182,7 +177,7 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
             <b className={styles.SaveBookMarkInfoUser}>
                 <BookmarkAddIcon
                     onClick={
-                        ()=>SaveFavorite(dataInfoSave, setShowAlertUserAddFavorite, setShowAlertUserHaveThisFavorite, setShowAlertUserNeedConnectToAddFavorite)
+                        ()=>SaveFavorite(favorite,title,type,idFavorite,setShowAlertUserAddFavorite, setShowAlertUserHaveThisFavorite, setShowAlertUserNeedConnectToAddFavorite)
                 } className={styles.buttonSave} />
             </b>
 
