@@ -1,68 +1,80 @@
-import { useEffect, useState } from "react";
-import BookmarkAddIcon from "@mui/icons-material/BookmarkAdd";
-import styles from "../infoCategoryPage.module.css";
-import { SaveFavorite } from "./function/SaveFavoride";
-import ShowAlertFavorite from "./alerts/ShowAlertFavorite";
+import { useEffect, useState } from 'react'
+import { Snackbar, Alert } from '@mui/material';
+import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
+import styles from "../infoCategoryPage.module.css"
+import { addUserFavorite, checkIfUserHaveThisFavorite } from '../../../api-helpers/frontend/utils';
+
 
 
 const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
 
 
-  const [showAlertUserAddFavorite, setShowAlertUserAddFavorite] =
-    useState(false);
+    const [showAlertUserAddFavorite, setShowAlertUserAddFavorite] = useState(false);
+    const [showAlertUserNeedConnectToAddFavorite, setShowAlertUserNeedConnectToAddFavorite] = useState(false);
+    const [showAlertUserHaveThisFavorite, setShowAlertUserHaveThisFavorite] = useState(false);
 
-  const [
-    showAlertUserNeedConnectToAddFavorite,
-    setShowAlertUserNeedConnectToAddFavorite,
-  ] = useState(false);
 
-  const [showAlertUserHaveThisFavorite, setShowAlertUserHaveThisFavorite] =
-    useState(false);
+    const [dataUser, setDataUser] = useState({});
 
-  const [dataUser, setDataUser] = useState({});
-  const [dataInfoSave, setDataInfoSave] = useState({});
 
-    
-    
-  useEffect(() => {
-    let userData = JSON.parse(window.sessionStorage.getItem("user"));
+    const SaveFavorite = async () => {
 
-    if (userData != null) {
-      setDataUser(userData.connectUser);
-      
-      setDataInfoSave({
-        favorite: favorite,
-        title: title,
-        type: type,
-        idFavorite: idFavorite,
-      });
-        
-    } else {
-      setDataUser();
+        if (dataUser) {
+
+            let idUser = dataUser._id;
+
+            await checkIfUserHaveThisFavorite(idUser, idFavorite)
+                .then(() => {
+
+                    let favoriteData = JSON.parse(window.sessionStorage.getItem("favorite"));
+
+                    if (favoriteData.length === 0) {
+
+                        addUserFavorite(favorite, title, type, idUser, idFavorite)
+                            .then(() => { setShowAlertUserAddFavorite(true) })
+                            .then(() => { sessionStorage.removeItem("favorite") })
+                            .catch(err => console.log(err));
+                    }
+
+                    else {
+                        setShowAlertUserHaveThisFavorite(true)
+                        sessionStorage.removeItem("favorite");
+                    }
+                })
+                .catch((err) => console.log(err));
+        }
+
+        else {
+            setShowAlertUserNeedConnectToAddFavorite(true)
+        }
     }
-  }, []);
 
-    
-    
-  return (
-    <>
-      {/* here save data to Favorite user */}
-      <b className={styles.SaveBookMarkInfoUser}>
-        <BookmarkAddIcon
-          onClick={() =>
-            SaveFavorite(
-              dataUser,
-              dataInfoSave,
-              setShowAlertUserAddFavorite,
-              setShowAlertUserHaveThisFavorite,
-              setShowAlertUserNeedConnectToAddFavorite
-            )
-          }
-          className={styles.buttonSave}
-        />
-      </b>
 
-      {showAlertUserAddFavorite && (
+
+    useEffect(() => {
+
+        let userData = JSON.parse(window.sessionStorage.getItem('user'))
+
+        if (userData != null) {
+            setDataUser(userData.connectUser);
+        }
+
+        else {
+            setDataUser()
+        }
+
+    }, [])
+
+
+
+    return (
+        <>
+            <b className={styles.SaveBookMarkInfoUser}>
+                <BookmarkAddIcon onClick={SaveFavorite} className={styles.buttonSave} />
+            </b>
+
+
+            {showAlertUserAddFavorite && (
         <ShowAlertFavorite
           showAlert={showAlertUserAddFavorite}
           setShow={() => setShowAlertUserAddFavorite}
@@ -88,8 +100,13 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
           type={null}
         />
       )}
-    </>
-  );
-};
 
-export default UserSaveFavorite;
+
+            
+        </>
+    )
+}
+
+
+
+export default UserSaveFavorite
