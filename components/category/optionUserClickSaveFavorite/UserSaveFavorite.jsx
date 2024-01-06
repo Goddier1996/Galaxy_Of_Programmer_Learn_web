@@ -63,7 +63,6 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
         else {
             setDataUser()
         }
-        alert(idFavorite)
 
     }, [])
 
@@ -74,7 +73,7 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
             <b className={styles.SaveBookMarkInfoUser}>
                 <BookmarkAddIcon onClick={()=>SaveFavorite(
 
-idFavorite={idFavorite}
+idFavorite
                 )} className={styles.buttonSave} />
             </b>
 
