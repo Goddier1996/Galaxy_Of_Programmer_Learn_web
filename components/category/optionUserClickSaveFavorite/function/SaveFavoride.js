@@ -6,29 +6,31 @@ export const SaveFavorite = async (dataInfoSave, setShowAlertUserAddFavorite, se
     let userData = JSON.parse(window.sessionStorage.getItem('user'))
 
     if (userData) {
+        alert("yes")
 
-        await checkIfUserHaveThisFavorite(userData._id, dataInfoSave.idFavorite)
-            .then(() => {
+        // await checkIfUserHaveThisFavorite(userData._id, dataInfoSave.idFavorite)
+        //     .then(() => {
 
-                let favoriteData = JSON.parse(window.sessionStorage.getItem("favorite"));
+        //         let favoriteData = JSON.parse(window.sessionStorage.getItem("favorite"));
 
-                if (favoriteData.length === 0) {
+        //         if (favoriteData.length === 0) {
 
-                    addUserFavorite(dataInfoSave.favorite, dataInfoSave.title, dataInfoSave.type, userData._id, dataInfoSave.idFavorite)
-                        .then(() => { setShowAlertUserAddFavorite(true) })
-                        .then(() => { sessionStorage.removeItem("favorite") })
-                        .catch(err => console.log(err));
-                }
+        //             addUserFavorite(dataInfoSave.favorite, dataInfoSave.title, dataInfoSave.type, userData._id, dataInfoSave.idFavorite)
+        //                 .then(() => { setShowAlertUserAddFavorite(true) })
+        //                 .then(() => { sessionStorage.removeItem("favorite") })
+        //                 .catch(err => console.log(err));
+        //         }
 
-                else {
-                    setShowAlertUserHaveThisFavorite(true)
-                    sessionStorage.removeItem("favorite");
-                }
-            })
-            .catch((err) => console.log(err));
+        //         else {
+        //             setShowAlertUserHaveThisFavorite(true)
+        //             sessionStorage.removeItem("favorite");
+        //         }
+        //     })
+        //     .catch((err) => console.log(err));
     }
 
     else {
-        setShowAlertUserNeedConnectToAddFavorite(true)
+        // setShowAlertUserNeedConnectToAddFavorite(true)
+        alert("no")
     }
 }
