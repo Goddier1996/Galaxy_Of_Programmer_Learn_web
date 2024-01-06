@@ -44,22 +44,23 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
           }
           className={styles.buttonSave}
         />
-      </b>
+          </b>
+          
       {showAlertUserAddFavorite && (
     <ShowAlertFavorite
-      showAlert={()=>showAlertUserAddFavorite()}
-      setShow={()=>setShowAlertUserAddFavorite()}
+      showAlert={showAlertUserAddFavorite}
+      setShow={()=>setShowAlertUserAddFavorite(false)}
       text={"favorite save"}
-      type={type}
-      title={title}
+      type={dataInfoSave.type}
+      title={dataInfoSave.title}
       typeAlert={"success"}
     />
   )}
 
   {showAlertUserNeedConnectToAddFavorite && (
     <ShowAlertFavorite
-      showAlert={()=>showAlertUserNeedConnectToAddFavorite()}
-      setShow={()=>setShowAlertUserNeedConnectToAddFavorite()}
+      showAlert={showAlertUserNeedConnectToAddFavorite}
+      setShow={()=>setShowAlertUserNeedConnectToAddFavorite(false)}
       text={"Please SignIn Or Register"}
       type={""}
       title={""}
@@ -69,8 +70,8 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
 
   {showAlertUserHaveThisFavorite && (
     <ShowAlertFavorite
-      showAlert={()=>showAlertUserHaveThisFavorite()}
-      setShow={()=>setShowAlertUserHaveThisFavorite()}
+      showAlert={showAlertUserHaveThisFavorite}
+      setShow={()=>setShowAlertUserHaveThisFavorite(false)}
       text={"You Have This Favorite"}
       type={""}
       title={""}
