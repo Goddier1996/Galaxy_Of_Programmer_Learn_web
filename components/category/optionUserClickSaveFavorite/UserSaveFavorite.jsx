@@ -30,7 +30,7 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
             <b className={styles.SaveBookMarkInfoUser}>
                 <BookmarkAddIcon
                     onClick={
-                        SaveFavorite(dataInfoSave, setShowAlertUserAddFavorite, setShowAlertUserHaveThisFavorite, setShowAlertUserNeedConnectToAddFavorite)
+                        ()=>SaveFavorite(dataInfoSave, setShowAlertUserAddFavorite, setShowAlertUserHaveThisFavorite, setShowAlertUserNeedConnectToAddFavorite)
                 } className={styles.buttonSave} />
             </b>
 
