@@ -9,7 +9,6 @@ import ShowFilleCategoryLearn from '../files/ShowFilleCategoryLearn';
 
 
 
-
 const TabsInfoCategory = ({ idCategory }) => {
 
 
@@ -20,17 +19,13 @@ const TabsInfoCategory = ({ idCategory }) => {
     };
 
 
-
     return (
-
-        <>
             <motion.div
                 variants={container}
                 initial="hidden"
                 animate="show"
             >
                 <motion.div variants={item}>
-
                     <Box>
                         <Box>
                             <Tabs
@@ -50,21 +45,17 @@ const TabsInfoCategory = ({ idCategory }) => {
                                 <ShowVideoCategoryLearn idCategoryVideo={idCategory} howUse={"info"} />
                             )}
 
-
                             {tabIndex === 1 && (
                                 <ShowLinkCategoryLearn idCategoryLink={idCategory} howUse={"info"} />
                             )}
 
-
                             {tabIndex === 2 && (
                                 <ShowFilleCategoryLearn idCategoryFille={idCategory} howUse={"info"} />
                             )}
-
                         </Box>
                     </Box>
                 </motion.div>
             </motion.div>
-        </>
     )
 }
 

@@ -23,7 +23,7 @@ const ShowLinkCategoryLearn = ({ idCategoryLink, howUse }) => {
         setLoadingLink(true)
 
         {
-            howUse == "user" ?
+            howUse == "userProfile" ?
                 favoriteSaveIdUserLink(idCategoryLink, { signal: controller.signal })
                     .then((data) => setInfoCategoryLinkLearn(data))
                     .then(() => setLoadingLink(false))
@@ -74,7 +74,7 @@ const ShowLinkCategoryLearn = ({ idCategoryLink, howUse }) => {
                                                             link={linksInfo.linkWebSiteLearn}
                                                         />
                                                         :
-                                                        howUse == "user" ?
+                                                        howUse == "userProfile" ?
                                                             <ShowFilesAndLinks
                                                                 data={linksInfo}
                                                                 count={countLinkInfoCategory++}

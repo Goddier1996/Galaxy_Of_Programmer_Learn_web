@@ -56,7 +56,6 @@ function FavoritesUserId() {
     else {
       setDataUser()
     }
-
   }, [])
 
 
@@ -116,17 +115,17 @@ function FavoritesUserId() {
             <Box >
 
               {tabIndex === 0 && (
-                <ShowVideoCategoryLearn idCategoryVideo={dataUser._id} howUse={"user"} />
+                <ShowVideoCategoryLearn idCategoryVideo={dataUser._id} howUse={"userProfile"} />
               )}
 
 
               {tabIndex === 1 && (
-                <ShowLinkCategoryLearn idCategoryLink={dataUser._id} howUse={"user"} />
+                <ShowLinkCategoryLearn idCategoryLink={dataUser._id} howUse={"userProfile"} />
               )}
 
 
               {tabIndex === 2 && (
-                <ShowFilleCategoryLearn idCategoryFille={dataUser._id} howUse={"user"} />
+                <ShowFilleCategoryLearn idCategoryFille={dataUser._id} howUse={"userProfile"} />
               )}
 
             </Box>

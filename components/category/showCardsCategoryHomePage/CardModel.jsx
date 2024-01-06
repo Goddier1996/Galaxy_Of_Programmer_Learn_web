@@ -8,7 +8,6 @@ import Link from 'next/link'
 const CardModel = ({ data }) => {
 
     return (
-
         <motion.div
             variants={container}
             initial="hidden"
@@ -31,4 +30,4 @@ const CardModel = ({ data }) => {
 }
 
 
-export default CardModel
+export default CardModel;

@@ -15,6 +15,7 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
 
 
     const [dataUser, setDataUser] = useState({});
+    const [checkIfHaveFavorite, setCheckIfHaveFavorite] = useState({});
 
 
     const SaveFavorite = async () => {
@@ -24,21 +25,22 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
             let idUser = dataUser._id;
 
             await checkIfUserHaveThisFavorite(idUser, idFavorite)
+                .then((data)=>setCheckIfHaveFavorite(data))
                 .then(() => {
 
-                    let favoriteData = JSON.parse(window.sessionStorage.getItem("favorite"));
+                    // let favoriteData = JSON.parse(window.sessionStorage.getItem("favorite"));
 
-                    if (favoriteData.length === 0) {
+                    if (!checkIfHaveFavorite) {
 
                         addUserFavorite(favorite, title, type, idUser, idFavorite)
                             .then(() => { setShowAlertUserAddFavorite(true) })
-                            .then(() => { sessionStorage.removeItem("favorite") })
+                            // .then(() => { sessionStorage.removeItem("favorite") })
                             .catch(err => console.log(err));
                     }
 
                     else {
                         setShowAlertUserHaveThisFavorite(true)
-                        sessionStorage.removeItem("favorite");
+                        // sessionStorage.removeItem("favorite");
                     }
                 })
                 .catch((err) => console.log(err));
@@ -50,7 +52,6 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
     }
 
 
-
     useEffect(() => {
 
         let userData = JSON.parse(window.sessionStorage.getItem('user'))
@@ -58,7 +59,6 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
         if (userData != null) {
             setDataUser(userData.connectUser);
         }
-
         else {
             setDataUser()
         }
@@ -66,13 +66,12 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
     }, [])
 
 
-
     return (
         <>
+            {/* here save data to Favorite user */}
             <b className={styles.SaveBookMarkInfoUser}>
                 <BookmarkAddIcon onClick={SaveFavorite} className={styles.buttonSave} />
             </b>
-
 
             {showAlertUserAddFavorite && (
                 <Snackbar

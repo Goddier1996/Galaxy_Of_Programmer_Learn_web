@@ -1,66 +1,86 @@
-import React from 'react'
-import { CircularProgress } from '@mui/material';
-import UserSaveFavorite from '../optionUserClickSaveFavorite/UserSaveFavorite';
-import styles from "../infoCategoryPage.module.css"
-import UserDeleteFavorite from '../../profileUser/UserDeleteFavorite';
+import React from "react";
+import { CircularProgress } from "@mui/material";
+import UserSaveFavorite from "../optionUserClickSaveFavorite/UserSaveFavorite";
+import UserDeleteFavorite from "../../profileUser/UserDeleteFavorite";
+import styles from "../infoCategoryPage.module.css";
 
 
 const ShowVideos = ({ data, use }) => {
 
-    if (use == "info") {
-        var { _id, titleVideo, video, type } = data;
-    }
 
-    if (use == "user") {
-        var { _id, title, favorite, type } = data;
-    }
+  // show if howUse = userProfile , we show in profile , or info show in page info category
+  switch (use) {
+    
+    case "userProfile":
+      favoriteSaveIdUserVideo(idCategoryVideo, { signal: controller.signal });
+      var { _id, title, favorite, type } = data;
+      break;
 
+    case "info":
+      var { _id, titleVideo, video, type } = data;
+      break;
 
-    return (
+    default:
+      console.log("not have any data");
+  }
+
+    
+    
+  return (
+    <>
+      {use == "info" ? (
         <>
-            {use == "info" ?
-                <>
-                    <div className={styles.videoInfoCategory} key={_id}>
-                        {(_id) ?
-                            <>
-                                <p>{titleVideo}
-                                    <UserSaveFavorite
-                                        favorite={video}
-                                        title={titleVideo}
-                                        type={type}
-                                        idFavorite={_id}
-                                    />
-                                </p>
-                                <iframe allowFullScreen='allowFullScreen' src={video} alt="video Learn" />
-                            </>
-                            :
-                            <div style={{ color: "gray" }}>
-                                <CircularProgress color="inherit" size={25} />
-                            </div>
-                        }
-                    </div>
-                </>
-
-                :
-                use == "user" ?
-                    <div className={styles.videoInfoCategory} key={_id}>
-                        {(_id) ?
-                            <>
-                                <p>{title}
-                                    <UserDeleteFavorite id={_id} />
-
-                                </p>
-                                <iframe allowFullScreen='allowFullScreen' src={favorite} alt="video Learn" />
-                            </>
-                            :
-                            <div style={{ color: "gray" }}>
-                                <CircularProgress color="inherit" size={25} />
-                            </div>
-                        }
-                    </div> : ""
-            }
+          <div className={styles.videoInfoCategory} key={_id}>
+            {_id ? (
+              <>
+                <p>
+                  {titleVideo}
+                  <UserSaveFavorite
+                    favorite={video}
+                    title={titleVideo}
+                    type={type}
+                    idFavorite={_id}
+                  />
+                </p>
+                <iframe
+                  allowFullScreen="allowFullScreen"
+                  src={video}
+                  alt="video Learn"
+                />
+              </>
+            ) : (
+              <div style={{ color: "gray" }}>
+                <CircularProgress color="inherit" size={25} />
+              </div>
+            )}
+          </div>
         </>
-    )
-}
+      ) : use == "userProfile" ? (
+        <div className={styles.videoInfoCategory} key={_id}>
+          {_id ? (
+            <>
+              <p>
+                {title}
+                <UserDeleteFavorite id={_id} />
+              </p>
+              <iframe
+                allowFullScreen="allowFullScreen"
+                src={favorite}
+                alt="video Learn"
+              />
+            </>
+          ) : (
+            <div style={{ color: "gray" }}>
+              <CircularProgress color="inherit" size={25} />
+            </div>
+          )}
+        </div>
+      ) : (
+        ""
+      )}
+    </>
+  );
+};
+
 
 export default ShowVideos;

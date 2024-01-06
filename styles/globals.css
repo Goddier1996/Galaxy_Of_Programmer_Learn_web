@@ -12,7 +12,9 @@ body {
   cursor: url("https://i.postimg.cc/q7R0vBGq/cursor-Start-Web.png"), pointer;
 }
 
-
+main {
+  min-height: 100vh;
+}
 
 /* desgin scroll in web */
 html::-webkit-scrollbar-track {
