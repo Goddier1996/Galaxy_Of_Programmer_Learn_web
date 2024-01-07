@@ -36,7 +36,6 @@ const ShowInfoUserProfile = ({ hideSignInFun, name, avatarUser, login }) => {
                 <p>Name : {name}</p>
                 <p>Login : {login}</p>
             </div>
-
         </>
     )
 }

@@ -1,6 +1,5 @@
 import ProfileUser from "../components/profileUser/ProfileUser"
 
-
 const UserProfile = () => {
 
     return (
@@ -10,4 +9,4 @@ const UserProfile = () => {
     )
 }
 
-export default UserProfile
+export default UserProfile;

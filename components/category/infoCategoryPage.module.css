@@ -80,9 +80,9 @@
 }
 
 
-.line {
+/* .line {
     margin-bottom: 8%;
-}
+} */
 
 
 .videoInfoCategory p {
@@ -114,9 +114,8 @@
 .buttonSave {
     color: #a0a897;
     margin: 1px 12px;
-    -webkit-transition-duration: 0.4s;
-    /* Safari */
     transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
     cursor: pointer;
     border: none;
     font-size: 26px;
@@ -154,13 +153,13 @@ b.SaveBookMarkInfoUser:hover {
 }
 
 
-.linkInfoCategory a {
+/* .linkInfoCategory a {
     font-size: 18px;
     color: rgba(255, 255, 255, 0.76);
     font-weight: 550;
     letter-spacing: 3px;
     line-height: 52px;
-}
+} */
 
 
 
@@ -189,6 +188,7 @@ b.SaveBookMarkInfoUser:hover {
 .tableStyle {
     display: flex;
     justify-content: center;
+    margin-bottom: 3%;
 }
 
 
@@ -202,8 +202,8 @@ b.SaveBookMarkInfoUser:hover {
     display: flex;
     justify-content: center;
     color: gray;
-    margin-top: 17%;
-    margin-bottom: 17%;
+    margin-top: 3%;
+    margin-bottom: 3%;
 }
 
 .noHaveFiles {
@@ -235,11 +235,9 @@ b.SaveBookMarkInfoUser:hover {
         font-size: 18px;
     }
 
-
     .tabStyle {
         font-size: 13px;
     }
-
 
     .videoInfoCategory p {
         font-size: 11px;

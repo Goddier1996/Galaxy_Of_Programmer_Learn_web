@@ -26,4 +26,4 @@ const InfoCategory = ({ data }) => {
   )
 }
 
-export default InfoCategory
+export default InfoCategory;

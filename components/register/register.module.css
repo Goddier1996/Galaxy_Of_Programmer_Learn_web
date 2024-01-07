@@ -1,9 +1,8 @@
-/* register model */
 .modelRegister {
-  position: absolute;
-  margin-top: 26%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 .animationOpenPopUp {
@@ -28,11 +27,29 @@
   color: white;
   margin-top: -8%;
   margin-bottom: 9%;
+  font-size: 25px;
+}
+
+
+.RegisterInOrCloseButtom {
+  display: flex;
+  justify-content: center;
+}
+
+.RegisterInOrCloseButtom button {
+  font-size: 12px;
+  border-radius: 15px;
+}
+
+
+.header Button {
+  border-radius: 100% 50%;
+  color: rgb(255, 255, 255);
 }
 
 
 .form {
-  width: 500px;
+  width: 400px;
   height: auto;
   background: linear-gradient(rgba(0, 0, 0, 0.268), rgba(0, 0, 0, 0.685)), url("https://i.postimg.cc/kGD23qmH/4955137-31132.jpg");
   background-size: cover;
@@ -41,67 +58,11 @@
 }
 
 
-.RegisterInOrCloseButtom {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.RegisterInOrCloseButtom button {
-  font-size: 14px;
-  border-radius: 15px;
-}
-
-
-.header {
-  margin-bottom: 15px;
-}
-
-.header Button {
-  align-items: center;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  border-radius: 100% 50%;
-  margin-bottom: 2%;
-  color: rgb(255, 255, 255);
-  font-size: 17px;
-}
-
-.form button {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-
-
-.input-group input {
-  background-color: #8ccdeb5a;
-  color: white;
-  font-size: 15px;
-  border-radius: 15px;
-  border: none;
-}
 
 .input span {
-  height: 40px;
+  height: 100%;
   background-color: #b0c4cf;
   border: none;
-}
-
-.input-group input::placeholder {
-  color: rgb(254, 254, 254);
-  font-size: 15px;
-}
-
-
-.ClickTwice {
-  display: flex;
-  justify-content: center;
-}
-
-.ClickTwice p {
-  color: white;
-  font-size: 14px;
 }
 
 
@@ -116,10 +77,6 @@
 
   .form {
     width: 380px;
-  }
-
-  .modelRegister {
-    margin-top: 75%;
   }
 
   .checkBox {

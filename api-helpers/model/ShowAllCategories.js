@@ -11,5 +11,4 @@ const categoriesSchema = new Schema({
 
 });
 
-
-export default mongoose.models.categories || mongoose.model("categories", categoriesSchema)
+export default mongoose.models.categories || mongoose.model("categories", categoriesSchema);

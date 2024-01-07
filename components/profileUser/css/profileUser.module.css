@@ -1,8 +1,8 @@
 .modelRegister {
-    position: absolute;
-    margin-top: 26%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 .styleTitleRegister {
@@ -13,8 +13,9 @@
 
 .styleTitleRegister h1 {
     color: white;
+    margin-top: 4%;
     margin-bottom: 9%;
-    font-size: 21px;
+    font-size: 20px;
     text-align: center;
 }
 
@@ -41,20 +42,9 @@
     animation: popup 0.7s;
 }
 
-
-.header {
-    margin-bottom: 15px;
-}
-
 .header Button {
-    align-items: center;
-    text-align: center;
-    display: flex;
-    justify-content: center;
     border-radius: 100% 50%;
-    margin-bottom: 2%;
     color: rgb(255, 255, 255);
-    font-size: 17px;
 }
 
 
@@ -96,7 +86,7 @@
 
 
 .modelStyleUpdate {
-    width: 500px;
+    width: 400px;
     height: auto;
     background: linear-gradient(rgba(0, 0, 0, 0.268), rgba(0, 0, 0, 0.685)), url("https://i.postimg.cc/8zG34dFT/4978307-31436.jpg");
     background-size: cover;
@@ -106,23 +96,10 @@
 }
 
 
-.input-group input {
-    background-color: #8ccdeb5a;
-    color: white;
-    font-size: 15px;
-    border-radius: 15px;
-    border: none;
-}
-
 .input span {
-    height: 40px;
+    height: 100%;
     background-color: #b0c4cf;
     border: none;
-}
-
-.input-group input::placeholder {
-    color: rgb(254, 254, 254);
-    font-size: 15px;
 }
 
 
@@ -140,9 +117,5 @@
     .modelStyle,
     .modelStyleUpdate {
         width: 380px;
-    }
-
-    .modelRegister {
-        margin-top: 75%;
     }
 }

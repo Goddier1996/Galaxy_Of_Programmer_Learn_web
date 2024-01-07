@@ -19,4 +19,4 @@ function FavoritesUsers() {
 }
 
 
-export default FavoritesUsers
+export default FavoritesUsers;

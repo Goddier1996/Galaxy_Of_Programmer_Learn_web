@@ -29,8 +29,6 @@ export const getAllCategories = async (req, res) => {
 };
 
 
-
-
 export const getCategoryIdInfo = async (req, res) => {
 
 
@@ -74,8 +72,6 @@ export const getCategoryAllInfo = async (req, res) => {
 
     return res.status(200).json({ categories });
 };
-
-
 
 
 export const getCategoryIdInfoVideoLearn = async (req, res) => {
@@ -123,9 +119,6 @@ export const getCategoryAllInfoVideoLearn = async (req, res) => {
 };
 
 
-
-
-
 export const getCategoryIdInfoLinkLearn = async (req, res) => {
 
 
@@ -169,8 +162,6 @@ export const getCategoryAllInfoLinkLearn = async (req, res) => {
 
     return res.status(200).json({ categories });
 };
-
-
 
 
 export const getCategoryIdInfoFilesLearn = async (req, res) => {

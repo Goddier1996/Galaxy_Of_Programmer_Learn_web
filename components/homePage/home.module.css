@@ -118,8 +118,6 @@
 
 
 
-
-
 /* show all category card model in Home Page */
 .listCategory {
     display: flex;
@@ -127,9 +125,9 @@
     flex-wrap: wrap;
     row-gap: 40px;
     column-gap: 55px;
-    padding: 12%;
-    margin-top: -10%;
-    margin-bottom: -6%;
+    padding: 11%;
+    margin-top: -8%;
+    /* margin-bottom: -6%; */
 }
 
 .cards {

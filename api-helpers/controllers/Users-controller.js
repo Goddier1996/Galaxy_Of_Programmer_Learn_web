@@ -26,7 +26,6 @@ export const getAllUsers = async (req, res) => {
 };
 
 
-
 export const addNewUser = async (req, res) => {
 
     const { name, login, password, confirmPassword, avatarUser } = req.body;
@@ -47,7 +46,6 @@ export const addNewUser = async (req, res) => {
 
     return res.status(201).json({ user });
 };
-
 
 
 export const updateUser = async (req, res) => {
@@ -76,7 +74,6 @@ export const updateUser = async (req, res) => {
 
 
 
-
 export const signInUser = async (req, res) => {
 
     const { login, password } = req.body;
@@ -89,7 +86,6 @@ export const signInUser = async (req, res) => {
 };
 
 
-
 export const registerCheckIfHaveThisUserInDataBase = async (req, res) => {
 
     let id = req.query.id;
@@ -98,8 +94,6 @@ export const registerCheckIfHaveThisUserInDataBase = async (req, res) => {
 
     return res.status(200).json(findUser);
 };
-
-
 
 
 export const checkIfUserHaveThisFavorite = async (req, res) => {
@@ -111,8 +105,6 @@ export const checkIfUserHaveThisFavorite = async (req, res) => {
 
     return res.status(200).json(favoriteUser);
 };
-
-
 
 
 export const addUserFavorite = async (req, res) => {
@@ -139,8 +131,6 @@ export const addUserFavorite = async (req, res) => {
 }
 
 
-
-
 export const favoriteSaveIdUser = async (req, res) => {
 
     let id = req.query.id;
@@ -162,7 +152,6 @@ export const favoriteSaveIdUser = async (req, res) => {
 
     return res.status(200).json({ favoriteUser });
 };
-
 
 
 export const favoriteRemoveIdUser = async (req, res) => {

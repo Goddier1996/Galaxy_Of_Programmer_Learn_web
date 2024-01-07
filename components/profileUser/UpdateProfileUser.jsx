@@ -7,7 +7,6 @@ import SnackBarShow from "../tools/SnackBarShow";
 
 
 
-
 const UpdateProfileUser = ({ hideUpdate, dataUser }) => {
 
 
@@ -28,7 +27,6 @@ const UpdateProfileUser = ({ hideUpdate, dataUser }) => {
     );
 
 
-
     const handleChange = (e) => {
 
         setInputs((prevState) => ({
@@ -42,7 +40,7 @@ const UpdateProfileUser = ({ hideUpdate, dataUser }) => {
     const UpdateNewDataUser = async () => {
 
         // demo user cant update data !
-        if (dataUser.login == "Kot") {
+        if (dataUser.login == process.env.DEMO_LOGIN) {
             setShowAlertDemoUserUpdate(true);
         }
 
@@ -59,7 +57,6 @@ const UpdateProfileUser = ({ hideUpdate, dataUser }) => {
 
     return (
         <>
-
             <div className={styles.modelRegister}>
 
                 <div className={styles.modelStyleUpdate}>
@@ -74,12 +71,11 @@ const UpdateProfileUser = ({ hideUpdate, dataUser }) => {
                         </Button>
 
                         <div className={styles.styleTitleRegister} >
-                            <h1>Let's Update Personal Data {dataUser.name}</h1>
+                            <h1>Update Personal Data {dataUser.name}</h1>
                         </div>
 
                         <div className={styles.image}></div>
                     </div>
-
 
 
                     <div className={styles.bodySpaceInput}>
@@ -142,11 +138,8 @@ const UpdateProfileUser = ({ hideUpdate, dataUser }) => {
                                 />
                             </div>
 
-
                         </form>
                     </div>
-
-
 
                     <div className={styles.updateUserData}>
                         <Button
@@ -181,9 +174,8 @@ const UpdateProfileUser = ({ hideUpdate, dataUser }) => {
                     func={hideUpdate}
                 />
             )}
-
         </>
     )
 }
 
-export default UpdateProfileUser
+export default UpdateProfileUser;

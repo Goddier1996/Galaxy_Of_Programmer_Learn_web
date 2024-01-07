@@ -19,8 +19,7 @@ function CategoryDetail({ detailsCategory }) {
     )
 }
 
-export default CategoryDetail
-
+export default CategoryDetail;
 
 
 

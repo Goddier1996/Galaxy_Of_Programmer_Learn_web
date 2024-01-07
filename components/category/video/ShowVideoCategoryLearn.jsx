@@ -51,7 +51,7 @@ const ShowVideoCategoryLearn = ({ idCategoryVideo, howUse }) => {
       <div className={styles.line}>
         {loadingVideo ? (
           <div
-            style={{ color: "gray", display: "flex", justifyContent: "center" }}
+           className={styles.loading}
           >
             <CircularProgress color="inherit" size={30} />
           </div>

@@ -14,7 +14,6 @@ const ShowFilleCategoryLearn = ({ idCategoryFille, howUse }) => {
   const [loadingFIle, setLoadingFIle] = useState(false);
 
 
-
   useEffect(() => {
 
     const controller = new AbortController();
@@ -46,16 +45,15 @@ const ShowFilleCategoryLearn = ({ idCategoryFille, howUse }) => {
 
   }, [idCategoryFille]);
 
+
+
   return (
     <Box>
       {loadingFIle ? (
         <div
-          style={{ color: "gray", display: "flex", justifyContent: "center" }}
+          className={styles.loading}
         >
           <CircularProgress color="inherit" size={30} />
-          <br />
-          <br />
-          <br />
         </div>
       ) : (
         <div className={styles.line}>

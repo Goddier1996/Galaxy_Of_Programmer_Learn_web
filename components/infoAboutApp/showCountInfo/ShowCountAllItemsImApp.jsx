@@ -41,7 +41,6 @@ const ShowCountAllItemsImApp = () => {
 
 
     return (
-
         <div className={styles.showData}>
             <div className={styles.circleModels}>
                 <div className={styles.cardsInfoAbout} >

@@ -31,5 +31,4 @@ const categoriesSchema = new Schema({
 
 });
 
-
-export default mongoose.models.aboutCategory || mongoose.model("aboutCategory", categoriesSchema)
+export default mongoose.models.aboutCategory || mongoose.model("aboutCategory", categoriesSchema);

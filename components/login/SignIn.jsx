@@ -4,7 +4,7 @@ import {
   connectUserToSite,
   connectDemoUser,
 } from "./function/ConnectFunctions";
-import { Button } from "@mui/material";
+import { Button , CircularProgress } from "@mui/material";
 import SnackBarShow from "../tools/SnackBarShow";
 
 
@@ -94,6 +94,7 @@ const SignIn = ({ hideSignInFun }) => {
                   onChange={(event) => setLogin(event.target.value)}
                   value={login}
                   name="login"
+                  disabled={disabledSignInButton}
                 />
               </div>
 
@@ -110,7 +111,7 @@ const SignIn = ({ hideSignInFun }) => {
                   onChange={(event) => setPassword(event.target.value)}
                   value={password}
                   name="password"
-                  autoComplete="off"
+                  disabled={disabledSignInButton}
                 />
               </div>
 
@@ -122,7 +123,11 @@ const SignIn = ({ hideSignInFun }) => {
                   type="submit"
                   variant="contained"
                 >
-                  Sign In
+                  {!disabledSignInButton ?
+                    "Sign In"
+                    :
+                    <CircularProgress color="success" />
+                  }
                 </Button>
               </div>
 
@@ -144,7 +149,6 @@ const SignIn = ({ hideSignInFun }) => {
       </div>
 
           
-
       {/* show alert when user connect */}
       {showAlertEmptyValueLogin && (
         <SnackBarShow

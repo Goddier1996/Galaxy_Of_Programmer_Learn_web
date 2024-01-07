@@ -51,12 +51,9 @@ const ShowLinkCategoryLearn = ({ idCategoryLink, howUse }) => {
     <Box>
       {loadingLink ? (
         <div
-          style={{ color: "gray", display: "flex", justifyContent: "center" }}
+          className={styles.loading}
         >
           <CircularProgress color="inherit" size={30} />
-          <br />
-          <br />
-          <br />
         </div>
       ) : (
         <div className={styles.line}>

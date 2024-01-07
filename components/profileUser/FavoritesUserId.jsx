@@ -62,7 +62,6 @@ function FavoritesUserId() {
 
 
   return (
-
     <>
       <motion.div className={styles.titleFavorite}>
         <motion.h1 variants={item}>
@@ -80,7 +79,6 @@ function FavoritesUserId() {
         </motion.h1>
       </motion.div>
 
-
       <div className={styles.showData}>
         <div className={styles.circleModels}>
           <div className={styles.cardsInfoAbout} >
@@ -90,7 +88,6 @@ function FavoritesUserId() {
           </div>
         </div>
       </div>
-
 
       <motion.div
         variants={container}
@@ -113,29 +110,24 @@ function FavoritesUserId() {
               </Tabs>
             </Box>
             <Box >
-
               {tabIndex === 0 && (
                 <ShowVideoCategoryLearn idCategoryVideo={dataUser._id} howUse={"user"} />
               )}
-
 
               {tabIndex === 1 && (
                 <ShowLinkCategoryLearn idCategoryLink={dataUser._id} howUse={"user"} />
               )}
 
-
               {tabIndex === 2 && (
                 <ShowFilleCategoryLearn idCategoryFille={dataUser._id} howUse={"user"} />
               )}
-
             </Box>
           </Box>
         </motion.div>
       </motion.div>
-
     </>
   )
 }
 
 
-export default FavoritesUserId
+export default FavoritesUserId;

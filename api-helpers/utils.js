@@ -7,7 +7,6 @@ export const connectToDatabase = async () => {
         return;
     }
 
-
     await mongoose.connect(
         process.env.DB_HOST
     )

@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 
 const categoriesSchema = new Schema({
 
-
     codeCategory: {
         type: String,
         required: true,
@@ -24,5 +23,4 @@ const categoriesSchema = new Schema({
 
 });
 
-
-export default mongoose.models.filesLearnInfoCategory || mongoose.model("filesLearnInfoCategory", categoriesSchema)
+export default mongoose.models.filesLearnInfoCategory || mongoose.model("filesLearnInfoCategory", categoriesSchema);

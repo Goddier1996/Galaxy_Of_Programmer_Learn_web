@@ -1,11 +1,8 @@
 /* Menu */
 .LogoHeater img {
-  opacity: 0.9;
   height: 100px;
   width: auto;
-  margin-top: 5px;
 }
-
 
 
 .SelectCurserStyleHeater {
@@ -32,7 +29,6 @@
       rotate(-360deg);
   }
 }
-
 
 
 .SelectCursor {

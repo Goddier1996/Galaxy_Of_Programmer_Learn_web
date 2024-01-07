@@ -127,8 +127,6 @@ export const getCategoryAllInfoFilesLearn = async () => {
 
 
 
-
-
 export const getAllUsers = async () => {
 
 
@@ -319,11 +317,10 @@ export const favoriteRemoveIdUser = async (id) => {
 
 
 
-// connect http://localhost:3000 for programmer !!!!!
+// CONNECT http://localhost:3000 for DEVELOPER THIS WEBSITE !!!!!
+
 
 // import axios from "axios"
-
-
 
 // export const getAllCategories = async () => {
 
@@ -534,7 +531,9 @@ export const favoriteRemoveIdUser = async (id) => {
 
 
 //     const data = await res.data;
+
 //     return data.login;
+
 // }
 
 

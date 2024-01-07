@@ -16,7 +16,6 @@ const UserDeleteFavorite = ({ id }) => {
         favoriteRemoveIdUser(id)
             .then(() => setOpenAlert(true))
             .catch(err => console.log(err))
-
     }
 
 
@@ -25,7 +24,6 @@ const UserDeleteFavorite = ({ id }) => {
             <b className={styles.SaveBookMarkInfoUser}>
                 <BookmarkRemoveIcon className={styles.buttonSave} onClick={UserRemoveFavorite} />
             </b>
-
 
             {openAlert && (
                 <SnackBarShow
@@ -40,4 +38,4 @@ const UserDeleteFavorite = ({ id }) => {
     )
 }
 
-export default UserDeleteFavorite
+export default UserDeleteFavorite;
