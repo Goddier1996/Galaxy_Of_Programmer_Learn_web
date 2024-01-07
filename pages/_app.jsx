@@ -21,6 +21,10 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>Galaxy of programmers</title>
+        <meta
+          property="Learning site"
+          content="here can programmers learn new language"
+        />
       </Head>
       <Layout>
         <main>
