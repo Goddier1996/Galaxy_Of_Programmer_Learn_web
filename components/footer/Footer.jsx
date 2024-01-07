@@ -17,6 +17,7 @@ function Fotter() {
               style={{ backgroundColor: "#3b5998" }}
               href="https://www.facebook.com/profile.php?id=100007268836178"
               role="button"
+              aria-label="facebook"
             >
               <FacebookIcon />
             </a>
@@ -26,6 +27,7 @@ function Fotter() {
               style={{ backgroundColor: "#ac2bac" }}
               href="https://www.instagram.com/artem_kot96"
               role="button"
+              aria-label="instagram"
             >
               <InstagramIcon />
             </a>
@@ -35,6 +37,7 @@ function Fotter() {
               style={{ backgroundColor: "#0077b5" }}
               href="https://www.linkedin.com/in/artem-kot96"
               role="button"
+              aria-label="linkedin"
             >
               <LinkedInIcon />
             </a>

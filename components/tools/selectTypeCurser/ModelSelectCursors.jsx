@@ -36,6 +36,7 @@ const ModelSelectCursors = ({ hide }) => {
             >
               <img
                 src={item.LinkImage}
+                alt={item.LinkImage}
                 onClick={() => applyCursorUserChoose(item.LinkImage, hide)}
               />
             </motion.div>

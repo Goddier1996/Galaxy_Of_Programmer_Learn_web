@@ -56,6 +56,7 @@ const SelectCurser = ({
             >
               <img
                 src={item.LinkImage}
+                alt={item.LinkImage}
                 onClick={() =>
                   applyCursorUserChoose(item.LinkImage, setSelectCurserHeater)
                 }
