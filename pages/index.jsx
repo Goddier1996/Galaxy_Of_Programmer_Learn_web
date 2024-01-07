@@ -42,7 +42,6 @@ const Index = ({ categories }) => {
   }
 
 
-
   return (
     <>
       <Modal open={showModel}  >
@@ -57,7 +56,6 @@ const Index = ({ categories }) => {
 }
 
 export default Index;
-
 
 
 export const getServerSideProps = async () => {
