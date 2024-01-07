@@ -23,7 +23,7 @@ const ShowHomeTitle = () => {
                     <motion.p variants={item}>Here you can learn very common technologies <br /> in the world of programming</motion.p>
 
                     <motion.div variants={item}>
-                        <Image src='https://i.postimg.cc/sD3wYrxd/ufo-g4d5dedbf2-1280.png' alt='drown choose category'
+                        <Image src='https://i.postimg.cc/cHm55PJC/mm1.webp' alt='drown choose category'
                             width={180}
                             height={100}
                             priority />
@@ -38,7 +38,7 @@ const ShowHomeTitle = () => {
 
                 <div className={styles.arrow}>
                     <motion.div variants={item}>
-                        <Image src='https://i.postimg.cc/0Qmrfc96/p0.png' alt='drown choose category'
+                        <Image src='https://i.postimg.cc/Xqqx1Jh1/y1.webp' alt='drown choose category'
                             width={100}
                             height={100}
                             priority
