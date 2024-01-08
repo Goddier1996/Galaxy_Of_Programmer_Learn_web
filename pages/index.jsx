@@ -4,7 +4,7 @@ import ShowHomeTitle from "../components/homePage/ShowHomeTitle";
 import dynamic from 'next/dynamic'
 import ModelSelectCursors from "../components/tools/selectTypeCurser/ModelSelectCursors";
 import { useState } from "react";
-import { Modal, CircularProgress, useMediaQuery } from '@mui/material';
+import { CircularProgress, useMediaQuery } from '@mui/material';
 
 
 const CategoriesList = dynamic(() => import('../components/homePage/CategoriesList'), {
@@ -43,9 +43,7 @@ const Index = ({ categories }) => {
 
   return (
     <>
-      <Modal open={showModel}  >
-        <ModelSelectCursors hide={hideModelSignIn} />
-      </Modal>
+      <ModelSelectCursors open={showModel} hide={hideModelSignIn} />
 
       <ShowHomeTitle />
 

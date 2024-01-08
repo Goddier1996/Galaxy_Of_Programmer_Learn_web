@@ -30,8 +30,7 @@ const Header = () => {
   const [showModelProfileUser, setShowModelProfileUser] = useState(false);
 
   const [selectCurserHeater, setSelectCurserHeater] = useState(null);
-
-  const [Curser, setCurser] = useState([]);
+  const [Curser, setCurser] = useState("");
 
 
   const ChangeStyleCurserInHeater = [

@@ -19,11 +19,12 @@ const SelectCurser = ({
     <>
       <Tooltip title="Select Curser">
         <IconButton onClick={handleOpenSelectCurserHeater} sx={{ p: 0 }}>
-          {ChangeStyleCurserInHeater.map((page) => (
+          {ChangeStyleCurserInHeater.map((data) => (
             <Avatar
+              key={data.id}
               className={styles.SelectCurserStyleHeater}
               alt="Select Curser"
-              src={page.typeStyleCurser}
+              src={data.typeStyleCurser}
               style={{ height: "60px", width: "60px" }}
             />
           ))}

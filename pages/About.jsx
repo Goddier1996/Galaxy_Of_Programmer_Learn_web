@@ -7,11 +7,9 @@ import TitleInfoAbout from "../components/infoAboutApp/TitleInfoAbout"
 function About() {
 
   return (
-
     <motion.div variants={container} initial="hidden" animate="show">
 
       <TitleInfoAbout />
-
       <ShowCountAllItemsImApp />
 
     </motion.div>

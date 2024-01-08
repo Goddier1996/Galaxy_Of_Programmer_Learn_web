@@ -25,11 +25,11 @@ function MyApp({ Component, pageProps }) {
           content="here can programmers learn new language"
         />
       </Head>
+
       <Layout>
-        <main>
           <Component {...pageProps} />
-        </main>
       </Layout>
+      
     </>
   );
 }
