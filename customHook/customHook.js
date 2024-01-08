@@ -14,11 +14,10 @@ export const UseFetch = (funcFetchData) => {
   const fetchData = async () => {
 
     setLoading(true);
-
+  
     switch (funcFetchData.typeHowUse) {
-
+  
       case "user":
-
         switch (funcFetchData.typeFile) {
           case "File":
             favoriteSaveIdUserFIle(funcFetchData.id)
@@ -26,14 +25,14 @@ export const UseFetch = (funcFetchData) => {
               .then(() => setLoading(false))
               .catch((err) => console.log(err))
             break;
-
+  
           case "Link":
             favoriteSaveIdUserLink(funcFetchData.id)
               .then((dataCategory) => setData(dataCategory))
               .then(() => setLoading(false))
               .catch((err) => console.log(err))
             break;
-
+  
           case "Video":
             favoriteSaveIdUserVideo(funcFetchData.id)
               .then((dataCategory) => setData(dataCategory))
@@ -42,10 +41,9 @@ export const UseFetch = (funcFetchData) => {
             break;
         }
         break;
-
-
+  
       case "info":
-
+  
         switch (funcFetchData.typeFile) {
           case "File":
             getCategoryIdInfoFilesLearn(funcFetchData.id)
@@ -53,28 +51,29 @@ export const UseFetch = (funcFetchData) => {
               .then(() => setLoading(false))
               .catch((err) => console.log(err))
             break;
-
+  
           case "Link":
             getCategoryIdInfoLinkLearn(funcFetchData.id)
               .then((dataCategory) => setData(dataCategory))
               .then(() => setLoading(false))
               .catch((err) => console.log(err))
             break;
-
+  
           case "Video":
             getCategoryIdInfoVideoLearn(funcFetchData.id)
               .then((dataCategory) => setData(dataCategory))
               .then(() => setLoading(false))
               .catch((err) => console.log(err))
             break;
+  
         }
         break;
-
+  
       default:
         // setError(`${error} Could not Fetch Data `);
         setLoading(false);
     }
-
+  
   };
 
 

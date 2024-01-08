@@ -83,7 +83,7 @@ const DesktopMenu = ({
           <Tooltip title="Menu User">
             <IconButton
               onClick={(event) => setAnchorElUser(event.currentTarget)}
-              sx={{ p: 0 }}
+              sx={{mr: 1.5}}
             >
               <Avatar
                 alt="avatar user"

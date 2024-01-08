@@ -30,31 +30,37 @@ const Header = () => {
   const [showModelProfileUser, setShowModelProfileUser] = useState(false);
 
   const [selectCurserHeater, setSelectCurserHeater] = useState(null);
-  const [Curser, setCurser] = useState({});
-  
+
+  const [Curser, setCurser] = useState([]);
+
+
   const ChangeStyleCurserInHeater = [
     {
       id: 1,
-      typeStyleCurser: !Curser?"https://i.postimg.cc/3RhrRvpp/cursor-png-1137.png":Curser,
-    }
+      typeStyleCurser:
+        Curser == null
+          ? "https://i.postimg.cc/3RhrRvpp/cursor-png-1137.png"
+          : Curser,
+    },
   ];
 
 
   useEffect(() => {
 
     let userData = JSON.parse(window.sessionStorage.getItem("user"));
-    let typeCursor = sessionStorage.getItem("typeCursor");
 
     if (userData != null) {
       setSaveDataUserFromSessionStorage(userData.connectUser);
-    }
-    if (userData == null) {
+    } else {
       setSaveDataUserFromSessionStorage();
     }
-    if (Curser != null) {
-      setCurser(typeCursor);
-    }
+  }, []);
 
+
+  useEffect(() => {
+
+    let typeCursor = sessionStorage.getItem("typeCursor");
+    setCurser(typeCursor);
   }, [ChangeStyleCurserInHeater]);
 
 
@@ -66,7 +72,6 @@ const Header = () => {
           <AppBar position="static" style={{ background: "none" }}>
             <Container variants={item} maxWidth="xl">
               <Toolbar disableGutters>
-
                 {/* RESPONSIVE screen mobile */}
                 <ResponsiveMenu
                   SaveDataUserFromSessionStorage={
@@ -101,14 +106,12 @@ const Header = () => {
                     }
                   />
                 </Box>
-
               </Toolbar>
             </Container>
           </AppBar>
         </motion.div>
       </motion.div>
 
-      
       {/* model popup show Register */}
       <Modal open={showModelRegister}>
         <>
