@@ -1,58 +1,56 @@
 import { useEffect, useState } from "react";
 import { Box, Table, TableBody, CircularProgress } from "@mui/material";
-import { getCategoryIdInfoLinkLearn } from "../../../api-helpers/frontend/utils";
 import styles from "../infoCategoryPage.module.css";
 import ShowFilesAndLinks from "../files/ShowFilesAndLinks";
-import { favoriteSaveIdUserLink } from "../../../api-helpers/frontend/utils";
+import { UseFetch } from "../../../customHook/customHook";
+
 
 const ShowLinkCategoryLearn = ({ idCategoryLink, howUse }) => {
 
 
   let countLinkInfoCategory = 1;
-  
-  const [InfoCategoryLinkLearn, setInfoCategoryLinkLearn] = useState([]);
-  const [loadingLink, setLoadingLink] = useState(false);
 
-    
+  const [InfoCategoryLinkLearn, setInfoCategoryLinkLearn] = useState({});
+
+  // custom hook fetch data
+  const { data, loading, error } = UseFetch(InfoCategoryLinkLearn);
+
+
   useEffect(() => {
-    
-    const controller = new AbortController();
 
-    setLoadingLink(true);
+    let opjDataFetch = {};
 
     switch (howUse) {
       case "user":
-        favoriteSaveIdUserLink(idCategoryLink, { signal: controller.signal })
-          .then((data) => setInfoCategoryLinkLearn(data))
-          .then(() => setLoadingLink(false))
-          .catch((err) => console.log(err));
+        opjDataFetch = {
+          typeHowUse: "user",
+          id: idCategoryLink,
+          typeFile: "Link",
+        };
+        setInfoCategoryLinkLearn(opjDataFetch);
         break;
+
       case "info":
-        getCategoryIdInfoLinkLearn(idCategoryLink, {
-          signal: controller.signal,
-        })
-          .then((dataCategory) => setInfoCategoryLinkLearn(dataCategory))
-          .then(() => setLoadingLink(false))
-          .catch((err) => console.log(err));
+        opjDataFetch = {
+          typeHowUse: "info",
+          id: idCategoryLink,
+          typeFile: "Link",
+        };
+        setInfoCategoryLinkLearn(opjDataFetch);
         break;
+
       default:
         console.log("not have any data");
     }
 
-    return () => {
-      controller.abort();
-      };
-      
-  }, [idCategoryLink]);
+  }, [idCategoryLink,howUse]);
 
-    
-    
+
+
   return (
     <Box>
-      {loadingLink ? (
-        <div
-          className={styles.loading}
-        >
+      {loading ? (
+        <div className={styles.loading}>
           <CircularProgress color="inherit" size={30} />
         </div>
       ) : (
@@ -60,9 +58,9 @@ const ShowLinkCategoryLearn = ({ idCategoryLink, howUse }) => {
           <div className={styles.tableStyle}>
             <Table style={{ width: 600 }} aria-label="simple table">
               <TableBody>
-                {InfoCategoryLinkLearn.length !== 0 ? (
+                {data.length !== 0 ? (
                   <>
-                    {InfoCategoryLinkLearn.map((linksInfo) => (
+                    {data.map((linksInfo) => (
                       <>
                         {howUse == "info" ? (
                           <ShowFilesAndLinks

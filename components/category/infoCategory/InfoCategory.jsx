@@ -4,7 +4,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import dynamic from 'next/dynamic'
 
 const TabsInfoCategory = dynamic(() => import('../tabsInfo/TabsInfoCategory'), {
-  ssr: false,
+  // ssr: false,
 })
 
 

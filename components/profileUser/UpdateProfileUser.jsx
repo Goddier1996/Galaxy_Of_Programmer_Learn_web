@@ -58,7 +58,6 @@ const UpdateProfileUser = ({ hideUpdate, dataUser }) => {
     return (
         <>
             <div className={styles.modelRegister}>
-
                 <div className={styles.modelStyleUpdate}>
 
                     <div className={styles.header}>

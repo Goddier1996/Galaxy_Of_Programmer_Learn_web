@@ -8,7 +8,6 @@ import { Modal, CircularProgress, useMediaQuery } from '@mui/material';
 
 
 const CategoriesList = dynamic(() => import('../components/homePage/CategoriesList'), {
-  // ssr: false,
   loading: () => <div style={{ color: "gray", display: "flex", justifyContent: "center" }}>
     <CircularProgress color="inherit" size={30} />
   </div>,

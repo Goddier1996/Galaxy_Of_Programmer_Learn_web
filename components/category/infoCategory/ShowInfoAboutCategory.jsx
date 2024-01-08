@@ -6,7 +6,6 @@ import styles from "../infoCategoryPage.module.css";
 
 const ShowInfoAboutCategory = ({ data }) => {
 
-
   return (
     <div className={styles.showInfoAboutCategory}>
       <motion.div

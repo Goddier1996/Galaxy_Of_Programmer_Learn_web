@@ -44,11 +44,9 @@ const TabsInfoCategory = ({ idCategory }) => {
                             {tabIndex === 0 && (
                                 <ShowVideoCategoryLearn idCategoryVideo={idCategory} howUse={"info"} />
                             )}
-
                             {tabIndex === 1 && (
                                 <ShowLinkCategoryLearn idCategoryLink={idCategory} howUse={"info"} />
                             )}
-
                             {tabIndex === 2 && (
                                 <ShowFilleCategoryLearn idCategoryFille={idCategory} howUse={"info"} />
                             )}

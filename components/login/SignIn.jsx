@@ -37,7 +37,6 @@ const SignIn = ({ hideSignInFun }) => {
     }
       
     else if (login && password) {
-
       let userData = {
         login: login,
         password: password,

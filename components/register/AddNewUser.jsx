@@ -46,15 +46,18 @@ const AddNewUser = ({ closeModel }) => {
 
     
   const onSubmitRegister = (e) => {
+
     e.preventDefault();
 
     if (login == "" || password == "" || name == "") {
       setShowAlertUserRegisterNeedInputValue(true);
       return;
-    } else if (password != confirmPassword) {
+    }
+    else if (password != confirmPassword) {
       setShowAlertUserRegisterPasswordNOTEquals(true);
       return;
-    } else {
+    }
+    else {
       let inputs = {
         name: name,
         login: login,
@@ -198,6 +201,7 @@ const AddNewUser = ({ closeModel }) => {
         </div>
       </div>
 
+      
       {/* here alerts if error and more , show when user input value register */}
       {showAlertUserRegister && (
         <SnackBarShow

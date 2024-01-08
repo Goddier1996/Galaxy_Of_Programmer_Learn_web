@@ -1,58 +1,55 @@
 import { useEffect, useState } from "react";
 import { Box, Table, TableBody, CircularProgress } from "@mui/material";
-import { getCategoryIdInfoFilesLearn } from "../../../api-helpers/frontend/utils";
 import styles from "../infoCategoryPage.module.css";
 import ShowFilesAndLinks from "./ShowFilesAndLinks";
-import { favoriteSaveIdUserFIle } from "../../../api-helpers/frontend/utils";
+import { UseFetch } from "../../../customHook/customHook";
 
 
 const ShowFilleCategoryLearn = ({ idCategoryFille, howUse }) => {
 
 
   let countLinkLinkFIleCategory = 1;
-  const [InfoCategoryFileLearn, setInfoCategoryFileLearn] = useState([]);
-  const [loadingFIle, setLoadingFIle] = useState(false);
+  const [InfoCategoryFileLearn, setInfoCategoryFileLearn] = useState({});
+
+  // custom hook fetch data
+  const { data, loading, error } = UseFetch(InfoCategoryFileLearn);
 
 
   useEffect(() => {
 
-    const controller = new AbortController();
-
-    setLoadingFIle(true);
+    let opjDataFetch = {};
 
     switch (howUse) {
       case "user":
-        favoriteSaveIdUserFIle(idCategoryFille, { signal: controller.signal })
-          .then((data) => setInfoCategoryFileLearn(data))
-          .then(() => setLoadingFIle(false))
-          .catch((err) => console.log(err));
+        opjDataFetch = {
+          typeHowUse: "user",
+          id: idCategoryFille,
+          typeFile:"File"
+        };
+        setInfoCategoryFileLearn(opjDataFetch);
         break;
+
       case "info":
-        getCategoryIdInfoFilesLearn(idCategoryFille, {
-          signal: controller.signal,
-        })
-          .then((dataCategory) => setInfoCategoryFileLearn(dataCategory))
-          .then(() => setLoadingFIle(false))
-          .catch((err) => console.log(err));
+        opjDataFetch = {
+          typeHowUse: "info",
+          id: idCategoryFille,
+          typeFile:"File"
+        };
+        setInfoCategoryFileLearn(opjDataFetch);
         break;
+      
       default:
         console.log("not have any data");
     }
 
-    return () => {
-      controller.abort();
-    };
-
-  }, [idCategoryFille]);
+  }, [idCategoryFille,howUse]);
 
 
 
   return (
     <Box>
-      {loadingFIle ? (
-        <div
-          className={styles.loading}
-        >
+      {loading ? (
+        <div className={styles.loading}>
           <CircularProgress color="inherit" size={30} />
         </div>
       ) : (
@@ -60,9 +57,9 @@ const ShowFilleCategoryLearn = ({ idCategoryFille, howUse }) => {
           <div className={styles.tableStyle}>
             <Table style={{ width: 600 }} aria-label="simple table">
               <TableBody>
-                {InfoCategoryFileLearn.length !== 0 ? (
+                {data.length !== 0 ? (
                   <>
-                    {InfoCategoryFileLearn.map((FileInfo) => (
+                    {data.map((FileInfo) => (
                       <>
                         {howUse == "info" ? (
                           <ShowFilesAndLinks

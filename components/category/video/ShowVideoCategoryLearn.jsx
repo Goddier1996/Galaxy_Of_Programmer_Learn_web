@@ -1,65 +1,62 @@
 import { useEffect, useState } from "react";
 import { Box, CircularProgress } from "@mui/material";
-import { getCategoryIdInfoVideoLearn } from "../../../api-helpers/frontend/utils";
 import styles from "../infoCategoryPage.module.css";
 import ShowVideos from "./ShowVideos";
-import { favoriteSaveIdUserVideo } from "../../../api-helpers/frontend/utils";
+import { UseFetch } from "../../../customHook/customHook";
 
 
 const ShowVideoCategoryLearn = ({ idCategoryVideo, howUse }) => {
 
 
-  const [InfoCategoryVideoLearn, setInfoCategoryVideoLearn] = useState([]);
-  const [loadingVideo, setLoadingVideo] = useState(false);
+  const [InfoCategoryVideoLearn, setInfoCategoryVideoLearn] = useState({});
+
+  // custom hook fetch data
+  const { data, loading, error } = UseFetch(InfoCategoryVideoLearn);
 
 
   useEffect(() => {
 
-    const controller = new AbortController();
-
-    setLoadingVideo(true);
+    let opjDataFetch = {};
 
     switch (howUse) {
       case "user":
-        favoriteSaveIdUserVideo(idCategoryVideo, { signal: controller.signal })
-          .then((data) => setInfoCategoryVideoLearn(data))
-          .then(() => setLoadingVideo(false))
-          .catch((err) => console.log(err));
+        opjDataFetch = {
+          typeHowUse: "user",
+          id: idCategoryVideo,
+          typeFile: "Video",
+        };
+        setInfoCategoryVideoLearn(opjDataFetch);
         break;
+
       case "info":
-        getCategoryIdInfoVideoLearn(idCategoryVideo, {
-          signal: controller.signal,
-        })
-          .then((dataCategory) => setInfoCategoryVideoLearn(dataCategory))
-          .then(() => setLoadingVideo(false))
-          .catch((err) => console.log(err));
+        opjDataFetch = {
+          typeHowUse: "info",
+          id: idCategoryVideo,
+          typeFile: "Video",
+        };
+        setInfoCategoryVideoLearn(opjDataFetch);
         break;
+
       default:
         console.log("not have any data");
     }
-
-    return () => {
-      controller.abort();
-    };
-
-  }, [idCategoryVideo]);
+    
+  }, [idCategoryVideo,howUse]);
 
 
 
   return (
     <Box>
       <div className={styles.line}>
-        {loadingVideo ? (
-          <div
-           className={styles.loading}
-          >
+        {loading ? (
+          <div className={styles.loading}>
             <CircularProgress color="inherit" size={30} />
           </div>
         ) : (
           <div className={styles.StyleAllShowData}>
-            {InfoCategoryVideoLearn.length !== 0 ? (
+            {data.length !== 0 ? (
               <>
-                {InfoCategoryVideoLearn.map((InfoCategoryVideo) => (
+                {data.map((InfoCategoryVideo) => (
                   <ShowVideos data={InfoCategoryVideo} use={howUse} />
                 ))}
               </>

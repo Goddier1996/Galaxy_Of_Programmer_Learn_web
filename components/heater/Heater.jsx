@@ -8,34 +8,14 @@ import { applyCursorUserChoose } from "./function/HeaterFunction";
 import ResponsiveMenu from "./showOptionsMenu/responsiveMenu/ResponsiveMenu";
 import DesktopMenu from "./showOptionsMenu/desktopMenu/DesktopMenu";
 
-const SignIn = dynamic(() => import("../login/SignIn"), {
-  ssr: false,
-});
-
-const Register = dynamic(() => import("../../pages/Register"), {
-  ssr: false,
-});
-
-const ProfileUser = dynamic(() => import("../profileUser/ProfileUser"), {
-  ssr: false,
-});
+const SignIn = dynamic(() => import("../login/SignIn"));
+const Register = dynamic(() => import("../../pages/Register"));
+const ProfileUser = dynamic(() => import("../profileUser/ProfileUser"));
 
 
 
 const Header = () => {
 
-
-  let typeCursor = sessionStorage.getItem("typeCursor");
-
-  const ChangeStyleCurserInHeater = [
-    {
-      id: 1,
-      typeStyleCurser:
-        typeCursor == null
-          ? "https://i.postimg.cc/3RhrRvpp/cursor-png-1137.png"
-          : typeCursor,
-    },
-  ];
 
   const [SaveDataUserFromSessionStorage, setSaveDataUserFromSessionStorage] =
     useState({});
@@ -50,19 +30,32 @@ const Header = () => {
   const [showModelProfileUser, setShowModelProfileUser] = useState(false);
 
   const [selectCurserHeater, setSelectCurserHeater] = useState(null);
-
+  const [Curser, setCurser] = useState({});
+  
+  const ChangeStyleCurserInHeater = [
+    {
+      id: 1,
+      typeStyleCurser: !Curser?"https://i.postimg.cc/3RhrRvpp/cursor-png-1137.png":Curser,
+    }
+  ];
 
 
   useEffect(() => {
 
     let userData = JSON.parse(window.sessionStorage.getItem("user"));
+    let typeCursor = sessionStorage.getItem("typeCursor");
 
     if (userData != null) {
       setSaveDataUserFromSessionStorage(userData.connectUser);
-    } else {
+    }
+    if (userData == null) {
       setSaveDataUserFromSessionStorage();
     }
-  }, []);
+    if (Curser != null) {
+      setCurser(typeCursor);
+    }
+
+  }, [Curser]);
 
 
 
