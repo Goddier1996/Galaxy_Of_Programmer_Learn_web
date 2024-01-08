@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic'
-const Heater = dynamic(() => import('../components/heater/Heater'), {})
-const Footer = dynamic(() => import('../components/footer/Footer'), {})
+const Heater = dynamic(() => import('../components/heater/Heater'))
+const Footer = dynamic(() => import('../components/footer/Footer'))
 
 
 const Layout = ({ children }) => {
@@ -14,4 +14,4 @@ const Layout = ({ children }) => {
     )
 }
 
-export default Layout
+export default Layout;

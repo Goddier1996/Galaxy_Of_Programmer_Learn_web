@@ -7,7 +7,7 @@
 
 html,
 body {
-  background: url("https://i.postimg.cc/tggb5dkh/1.webp");
+  background: linear-gradient(rgba(0, 0, 0, 0.185), rgba(0, 0, 0, 0.185)), url("https://i.postimg.cc/tggb5dkh/1.webp");
   font-family: 'Raleway', sans-serif;
   cursor: url("https://i.postimg.cc/q7R0vBGq/cursor-Start-Web.png"), pointer;
 }
@@ -18,7 +18,8 @@ main {
 
 /* desgin scroll in web */
 html::-webkit-scrollbar-track {
-  background: url("https://i.postimg.cc/tggb5dkh/1.webp");
+  /* background: url("https://i.postimg.cc/tggb5dkh/1.webp"); */
+  background: linear-gradient(rgba(0, 0, 0, 0.185), rgba(0, 0, 0, 0.185)), url("https://i.postimg.cc/tggb5dkh/1.webp");
 }
 
 html::-webkit-scrollbar {

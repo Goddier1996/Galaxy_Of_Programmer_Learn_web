@@ -16,7 +16,8 @@
 
 
 .styleModelCursors {
-  background: url("https://i.postimg.cc/tggb5dkh/1.webp");
+  /* background: url("https://i.postimg.cc/tggb5dkh/1.webp"); */
+  background: linear-gradient(rgba(0, 0, 0, 0.100), rgba(0, 0, 0, 0.100)), url("https://i.postimg.cc/tggb5dkh/1.webp");
   width: 550px;
   height: auto;
   padding: 5%;

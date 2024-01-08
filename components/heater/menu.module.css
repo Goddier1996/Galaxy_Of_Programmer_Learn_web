@@ -8,7 +8,7 @@
 .SelectCurserStyleHeater {
   padding: 14%;
   border-radius: 50%;
-  background: #8faa9f2f;
+  /* background: #8faa9f2f; */
   border-right: 4px #50708d inset;
   border-left: 4px #50708d inset;
   border-top: 4px #72722b inset;
@@ -40,7 +40,8 @@
   flex-wrap: wrap;
   cursor: pointer;
   padding: 10%;
-  background: url("https://i.postimg.cc/tggb5dkh/1.webp");
+  /* background: url("https://i.postimg.cc/tggb5dkh/1.webp"); */
+  background: linear-gradient(rgba(0, 0, 0, 0.185), rgba(0, 0, 0, 0.185)), url("https://i.postimg.cc/tggb5dkh/1.webp");
   margin-bottom: -5.4%;
   margin-top: -5.4%;
   color: rgba(255, 255, 255, 0.749);
