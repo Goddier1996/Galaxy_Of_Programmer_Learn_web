@@ -55,7 +55,7 @@ const Header = () => {
       setCurser(typeCursor);
     }
 
-  }, [Curser]);
+  }, [ChangeStyleCurserInHeater]);
 
 
 
