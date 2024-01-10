@@ -1,12 +1,9 @@
 import "../styles/globals.css";
 import Layout from "../components/Layout";
 import { useEffect } from "react";
-import Head from 'next/head'
-
+import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
-
-
   useEffect(() => {
     let typeCursor = sessionStorage.getItem("typeCursor");
 
@@ -15,23 +12,22 @@ function MyApp({ Component, pageProps }) {
     }
   }, []);
 
-
   return (
     <>
       <Head>
         <title>Galaxy of programmers</title>
         <meta
           property="Learning site"
-          content="here can programmers learn new language"
+          name="Learning webSite"
+          content="ere can programmers learn new language."
         />
       </Head>
 
       <Layout>
-          <Component {...pageProps} />
-      </Layout> 
+        <Component {...pageProps} />
+      </Layout>
     </>
   );
 }
-
 
 export default MyApp;
