@@ -11,7 +11,7 @@ export const CountFetch = (funcFetchData) => {
     const [error, setError] = useState(null);
 
 
-    const countData = async () => {
+    const countData = () => {
 
         setLoading(true);
 
@@ -20,61 +20,61 @@ export const CountFetch = (funcFetchData) => {
                 getAllCategories()
                     .then((dataCategory) => setData(dataCategory))
                     .then(() => setLoading(false))
-                    .catch((err) => console.log(err))
+                    .catch((err) => setLoading(true))
                 break;
 
             case "File's":
                 getCategoryAllInfoFilesLearn()
                     .then((dataCategory) => setData(dataCategory))
                     .then(() => setLoading(false))
-                    .catch((err) => console.log(err))
+                    .catch((err) => setLoading(true))
                 break;
 
             case "Video's":
                 getCategoryAllInfoVideoLearn()
                     .then((dataCategory) => setData(dataCategory))
                     .then(() => setLoading(false))
-                    .catch((err) => console.log(err))
+                    .catch((err) => setLoading(true))
                 break;
 
             case "Link's":
                 getCategoryAllInfoLinkLearn()
                     .then((dataCategory) => setData(dataCategory))
                     .then(() => setLoading(false))
-                    .catch((err) => console.log(err))
+                    .catch((err) => setLoading(true))
                 break;
 
             case "User's":
                 getAllUsers()
                     .then((dataCategory) => setData(dataCategory))
                     .then(() => setLoading(false))
-                    .catch((err) => console.log(err))
+                    .catch((err) => setLoading(true))
                 break;
 
             case "Link'sIdUser":
                 favoriteSaveIdUserLink(funcFetchData.idUser)
                     .then((dataCategory) => setData(dataCategory))
                     .then(() => setLoading(false))
-                    .catch((err) => console.log(err))
+                    .catch((err) => setLoading(true))
                 break;
 
             case "File'sIdUser":
                 favoriteSaveIdUserFIle(funcFetchData.idUser)
                     .then((dataCategory) => setData(dataCategory))
                     .then(() => setLoading(false))
-                    .catch((err) => console.log(err))
+                    .catch((err) => setLoading(true))
                 break;
 
             case "Video'sIdUser":
                 favoriteSaveIdUserVideo(funcFetchData.idUser)
                     .then((dataCategory) => setData(dataCategory))
                     .then(() => setLoading(false))
-                    .catch((err) => console.log(err))
+                    .catch((err) => setLoading(true))
                 break;
 
             default:
                 // setError(`${error} Could not Fetch Data `);
-                setLoading(false);
+                setLoading(true);
         }
     };
 

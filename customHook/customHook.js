@@ -11,7 +11,7 @@ export const UseFetch = (funcFetchData) => {
   const [error, setError] = useState(null);
 
 
-  const fetchData = async () => {
+  const fetchData = () => {
 
     setLoading(true);
   
@@ -23,21 +23,21 @@ export const UseFetch = (funcFetchData) => {
             favoriteSaveIdUserFIle(funcFetchData.id)
               .then((dataCategory) => setData(dataCategory))
               .then(() => setLoading(false))
-              .catch((err) => console.log(err))
+              .catch((err) => setLoading(true))
             break;
   
           case "Link":
             favoriteSaveIdUserLink(funcFetchData.id)
               .then((dataCategory) => setData(dataCategory))
               .then(() => setLoading(false))
-              .catch((err) => console.log(err))
+              .catch((err) => setLoading(true))
             break;
   
           case "Video":
             favoriteSaveIdUserVideo(funcFetchData.id)
               .then((dataCategory) => setData(dataCategory))
               .then(() => setLoading(false))
-              .catch((err) => console.log(err))
+              .catch((err) => setLoading(true))
             break;
         }
         break;
@@ -49,21 +49,21 @@ export const UseFetch = (funcFetchData) => {
             getCategoryIdInfoFilesLearn(funcFetchData.id)
               .then((dataCategory) => setData(dataCategory))
               .then(() => setLoading(false))
-              .catch((err) => console.log(err))
+              .catch((err) => setLoading(true))
             break;
   
           case "Link":
             getCategoryIdInfoLinkLearn(funcFetchData.id)
               .then((dataCategory) => setData(dataCategory))
               .then(() => setLoading(false))
-              .catch((err) => console.log(err))
+              .catch((err) => setLoading(true))
             break;
   
           case "Video":
             getCategoryIdInfoVideoLearn(funcFetchData.id)
               .then((dataCategory) => setData(dataCategory))
               .then(() => setLoading(false))
-              .catch((err) => console.log(err))
+              .catch((err) => setLoading(true))
             break;
   
         }
@@ -71,9 +71,8 @@ export const UseFetch = (funcFetchData) => {
   
       default:
         // setError(`${error} Could not Fetch Data `);
-        setLoading(false);
+        setLoading(true);
     }
-  
   };
 
 
