@@ -1,26 +1,5 @@
 import { getCategoryIdInfo } from "../../api-helpers/frontend/utils";
-import dynamic from "next/dynamic";
-const InfoCategory = dynamic(() => import("../../components/category/infoCategory/InfoCategory"));
-
-
-// const InfoCategory = dynamic(
-//   () => import("../../components/category/infoCategory/InfoCategory"),
-//   {
-//     loading: () => (
-//       <div
-//         style={{
-//           color: "gray",
-//           display: "flex",
-//           justifyContent: "center",
-//           marginBottom: "20%",
-//           marginTop: "20%",
-//         }}
-//       >
-//         <CircularProgress color="inherit" size={60} />
-//       </div>
-//     ),
-//   }
-// );
+import InfoCategory from "../../components/category/infoCategory/InfoCategory"
 
 
 const CategoryDetail = ({ detailsCategory }) => {

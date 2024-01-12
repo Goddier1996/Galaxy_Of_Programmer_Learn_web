@@ -1,36 +1,3 @@
-// import "../styles/globals.css";
-// import Layout from "../components/Layout";
-// import { useEffect } from "react";
-// import Head from "next/head";
-
-// function MyApp({ Component, pageProps }) {
-//   useEffect(() => {
-//     let typeCursor = sessionStorage.getItem("typeCursor");
-
-//     if (typeCursor != null) {
-//       document.body.style.cursor = `url(${typeCursor}), pointer`;
-//     }
-//   }, []);
-
-//   return (
-//     <>
-//       <Head>
-//         <title>Galaxy of programmers</title>
-//         <meta
-//           name="Learning webSite"
-//           content="Here programmers learn new language's"
-//         />
-//       </Head>
-
-//       <Layout>
-//         <Component {...pageProps} />
-//       </Layout>
-//     </>
-//   );
-// }
-
-// export default MyApp;
-
 import "../styles/globals.css";
 import Layout from "../components/Layout";
 import { useEffect, useState } from "react";
@@ -44,8 +11,7 @@ function MyApp({ Component, pageProps }) {
 
   const [loading, setLoading] = useState(false);
 
-
-  // here we create loading pages use Router
+  // here we create loading pages use Router , and show animation when loading page's
   useEffect(() => {
 
     const start = () => {
@@ -76,7 +42,6 @@ function MyApp({ Component, pageProps }) {
 
 
   return (
-    <>
       <>
         <Head>
           <title>Galaxy of programmers</title>
@@ -98,7 +63,6 @@ function MyApp({ Component, pageProps }) {
           </Layout>
         )}
       </>
-    </>
   );
 }
 
