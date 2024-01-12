@@ -1,10 +1,12 @@
-# web galaxy of programmer - NextJs , Css , Mui , MongoDB
- 
+# web galaxy of programmer
+
 Students can learn new technologies , according to the category he chooses.
 Each category has a variety of options : Video, links to the site, files. A student can save what he liked and would like to learn in the future ,
 then you can see in the profile what he saved.
   
 Link Web Side - https://galaxy-of-programmer.vercel.app/
+
+Skills use : NextJs , Css , Mui , MongoDB
 
   
         
