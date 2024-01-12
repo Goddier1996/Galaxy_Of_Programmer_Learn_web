@@ -1,30 +1,34 @@
 import { useEffect } from "react";
-import { getAllCategories } from "../api-helpers/frontend/utils"
+import { getAllCategories } from "../api-helpers/frontend/utils";
 import ShowHomeTitle from "../components/homePage/ShowHomeTitle";
-import dynamic from 'next/dynamic'
 import ModelSelectCursors from "../components/tools/selectTypeCurser/ModelSelectCursors";
 import { useState } from "react";
-import { CircularProgress, useMediaQuery } from '@mui/material';
-
-
-const CategoriesList = dynamic(() => import('../components/homePage/CategoriesList'), {
-  loading: () => <div style={{ color: "gray", display: "flex", justifyContent: "center" }}>
-    <CircularProgress color="inherit" size={30} />
-  </div>,
-});
+import { useMediaQuery } from "@mui/material";
+import LoadingLinearProgress from "../components/tools/loading/LoadingLinearProgress";
+import dynamic from "next/dynamic";
+const CategoriesList = dynamic(() => import('../components/homePage/CategoriesList'))
 
 
 
 const Index = ({ categories }) => {
 
+
   const [showModel, setShowModel] = useState(false);
   const handleShowModel = () => setShowModel(true);
 
   // here if mobile screen, NOT use popUp choose type cursor
-  const mobileScreen = useMediaQuery('(min-width:991px)', { noSsr: true });
+  const mobileScreen = useMediaQuery("(min-width:991px)", { noSsr: true });
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [posts, setPosts] = useState({});
 
 
-  useEffect(() => {
+  const loadingData = async () => {
+
+    setIsLoading(true);
+    const tempPosts = await categories?.posts;
+    setPosts(posts);
+    setIsLoading(false);
 
     let typeCursor = sessionStorage.getItem("typeCursor");
 
@@ -32,37 +36,66 @@ const Index = ({ categories }) => {
       window.scrollTo(0, 0);
       handleShowModel();
     }
-  });
+  };
 
 
-
-  const hideModelSignIn = () => {
-    window.location.reload(false);
-  }
+  useEffect(() => {
+    loadingData();
+  }, []);
 
 
   return (
     <>
-      <ModelSelectCursors open={showModel} hide={hideModelSignIn} />
+      {isLoading ? (
+        <LoadingLinearProgress />
+      ) : (
+        <>
+          <ModelSelectCursors
+            open={showModel}
+            hide={() => setShowModel(false)}
+          />
 
-      <ShowHomeTitle />
+          <ShowHomeTitle />
 
-      <CategoriesList data={categories} />
+          <CategoriesList data={categories} />
+        </>
+      )}
     </>
-  )
-}
+  );
+};
 
 export default Index;
 
 
-export const getServerSideProps = async () => {
-
-  const categories = await getAllCategories();
-
+export async function getServerSideProps() {
   return {
-    props:
-    {
-      categories
-    }
-  }
+    props: (async function () {
+      const categories = await getAllCategories();
+      return {
+        categories: categories,
+      };
+    })(),
+  };
 }
+
+// export const getServerSideProps = async () => {
+
+//   const categories = await getAllCategories();
+
+//   return {
+//     props:
+//     {
+//       categories
+//     }
+//   }
+// }
+
+// const hideModelSignIn = () => {
+//   window.location.reload(false);
+// }
+
+{
+  /* <CategoriesList data={categories} /> */
+}
+
+// import dynamic from 'next/dynamic'

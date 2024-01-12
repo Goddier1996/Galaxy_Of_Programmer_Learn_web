@@ -76,7 +76,6 @@ const UpdateProfileUser = ({ hideUpdate, dataUser }) => {
                         <div className={styles.image}></div>
                     </div>
 
-
                     <div className={styles.bodySpaceInput}>
                         <form>
                             <div className="input-group mb-3">
@@ -105,7 +104,6 @@ const UpdateProfileUser = ({ hideUpdate, dataUser }) => {
                                 />
                             </div>
 
-
                             <div className="input-group mb-3">
                                 <div className={styles.input}>
                                     <span className="input-group-text"><i className="fa fa-key"></i></span>
@@ -121,7 +119,6 @@ const UpdateProfileUser = ({ hideUpdate, dataUser }) => {
                                 />
                             </div>
 
-
                             <div className="input-group mb-3">
                                 <div className={styles.input}>
                                     <span className="input-group-text"><i className="fa fa-key"></i></span>
@@ -136,7 +133,6 @@ const UpdateProfileUser = ({ hideUpdate, dataUser }) => {
                                     autoComplete="off"
                                 />
                             </div>
-
                         </form>
                     </div>
 
@@ -162,7 +158,6 @@ const UpdateProfileUser = ({ hideUpdate, dataUser }) => {
                     func={null}
                 />
             )}
-
 
             {showAlertDemoUserUpdate && (
                 <SnackBarShow

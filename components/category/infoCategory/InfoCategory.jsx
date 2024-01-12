@@ -1,11 +1,7 @@
 import ShowInfoAboutCategory from "./ShowInfoAboutCategory"
-import styles from "../infoCategoryPage.module.css"
-import CircularProgress from '@mui/material/CircularProgress';
 import dynamic from 'next/dynamic'
-
-const TabsInfoCategory = dynamic(() => import('../tabsInfo/TabsInfoCategory'), {
-  // ssr: false,
-})
+import LoadingCircularProgress from "../../tools/loading/LoadingCircularProgress";
+const TabsInfoCategory = dynamic(() => import('../tabsInfo/TabsInfoCategory'))
 
 
 const InfoCategory = ({ data }) => {
@@ -18,9 +14,7 @@ const InfoCategory = ({ data }) => {
           <TabsInfoCategory idCategory={data.codeCategory} />
         </>
         :
-        <div className={styles.loading}>
-          <CircularProgress color="inherit" size={95} />
-        </div>
+         <LoadingCircularProgress/>
       }
     </>
   )

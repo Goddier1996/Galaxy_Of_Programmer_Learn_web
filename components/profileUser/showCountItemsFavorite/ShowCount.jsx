@@ -1,9 +1,9 @@
 import styles from "../css/favoriteUser.module.css";
-import { CircularProgress } from "@mui/material";
 import { motion } from "framer-motion";
 import { container, item } from "../../StyleAnimation";
 import { useEffect, useState } from "react";
 import { CountFetch } from "../../../customHook/customHookFetchCount";
+import LoadingCircularProgressButton from "../../tools/loading/LoadingCircularProgressButton";
 
 
 const ShowCount = ({ img, typeCount,nameType }) => {
@@ -70,7 +70,7 @@ const ShowCount = ({ img, typeCount,nameType }) => {
         <h3>{nameType}</h3>
         {loading ? (
           <motion.p variants={item}>
-            <CircularProgress color="inherit" size={15} />
+            <LoadingCircularProgressButton whereUse="count" />
           </motion.p>
         ) : (
           <motion.p variants={item}>{data.length}</motion.p>

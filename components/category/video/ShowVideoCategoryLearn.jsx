@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { Box, CircularProgress } from "@mui/material";
+import { Box } from "@mui/material";
 import styles from "../infoCategoryPage.module.css";
 import ShowVideos from "./ShowVideos";
 import { UseFetch } from "../../../customHook/customHook";
+import LoadingCircularProgress from "../../tools/loading/LoadingCircularProgress";
 
 
 const ShowVideoCategoryLearn = ({ idCategoryVideo, howUse }) => {
@@ -49,9 +50,7 @@ const ShowVideoCategoryLearn = ({ idCategoryVideo, howUse }) => {
     <Box>
       <div className={styles.line}>
         {loading ? (
-          <div className={styles.loading}>
-            <CircularProgress color="inherit" size={30} />
-          </div>
+          <LoadingCircularProgress/>
         ) : (
           <div className={styles.StyleAllShowData}>
             {data.length !== 0 ? (

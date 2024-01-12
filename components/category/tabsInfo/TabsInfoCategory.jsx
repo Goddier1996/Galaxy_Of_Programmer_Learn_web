@@ -18,7 +18,6 @@ const TabsInfoCategory = ({ idCategory }) => {
         setTabIndex(newTabIndex);
     };
 
-
     return (
             <motion.div
                 variants={container}

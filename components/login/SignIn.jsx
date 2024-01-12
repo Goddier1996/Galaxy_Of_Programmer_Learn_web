@@ -4,8 +4,9 @@ import {
   connectUserToSite,
   connectDemoUser,
 } from "./function/ConnectFunctions";
-import { Button , CircularProgress } from "@mui/material";
+import { Button } from "@mui/material";
 import SnackBarShow from "../tools/SnackBarShow";
+import LoadingCircularProgressButton from "../tools/loading/LoadingCircularProgressButton";
 
 
 
@@ -125,7 +126,7 @@ const SignIn = ({ hideSignInFun }) => {
                   {!disabledSignInButton ?
                     "Sign In"
                     :
-                    <CircularProgress color="success" />
+                    <LoadingCircularProgressButton whereUse="signIn" />
                   }
                 </Button>
               </div>

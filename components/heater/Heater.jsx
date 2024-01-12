@@ -7,7 +7,6 @@ import SelectCurser from "../tools/selectTypeCurser/SelectCurser";
 import { applyCursorUserChoose } from "./function/HeaterFunction";
 import ResponsiveMenu from "./showOptionsMenu/responsiveMenu/ResponsiveMenu";
 import DesktopMenu from "./showOptionsMenu/desktopMenu/DesktopMenu";
-
 const SignIn = dynamic(() => import("../login/SignIn"));
 const Register = dynamic(() => import("../../pages/Register"));
 const ProfileUser = dynamic(() => import("../profileUser/ProfileUser"));

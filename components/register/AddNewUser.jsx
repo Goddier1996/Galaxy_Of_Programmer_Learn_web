@@ -1,10 +1,11 @@
 import { useState } from "react";
 import styles from "./register.module.css";
-import { Button , CircularProgress } from "@mui/material";
+import { Button } from "@mui/material";
 import { registerCheckIfHaveThisUserInDataBase } from "../../api-helpers/frontend/utils";
 import RobotBox from "../ReCAPTCHA/RobotBox";
 import SnackBarShow from "../tools/SnackBarShow";
 import { registerNewUser } from "./function/RegisterFunction";
+import LoadingCircularProgressButton from "../tools/loading/LoadingCircularProgressButton";
 
 
 
@@ -192,7 +193,7 @@ const AddNewUser = ({ closeModel }) => {
                     <>Register<br/>
                     Click twice</>
                     :
-                    <CircularProgress color="success" />
+                    <LoadingCircularProgressButton whereUse="register" />
                   }
                 </Button>
               </div>

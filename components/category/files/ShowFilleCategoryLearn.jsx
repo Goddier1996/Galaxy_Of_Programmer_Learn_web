@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { Box, Table, TableBody, CircularProgress } from "@mui/material";
+import { Box, Table, TableBody } from "@mui/material";
 import styles from "../infoCategoryPage.module.css";
 import ShowFilesAndLinks from "./ShowFilesAndLinks";
 import { UseFetch } from "../../../customHook/customHook";
+import LoadingCircularProgress from "../../tools/loading/LoadingCircularProgress";
 
 
 const ShowFilleCategoryLearn = ({ idCategoryFille, howUse }) => {
@@ -49,9 +50,7 @@ const ShowFilleCategoryLearn = ({ idCategoryFille, howUse }) => {
   return (
     <Box>
       {loading ? (
-        <div className={styles.loading}>
-          <CircularProgress color="inherit" size={30} />
-        </div>
+        <LoadingCircularProgress/>
       ) : (
         <div className={styles.line}>
           <div className={styles.tableStyle}>
