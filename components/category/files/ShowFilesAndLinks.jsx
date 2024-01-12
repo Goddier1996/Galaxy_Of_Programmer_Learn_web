@@ -10,7 +10,7 @@ import UserDeleteFavorite from "../../profileUser/UserDeleteFavorite";
 const ShowFilesAndLinks = ({ data, count, typeShow, title, link, use }) => {
 
   return (
-    <TableRow key={data._id} style={{ borderBottom: "2px solid #b0c4cf" }}>
+    <TableRow style={{ borderBottom: "2px solid #b0c4cf" }}>
       <TableCell style={{ color: "white" }} align="center">
         <p className={styles.fileLinkAboutCategory}>{count}.</p>
       </TableCell>

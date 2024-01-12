@@ -56,7 +56,7 @@ const ShowVideoCategoryLearn = ({ idCategoryVideo, howUse }) => {
             {data.length !== 0 ? (
               <>
                 {data.map((InfoCategoryVideo) => (
-                  <ShowVideos data={InfoCategoryVideo} use={howUse} />
+                  <ShowVideos key={InfoCategoryVideo._id} data={InfoCategoryVideo} use={howUse} />
                 ))}
               </>
             ) : (

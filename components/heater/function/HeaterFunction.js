@@ -64,8 +64,7 @@ export const hamburgerNavbarResponsiveScreenUserConnect = (indexPage, history, s
 export const logOutUser = async (history) => {
 
     await sessionStorage.removeItem("user");
-    await history.push("/");
-    window.location.reload(false);
+    history.push("/");
 }
 
 

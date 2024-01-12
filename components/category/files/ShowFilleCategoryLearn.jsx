@@ -62,6 +62,7 @@ const ShowFilleCategoryLearn = ({ idCategoryFille, howUse }) => {
                       <>
                         {howUse == "info" ? (
                           <ShowFilesAndLinks
+                            key={FileInfo._id}
                             data={FileInfo}
                             count={countLinkLinkFIleCategory++}
                             typeShow={"file"}
@@ -70,7 +71,8 @@ const ShowFilleCategoryLearn = ({ idCategoryFille, howUse }) => {
                             use={howUse}
                           />
                         ) : howUse == "user" ? (
-                          <ShowFilesAndLinks
+                            <ShowFilesAndLinks
+                            key={FileInfo._id}
                             data={FileInfo}
                             count={countLinkLinkFIleCategory++}
                             typeShow={"file"}

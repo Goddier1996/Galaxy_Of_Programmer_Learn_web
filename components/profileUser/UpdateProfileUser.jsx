@@ -48,7 +48,6 @@ const UpdateProfileUser = ({ hideUpdate, dataUser }) => {
             await updateUser(dataUser._id, inputs)
             await setShowAlertUpdateProfileUser(true)
             await router.push("/")
-            window.location.reload(false);
             sessionStorage.clear();
         }
     }

@@ -49,6 +49,7 @@ const ShowLinkCategoryLearn = ({ idCategoryLink, howUse }) => {
 
 
   return (
+    <>
     <Box>
       {loading ? (
        <LoadingCircularProgress/>
@@ -63,6 +64,7 @@ const ShowLinkCategoryLearn = ({ idCategoryLink, howUse }) => {
                       <>
                         {howUse == "info" ? (
                           <ShowFilesAndLinks
+                            key={linksInfo._id}
                             data={linksInfo}
                             count={countLinkInfoCategory++}
                             typeShow={"link"}
@@ -72,6 +74,7 @@ const ShowLinkCategoryLearn = ({ idCategoryLink, howUse }) => {
                           />
                         ) : howUse == "user" ? (
                           <ShowFilesAndLinks
+                            key={linksInfo._id}
                             data={linksInfo}
                             count={countLinkInfoCategory++}
                             typeShow={"link"}
@@ -96,6 +99,8 @@ const ShowLinkCategoryLearn = ({ idCategoryLink, howUse }) => {
         </div>
       )}
     </Box>
+    </>
+    
   );
 };
 

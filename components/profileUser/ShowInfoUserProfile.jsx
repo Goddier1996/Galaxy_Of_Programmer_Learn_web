@@ -18,7 +18,6 @@ const ShowInfoUserProfile = ({ hideSignInFun, name, avatarUser, login }) => {
                 <div className={styles.styleTitleRegister} >
                     <h1>Hi {name} Here Your Profile</h1>
                 </div>
-
                 <div className={styles.image}></div>
             </div>
 

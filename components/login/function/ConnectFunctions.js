@@ -3,19 +3,16 @@ import { signInUser } from "../../../api-helpers/frontend/utils";
 
 export const connectUserToSite = async (user, setShowAlertUserEmptyInDatabase, setDisabledSignInButton, setShowAlertUserConnect) => {
 
-    await signInUser(user)
-        .then(() => {
-            let userData = JSON.parse(window.sessionStorage.getItem("user"));
+    await signInUser(user);
+    let userData = JSON.parse(window.sessionStorage.getItem("user"));
 
-            if (userData.connectUser == null) {
-                setShowAlertUserEmptyInDatabase(true);
-                sessionStorage.clear();
-            } else {
-                setDisabledSignInButton(true);
-                setShowAlertUserConnect(true);
-            }
-        })
-        .catch((err) => console.log(err));
+    if (userData.connectUser == null) {
+        setShowAlertUserEmptyInDatabase(true);
+        sessionStorage.removeItem("user");
+    } else {
+        setDisabledSignInButton(true);
+        setShowAlertUserConnect(true);
+    }
 };
 
 
