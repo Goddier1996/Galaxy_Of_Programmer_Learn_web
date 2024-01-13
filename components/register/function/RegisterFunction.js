@@ -5,7 +5,7 @@ export const registerNewUser = async (inputs, checkIfHaveThisUserInDataBase, set
 
     if (clickNumButton >= 2) {
         if (checkIfHaveThisUserInDataBase) {
-            setShowAlertShowAlertHaveLoginInDatabase(true);
+            setShowAlertShowAlertHaveLoginInDatabase();
             setDisabledRegesterButton(false);
             setCheckIfHaveThisUserInDataBase("");
         }
@@ -15,7 +15,7 @@ export const registerNewUser = async (inputs, checkIfHaveThisUserInDataBase, set
             addUser(inputs)
                 .then((value) => console.log(value))
                 .then(() => {
-                    setShowAlertUserRegister(true);
+                    setShowAlertUserRegister();
                 })
                 .catch(err => console.log(err));
         }

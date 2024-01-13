@@ -7,6 +7,7 @@ import SelectCurser from "../tools/selectTypeCurser/SelectCurser";
 import { applyCursorUserChoose } from "./function/HeaterFunction";
 import ResponsiveMenu from "./showOptionsMenu/responsiveMenu/ResponsiveMenu";
 import DesktopMenu from "./showOptionsMenu/desktopMenu/DesktopMenu";
+import { OpenCloseModelsPopUpAndAlert } from "../../customHook/OpenCloseModelsPopUp";
 const SignIn = dynamic(() => import("../login/SignIn"));
 const Register = dynamic(() => import("../../pages/Register"));
 const ProfileUser = dynamic(() => import("../profileUser/ProfileUser"));
@@ -16,18 +17,17 @@ const ProfileUser = dynamic(() => import("../profileUser/ProfileUser"));
 const Header = () => {
 
 
+  // open close pop up Custom Hook
+  // Show Model Register
+  const { showModel, handleShowModel, handleCloseModel } = OpenCloseModelsPopUpAndAlert();
+    // Show Model SignIn
+  const { showOneMoreModel, handleShowOneMoreModel, handleCloseOneMoreModel } = OpenCloseModelsPopUpAndAlert();
+    // Show Model Profile User
+  const { showTwoMoreModel, handleShowTwoMoreModel, handleCloseTwoMoreModel } = OpenCloseModelsPopUpAndAlert();
+
+  
   const [SaveDataUserFromSessionStorage, setSaveDataUserFromSessionStorage] =
     useState({});
-
-  const handleShowModelRegister = () => setShowModelRegister(true);
-  const [showModelRegister, setShowModelRegister] = useState(false);
-
-  const handleShowModelSignIn = () => setShowModelSignIn(true);
-  const [showModelSignIn, setShowModelSignIn] = useState(false);
-
-  const handleShowModelProfileUser = () => setShowModelProfileUser(true);
-  const [showModelProfileUser, setShowModelProfileUser] = useState(false);
-
   const [selectCurserHeater, setSelectCurserHeater] = useState(null);
   const [Curser, setCurser] = useState("");
 
@@ -75,8 +75,8 @@ const Header = () => {
                   SaveDataUserFromSessionStorage={
                     SaveDataUserFromSessionStorage
                   }
-                  handleShowModelSignIn={handleShowModelSignIn}
-                  handleShowModelRegister={handleShowModelRegister}
+                  handleShowModelSignIn={handleShowOneMoreModel}
+                  handleShowModelRegister={handleShowModel}
                 />
 
                 {/* DESKTOP screen */}
@@ -84,9 +84,9 @@ const Header = () => {
                   SaveDataUserFromSessionStorage={
                     SaveDataUserFromSessionStorage
                   }
-                  handleShowModelRegister={handleShowModelRegister}
-                  handleShowModelSignIn={handleShowModelSignIn}
-                  handleShowModelProfileUser={handleShowModelProfileUser}
+                  handleShowModelRegister={handleShowModel}
+                  handleShowModelSignIn={handleShowOneMoreModel}
+                  handleShowModelProfileUser={handleShowTwoMoreModel}
                 />
 
                 {/* show SELECT Curser style */}
@@ -111,23 +111,23 @@ const Header = () => {
       </motion.div>
 
       {/* model popup show Register */}
-      <Modal open={showModelRegister}>
+      <Modal open={showModel}>
         <>
-          <Register hideRegisterFun={() => setShowModelRegister(false)} />
+          <Register hideRegisterFun={() => handleCloseModel()} />
         </>
       </Modal>
 
       {/* model popup show Sign in */}
-      <Modal open={showModelSignIn}>
+      <Modal open={showOneMoreModel}>
         <>
-          <SignIn hideSignInFun={() => setShowModelSignIn(false)} />
+          <SignIn hideSignInFun={() => handleCloseOneMoreModel()} />
         </>
       </Modal>
 
       {/* model popup show Sign in */}
-      <Modal open={showModelProfileUser}>
+      <Modal open={showTwoMoreModel}>
         <>
-          <ProfileUser hideSignInFun={() => setShowModelProfileUser(false)} />
+          <ProfileUser hideSignInFun={() => handleCloseTwoMoreModel()} />
         </>
       </Modal>
     </>

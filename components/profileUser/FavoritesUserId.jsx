@@ -15,8 +15,8 @@ function FavoritesUserId() {
 
 
   const [dataUser, setDataUser] = useState({});
-
   const [tabIndex, setTabIndex] = useState(0);
+
 
   const handleTabChange = (event, newTabIndex) => {
     setTabIndex(newTabIndex);
@@ -34,7 +34,6 @@ function FavoritesUserId() {
       setDataUser()
     }
   }, [])
-
 
 
   return (
@@ -96,21 +95,18 @@ function FavoritesUserId() {
               </Tabs>
             </Box>
             <Box>
-              
               {tabIndex === 0 && (
                 <ShowVideoCategoryLearn
                   idCategoryVideo={dataUser._id}
                   howUse={"user"}
                 />
               )}
-
               {tabIndex === 1 && (
                 <ShowLinkCategoryLearn
                   idCategoryLink={dataUser._id}
                   howUse={"user"}
                 />
               )}
-
               {tabIndex === 2 && (
                 <ShowFilleCategoryLearn
                   idCategoryFille={dataUser._id}

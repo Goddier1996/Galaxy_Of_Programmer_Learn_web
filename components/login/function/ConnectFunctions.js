@@ -7,11 +7,11 @@ export const connectUserToSite = async (user, setShowAlertUserEmptyInDatabase, s
     let userData = JSON.parse(window.sessionStorage.getItem("user"));
 
     if (userData.connectUser == null) {
-        setShowAlertUserEmptyInDatabase(true);
+        setShowAlertUserEmptyInDatabase();
         sessionStorage.removeItem("user");
     } else {
         setDisabledSignInButton(true);
-        setShowAlertUserConnect(true);
+        setShowAlertUserConnect();
     }
 };
 
@@ -28,7 +28,7 @@ export const connectDemoUser = async (setDisabledSignInButton, setShowAlertUserC
         .then((value) => console.log(value))
         .then(() => {
             setDisabledSignInButton(true);
-            setShowAlertUserConnect(true);
+            setShowAlertUserConnect();
         })
         .catch((err) => console.log(err));
 };

@@ -4,7 +4,7 @@ import { Snackbar, Alert } from "@mui/material";
 
 const ShowAlertFavorite = ({
   showAlert,
-  setShow,
+  show,
   text,
   type,
   title,
@@ -16,7 +16,7 @@ const ShowAlertFavorite = ({
       open={showAlert}
       autoHideDuration={2000}
       onClose={() => {
-        setShow(false);
+        show()
       }}
     >
       <Alert

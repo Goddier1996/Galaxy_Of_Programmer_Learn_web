@@ -7,33 +7,34 @@ import {
 import { Button } from "@mui/material";
 import SnackBarShow from "../tools/SnackBarShow";
 import LoadingCircularProgressButton from "../tools/loading/LoadingCircularProgressButton";
-
+import { OpenCloseModelsPopUpAndAlert } from "../../customHook/OpenCloseModelsPopUp";
 
 
 const SignIn = ({ hideSignInFun }) => {
 
 
-  const [showAlertEmptyValueLogin, setShowAlertEmptyValueLogin] =
-    useState(false);
+  // pop up alerts show Custom Hook
+  // Alert Empty Value Login
+  const { showModel, handleShowModel, handleCloseModel } = OpenCloseModelsPopUpAndAlert();
+  // Alert User Empty In Database
+  const { showOneMoreModel, handleShowOneMoreModel, handleCloseOneMoreModel } = OpenCloseModelsPopUpAndAlert();
+  // Alert User Connect
+  const { showTwoMoreModel, handleShowTwoMoreModel, handleCloseTwoMoreModel } = OpenCloseModelsPopUpAndAlert();
 
-  const [showAlertUserEmptyInDatabase, setShowAlertUserEmptyInDatabase] =
-    useState(false);
-
-  const [showAlertUserConnect, setShowAlertUserConnect] = useState(false);
-
+  
   const [disabledSignInButton, setDisabledSignInButton] = useState(false);
 
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
 
     
-    
   const onSubmitSignIn = (e) => {
     
     e.preventDefault();
 
     if (login === "" || password === "") {
-      setShowAlertEmptyValueLogin(true);
+      // alert input value
+      handleShowModel();
       return;
     }
       
@@ -45,14 +46,15 @@ const SignIn = ({ hideSignInFun }) => {
 
       connectUserToSite(
         userData,
-        setShowAlertUserEmptyInDatabase,
+        // Alert User Empty In Database
+        handleShowOneMoreModel,
         setDisabledSignInButton,
-        setShowAlertUserConnect
+        // Alert User Connect
+        handleShowTwoMoreModel
       );
     }
   };
 
-    
     
   return (
     <div className={styles.animationOpenPopUp}>
@@ -138,7 +140,7 @@ const SignIn = ({ hideSignInFun }) => {
                       ? { color: "rgba(0, 0, 0, 0.1)", cursor: "none" }
                       : { color: "#ffffff" }
                   }
-                  onClick={() => connectDemoUser(setDisabledSignInButton,setShowAlertUserConnect)}
+                  onClick={() => connectDemoUser(setDisabledSignInButton,handleShowTwoMoreModel)}
                 >
                   Click to Connect Demo User
                 </p>
@@ -150,30 +152,30 @@ const SignIn = ({ hideSignInFun }) => {
 
           
       {/* show alert when user connect */}
-      {showAlertEmptyValueLogin && (
+      {showModel && (
         <SnackBarShow
-          showAlert={showAlertEmptyValueLogin}
-          setShowAlert={() => setShowAlertEmptyValueLogin(false)}
+          showAlert={showModel}
+          setShowAlert={() => handleCloseModel()}
           typeMessage={"input all value (Incorrect input) !"}
           typeAlert={"warning"}
           func={null}
         />
       )}
 
-      {showAlertUserEmptyInDatabase && (
+      {showOneMoreModel && (
         <SnackBarShow
-          showAlert={showAlertUserEmptyInDatabase}
-          setShowAlert={() => setShowAlertUserEmptyInDatabase(false)}
+          showAlert={showOneMoreModel}
+          setShowAlert={() => handleCloseOneMoreModel()}
           typeMessage={"Don't Have This User In Database !"}
           typeAlert={"warning"}
           func={null}
         />
       )}
 
-      {showAlertUserConnect && (
+      {showTwoMoreModel && (
         <SnackBarShow
-          showAlert={showAlertUserConnect}
-          setShowAlert={() => setShowAlertUserConnect(false)}
+          showAlert={showTwoMoreModel}
+          setShowAlert={() => handleCloseTwoMoreModel()}
           typeMessage={"Welcome you Connect, Let's Learn new technology"}
           typeAlert={"success"}
           func={null}

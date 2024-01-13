@@ -21,7 +21,6 @@ const ShowInfoUserProfile = ({ hideSignInFun, name, avatarUser, login }) => {
                 <div className={styles.image}></div>
             </div>
 
-
             <div className={styles.bodySpaceAvatar}>
                 <img
                     src={avatarUser}

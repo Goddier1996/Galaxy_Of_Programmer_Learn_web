@@ -5,12 +5,11 @@ import { Snackbar, Alert } from '@mui/material';
 const SnackBarShow = ({ showAlert, setShowAlert, typeMessage, typeAlert, func }) => {
 
     return (
-
         <Snackbar
             open={showAlert}
             autoHideDuration={1500}
             onClose={() => {
-                setShowAlert(false)
+                setShowAlert()
                 {
                     typeAlert === "success" ?
                         window.location.reload(false) :

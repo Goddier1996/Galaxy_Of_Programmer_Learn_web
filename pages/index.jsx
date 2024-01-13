@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { getAllCategories } from "../api-helpers/frontend/utils";
 import dynamic from "next/dynamic";
-import { useState } from "react";
 import { useMediaQuery } from "@mui/material";
 import LoadingLinearProgress from "../components/tools/loading/LoadingLinearProgress";
+import { OpenCloseModelsPopUpAndAlert } from "../customHook/OpenCloseModelsPopUp";
 import CategoriesList from "../components/homePage/CategoriesList";
 const ShowHomeTitle = dynamic(() =>
   import("../components/homePage/ShowHomeTitle"));
@@ -15,8 +15,8 @@ const ModelSelectCursors = dynamic(() =>
 const Index = ({ categories }) => {
 
 
-  const [showModel, setShowModel] = useState(false);
-  const handleShowModel = () => setShowModel(true);
+  // open model pop up select typeCursor , custom hook
+  const { showModel, handleShowModel, handleCloseModel } = OpenCloseModelsPopUpAndAlert();
 
   // here if mobile screen, NOT use popUp choose type cursor
   const mobileScreen = useMediaQuery("(min-width:991px)", { noSsr: true });
@@ -34,7 +34,7 @@ const Index = ({ categories }) => {
 
   return (
     <>
-      <ModelSelectCursors open={showModel} hide={() => setShowModel(false)} />
+      <ModelSelectCursors open={showModel} hide={() => handleCloseModel()} />
 
       <ShowHomeTitle />
 

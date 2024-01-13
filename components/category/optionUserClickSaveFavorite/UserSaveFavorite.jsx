@@ -3,22 +3,20 @@ import BookmarkAddIcon from "@mui/icons-material/BookmarkAdd";
 import styles from "../infoCategoryPage.module.css";
 import { SaveFavorite } from "./function/SaveFavoride";
 import ShowAlertFavorite from "./alerts/ShowAlertFavorite";
-
+import { OpenCloseModelsPopUpAndAlert } from "../../../customHook/OpenCloseModelsPopUp";
 
 
 const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
 
 
-  const [showAlertUserAddFavorite, setShowAlertUserAddFavorite] =
-    useState(false);
+  // open close pop up alerts custom hook
+  // Alert User Add Favorite
+  const { showModel, handleShowModel, handleCloseModel } = OpenCloseModelsPopUpAndAlert();
+  // User Need Connect ToAdd Favorite,
+  const { showOneMoreModel, handleShowOneMoreModel, handleCloseOneMoreModel } = OpenCloseModelsPopUpAndAlert();
+  // User Have This Favorite
+  const { showTwoMoreModel, handleShowTwoMoreModel, handleCloseTwoMoreModel } = OpenCloseModelsPopUpAndAlert();
 
-  const [
-    showAlertUserNeedConnectToAddFavorite,
-    setShowAlertUserNeedConnectToAddFavorite,
-  ] = useState(false);
-
-  const [showAlertUserHaveThisFavorite, setShowAlertUserHaveThisFavorite] =
-    useState(false);
 
   const [dataInfoSave] = useState({
     favorite: favorite,
@@ -27,8 +25,7 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
     idFavorite: idFavorite,
   });
 
-    
-    
+     
   return (
     <>
       <b className={styles.SaveBookMarkInfoUser}>
@@ -36,19 +33,19 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
           onClick={() =>
             SaveFavorite(
               dataInfoSave,
-              setShowAlertUserAddFavorite,
-              setShowAlertUserHaveThisFavorite,
-              setShowAlertUserNeedConnectToAddFavorite
+              handleShowModel,
+              handleShowTwoMoreModel,
+              handleShowOneMoreModel
             )
           }
           className={styles.buttonSave}
         />
       </b>
 
-      {showAlertUserAddFavorite && (
+      {showModel && (
         <ShowAlertFavorite
-          showAlert={showAlertUserAddFavorite}
-          setShow={() => setShowAlertUserAddFavorite(false)}
+          showAlert={showModel}
+          show={handleCloseModel}
           text={"favorite save"}
           type={dataInfoSave.type}
           title={dataInfoSave.title}
@@ -56,10 +53,10 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
         />
       )}
 
-      {showAlertUserNeedConnectToAddFavorite && (
+      {showOneMoreModel && (
         <ShowAlertFavorite
-          showAlert={showAlertUserNeedConnectToAddFavorite}
-          setShow={() => setShowAlertUserNeedConnectToAddFavorite(false)}
+          showAlert={showOneMoreModel}
+          show={handleCloseOneMoreModel}
           text={"Please SignIn Or Register"}
           type={""}
           title={""}
@@ -67,10 +64,10 @@ const UserSaveFavorite = ({ favorite, title, type, idFavorite }) => {
         />
       )}
 
-      {showAlertUserHaveThisFavorite && (
+      {showTwoMoreModel && (
         <ShowAlertFavorite
-          showAlert={showAlertUserHaveThisFavorite}
-          setShow={() => setShowAlertUserHaveThisFavorite(false)}
+          showAlert={showTwoMoreModel}
+          show={handleCloseTwoMoreModel}
           text={"You Have This Favorite"}
           type={""}
           title={""}

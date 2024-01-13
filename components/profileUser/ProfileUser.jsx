@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import UpdateProfileUser from "./UpdateProfileUser";
 import { Modal, Button } from "@mui/material";
 import ShowInfoUserProfile from "./ShowInfoUserProfile";
+import { OpenCloseModelsPopUpAndAlert } from "../../customHook/OpenCloseModelsPopUp";
+
 
 
 const ProfileUser = ({ hideSignInFun }) => {
@@ -11,11 +13,10 @@ const ProfileUser = ({ hideSignInFun }) => {
   const [SaveDataUserFromSessionStorage, setSaveDataUserFromSessionStorage] =
     useState({});
 
-  const handleShowModelUpdate = () => setShowModelUpdate(true);
-  const [showModelUpdate, setShowModelUpdate] = useState(false);
+  // open model pop up Model Update , custom hook
+  const { showModel, handleShowModel, handleCloseModel } = OpenCloseModelsPopUpAndAlert();
 
-    
-    
+
   useEffect(() => {
     
     let userData = JSON.parse(window.sessionStorage.getItem("user"));
@@ -40,7 +41,7 @@ const ProfileUser = ({ hideSignInFun }) => {
           />
 
           <div className={styles.updateUserData}>
-            <Button onClick={handleShowModelUpdate} variant="contained">
+            <Button onClick={handleShowModel} variant="contained">
               Update your Profile
             </Button>
           </div>
@@ -48,9 +49,9 @@ const ProfileUser = ({ hideSignInFun }) => {
       </div>
 
       {/* model popup show Update Profile */}
-      <Modal open={showModelUpdate}>
+      <Modal open={showModel}>
         <UpdateProfileUser
-          hideUpdate={() => setShowModelUpdate(false)}
+          hideUpdate={() => handleCloseModel()}
           dataUser={SaveDataUserFromSessionStorage}
         />
       </Modal>

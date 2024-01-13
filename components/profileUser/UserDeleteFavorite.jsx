@@ -1,20 +1,20 @@
-import React, { useState } from 'react'
 import BookmarkRemoveIcon from '@mui/icons-material/BookmarkRemove';
 import styles from "../category/infoCategoryPage.module.css"
 import { favoriteRemoveIdUser } from "../../api-helpers/frontend/utils"
 import SnackBarShow from '../tools/SnackBarShow';
-
+import { OpenCloseModelsPopUpAndAlert } from "../../customHook/OpenCloseModelsPopUp";
 
 
 const UserDeleteFavorite = ({ id }) => {
 
-    const [openAlert, setOpenAlert] = useState(false);
 
+    // open model favorite user Remove , custom hook
+    const { showModel, handleShowModel, handleCloseModel } = OpenCloseModelsPopUpAndAlert();
 
     const UserRemoveFavorite = () => {
 
         favoriteRemoveIdUser(id)
-            .then(() => setOpenAlert(true))
+            .then(() => handleShowModel())
             .catch(err => console.log(err))
     }
 
@@ -25,10 +25,10 @@ const UserDeleteFavorite = ({ id }) => {
                 <BookmarkRemoveIcon className={styles.buttonSave} onClick={UserRemoveFavorite} />
             </b>
 
-            {openAlert && (
+            {showModel && (
                 <SnackBarShow
-                    showAlert={openAlert}
-                    setShowAlert={() => setOpenAlert(false)}
+                    showAlert={showModel}
+                    setShowAlert={() => handleCloseModel()}
                     typeMessage={"Successfully Delete"}
                     typeAlert={"success"}
                     func={null}

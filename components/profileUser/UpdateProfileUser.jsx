@@ -4,7 +4,7 @@ import { updateUser } from '../../api-helpers/frontend/utils';
 import { useRouter } from 'next/router';
 import { Button } from '@mui/material';
 import SnackBarShow from "../tools/SnackBarShow";
-
+import { OpenCloseModelsPopUpAndAlert } from "../../customHook/OpenCloseModelsPopUp";
 
 
 const UpdateProfileUser = ({ hideUpdate, dataUser }) => {
@@ -12,8 +12,10 @@ const UpdateProfileUser = ({ hideUpdate, dataUser }) => {
 
     const router = useRouter();
 
-    const [showAlertUpdateProfileUser, setShowAlertUpdateProfileUser] = useState(false);
-    const [showAlertDemoUserUpdate, setShowAlertDemoUserUpdate] = useState(false);
+    // open model pop up Alert Update Profile User , custom hook
+    const { showModel, handleShowModel, handleCloseModel } = OpenCloseModelsPopUpAndAlert();
+    // open model pop up Demo User Update , custom hook
+    const { showOneMoreModel, handleShowOneMoreModel, handleCloseOneMoreModel } = OpenCloseModelsPopUpAndAlert();
 
 
     const [inputs, setInputs] = useState(
@@ -36,19 +38,18 @@ const UpdateProfileUser = ({ hideUpdate, dataUser }) => {
     }
 
 
-
-    const UpdateNewDataUser = async () => {
+    const UpdateNewDataUser =  () => {
 
         // demo user cant update data !
         if (dataUser.login == process.env.DEMO_LOGIN) {
-            setShowAlertDemoUserUpdate(true);
+            handleShowOneMoreModel();
         }
-
         else {
-            await updateUser(dataUser._id, inputs)
-            await setShowAlertUpdateProfileUser(true)
-            await router.push("/")
-            sessionStorage.clear();
+            updateUser(dataUser._id, inputs)
+                .then(() => handleShowModel())
+                .then(() => router.push("/"))
+                .then(() => sessionStorage.clear())
+                .catch(err => console.log(err));
         }
     }
 
@@ -148,20 +149,20 @@ const UpdateProfileUser = ({ hideUpdate, dataUser }) => {
 
 
             {/* here alerts if error and more , Update user data */}
-            {showAlertUpdateProfileUser && (
+            {showModel && (
                 <SnackBarShow
-                    showAlert={showAlertUpdateProfileUser}
-                    setShowAlert={() => setShowAlertUpdateProfileUser(false)}
+                    showAlert={showModel}
+                    setShowAlert={() => handleCloseModel()}
                     typeMessage={"The data was updated successfully"}
                     typeAlert={"success"}
                     func={null}
                 />
             )}
-
-            {showAlertDemoUserUpdate && (
+            
+            {showOneMoreModel && (
                 <SnackBarShow
-                    showAlert={showAlertDemoUserUpdate}
-                    setShowAlert={() => setShowAlertDemoUserUpdate(false)}
+                    showAlert={showOneMoreModel}
+                    setShowAlert={() => handleCloseOneMoreModel()}
                     typeMessage={"Demo User Can't updated Data !"}
                     typeAlert={"info"}
                     func={hideUpdate}

@@ -6,7 +6,7 @@ import RobotBox from "../ReCAPTCHA/RobotBox";
 import SnackBarShow from "../tools/SnackBarShow";
 import { registerNewUser } from "./function/RegisterFunction";
 import LoadingCircularProgressButton from "../tools/loading/LoadingCircularProgressButton";
-
+import { OpenCloseModelsPopUpAndAlert } from "../../customHook/OpenCloseModelsPopUp";
 
 
 const AddNewUser = ({ closeModel }) => {
@@ -19,21 +19,16 @@ const AddNewUser = ({ closeModel }) => {
   const [disabledRegesterButton, setDisabledRegesterButton] = useState(false);
   const [disabledCloseButton, setDisabledCloseButton] = useState(false);
 
-  const [showAlertUserRegister, setShowAlertUserRegister] = useState(false);
-  const [
-    showAlertUserRegisterNeedInputValue,
-    setShowAlertUserRegisterNeedInputValue,
-  ] = useState(false);
-  const [
-    showAlertUserRegisterPasswordNOTEquals,
-    setShowAlertUserRegisterPasswordNOTEquals,
-  ] = useState(false);
-  const [
-    showAlertHaveLoginInDatabase,
-    setShowAlertShowAlertHaveLoginInDatabase,
-  ] = useState(false);
+  // open model pop up User Register , custom hook
+  const { showModel, handleShowModel, handleCloseModel } = OpenCloseModelsPopUpAndAlert();
+  // open model pop up User Register NeedInput Value , custom hook
+  const { showOneMoreModel, handleShowOneMoreModel, handleCloseOneMoreModel } = OpenCloseModelsPopUpAndAlert();
+  // open model pop up User Register Password NOT Equals , custom hook
+  const { showTwoMoreModel, handleShowTwoMoreModel, handleCloseTwoMoreModel } = OpenCloseModelsPopUpAndAlert();
+  // open model pop up Have this user In Database , custom hook
+  const { showThereMoreModel, handleShowThereMoreModel, handleCloseThereMoreModel } = OpenCloseModelsPopUpAndAlert();
 
-    
+
   const [name, setName] = useState("");
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
@@ -51,11 +46,11 @@ const AddNewUser = ({ closeModel }) => {
     e.preventDefault();
 
     if (login == "" || password == "" || name == "") {
-      setShowAlertUserRegisterNeedInputValue(true);
+      handleShowOneMoreModel();
       return;
     }
     else if (password != confirmPassword) {
-      setShowAlertUserRegisterPasswordNOTEquals(true);
+      handleShowTwoMoreModel();
       return;
     }
     else {
@@ -76,10 +71,10 @@ const AddNewUser = ({ closeModel }) => {
             checkIfHaveThisUserInDataBase,
             setCheckIfHaveThisUserInDataBase,
             clickNumButton,
-            setShowAlertShowAlertHaveLoginInDatabase,
+            handleShowThereMoreModel,
             setDisabledRegesterButton,
             setDisabledCloseButton,
-            setShowAlertUserRegister
+            handleShowModel
           )
         )
         .catch((err) => console.log(err));
@@ -204,40 +199,40 @@ const AddNewUser = ({ closeModel }) => {
 
       
       {/* here alerts if error and more , show when user input value register */}
-      {showAlertUserRegister && (
+      {showModel && (
         <SnackBarShow
-          showAlert={showAlertUserRegister}
-          setShowAlert={() => setShowAlertUserRegister(false)}
+          showAlert={showModel}
+          setShowAlert={() => handleCloseModel()}
           typeMessage={"You have successfully registered"}
           typeAlert={"success"}
           func={null}
         />
       )}
 
-      {showAlertUserRegisterNeedInputValue && (
+      {showOneMoreModel && (
         <SnackBarShow
-          showAlert={showAlertUserRegisterNeedInputValue}
-          setShowAlert={() => setShowAlertUserRegisterNeedInputValue(false)}
+          showAlert={showOneMoreModel}
+          setShowAlert={() => handleCloseOneMoreModel()}
           typeMessage={"input all value or Incorrect input"}
           typeAlert={"warning"}
           func={null}
         />
       )}
 
-      {showAlertUserRegisterPasswordNOTEquals && (
+      {showTwoMoreModel && (
         <SnackBarShow
-          showAlert={showAlertUserRegisterPasswordNOTEquals}
-          setShowAlert={() => setShowAlertUserRegisterPasswordNOTEquals(false)}
+          showAlert={showTwoMoreModel}
+          setShowAlert={() => handleCloseTwoMoreModel()}
           typeMessage={"Password NOT Equals !"}
           typeAlert={"warning"}
           func={null}
         />
       )}
 
-      {showAlertHaveLoginInDatabase && (
+      {showThereMoreModel && (
         <SnackBarShow
-          showAlert={showAlertHaveLoginInDatabase}
-          setShowAlert={() => setShowAlertShowAlertHaveLoginInDatabase(false)}
+          showAlert={showThereMoreModel}
+          setShowAlert={() => handleCloseThereMoreModel()}
           typeMessage={
             "Have This Login in database! Wait Model Register closed, Try Again"
           }

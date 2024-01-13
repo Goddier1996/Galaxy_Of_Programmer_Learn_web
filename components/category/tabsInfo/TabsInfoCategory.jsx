@@ -18,6 +18,7 @@ const TabsInfoCategory = ({ idCategory }) => {
         setTabIndex(newTabIndex);
     };
 
+
     return (
             <motion.div
                 variants={container}
@@ -38,7 +39,6 @@ const TabsInfoCategory = ({ idCategory }) => {
                                 <Tab label={<div className={styles.tabStyle}>Files Download</div>} />
                             </Tabs>
                         </Box>
-
                         <Box >
                             {tabIndex === 0 && (
                                 <ShowVideoCategoryLearn idCategoryVideo={idCategory} howUse={"info"} />
