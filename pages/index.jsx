@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { getAllCategories } from "../api-helpers/frontend/utils";
+// import { getAllCategories } from "../api-helpers/frontend/utils";
 import dynamic from "next/dynamic";
 import { useMediaQuery } from "@mui/material";
-import LoadingLinearProgress from "../components/tools/loading/LoadingLinearProgress";
+// import LoadingLinearProgress from "../components/tools/loading/LoadingLinearProgress";
 import { OpenCloseModelsPopUpAndAlert } from "../customHook/OpenCloseModelsPopUp";
 import CategoriesList from "../components/homePage/CategoriesList";
 const ShowHomeTitle = dynamic(() =>
@@ -12,7 +12,8 @@ const ModelSelectCursors = dynamic(() =>
 
 
 
-const Index = ({ categories }) => {
+// const Index = ({ categories }) => {
+  const Index = () => {
 
 
   // open model pop up select typeCursor , custom hook
@@ -39,11 +40,12 @@ const Index = ({ categories }) => {
       <ShowHomeTitle />
 
       {/* check if have data categories from api show them,if no show loading */}
-      {!categories ? (
+      {/* {!categories ? (
         <LoadingLinearProgress />
       ) : (
         <CategoriesList data={categories} />
-      )}
+      )} */}
+      <CategoriesList  />
     </>
   );
 };
@@ -52,13 +54,13 @@ export default Index;
 
 
 
-export async function getServerSideProps() {
-  return {
-    props: (async function () {
-      const categories = await getAllCategories();
-      return {
-        categories: categories,
-      };
-    })(),
-  };
-}
+// export async function getServerSideProps() {
+//   return {
+//     props: (async function () {
+//       const categories = await getAllCategories();
+//       return {
+//         categories: categories,
+//       };
+//     })(),
+//   };
+// }

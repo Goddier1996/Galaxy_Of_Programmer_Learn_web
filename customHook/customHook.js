@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getCategoryIdInfoFilesLearn, favoriteSaveIdUserFIle, getCategoryIdInfoLinkLearn, favoriteSaveIdUserLink, favoriteSaveIdUserVideo, getCategoryIdInfoVideoLearn } from "../api-helpers/frontend/utils";
+import { getAllCategories,getCategoryIdInfoFilesLearn, favoriteSaveIdUserFIle, getCategoryIdInfoLinkLearn, favoriteSaveIdUserLink, favoriteSaveIdUserVideo, getCategoryIdInfoVideoLearn } from "../api-helpers/frontend/utils";
 
 
 // here fetch all data from database
@@ -16,6 +16,13 @@ export const UseFetch = (funcFetchData) => {
     setLoading(true);
   
     switch (funcFetchData.typeHowUse) {
+
+      case "ShowAllCategories":
+        getAllCategories()
+          .then((dataCategory) => setData(dataCategory))
+          .then(() => setLoading(false))
+          .catch((err) => setLoading(true))
+        break;
   
       case "user":
         switch (funcFetchData.typeFile) {
