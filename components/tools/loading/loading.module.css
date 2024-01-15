@@ -1,6 +1,20 @@
-.loadingStylePages{
+.loadingStylePages {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+}
+
+
+.loadingAllCategories {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.loadingAllCategories p {
+    color: #d7b541;
+    margin-top: 4%;
 }
