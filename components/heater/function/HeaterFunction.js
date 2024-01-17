@@ -70,13 +70,15 @@ export const logOutUser = async (history) => {
 
 export const mainPagesChooseResponsiveScreenUserConnect = (indexPage, history, handleShowModelProfileUser, setAnchorElUser) => {
 
+    let userData = JSON.parse(window.sessionStorage.getItem("user"));
+
     if (indexPage == 1) {
         handleShowModelProfileUser();
         setAnchorElUser(null);
     }
 
     if (indexPage == 2) {
-        history.push("/FavoritesUsers");
+        history.push(`/userId/${userData.connectUser._id}`);
         setAnchorElUser(null);
     }
 

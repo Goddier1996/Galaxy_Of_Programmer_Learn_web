@@ -3,7 +3,7 @@ import { getAllCategories, getCategoryAllInfoVideoLearn, getCategoryAllInfoLinkL
 
 
 // here take count items from database
-export const CountFetch = (funcFetchData) => {
+export const CountFetch = (typeFetchData,idUser) => {
 
 
     const [data, setData] = useState([]);
@@ -15,7 +15,7 @@ export const CountFetch = (funcFetchData) => {
 
         setLoading(true);
 
-        switch (funcFetchData.typeFile) {
+        switch (typeFetchData) {
             case "Categories's":
                 getAllCategories()
                     .then((dataCategory) => setData(dataCategory))
@@ -52,21 +52,21 @@ export const CountFetch = (funcFetchData) => {
                 break;
 
             case "Link'sIdUser":
-                favoriteSaveIdUserLink(funcFetchData.idUser)
+                favoriteSaveIdUserLink(idUser||"")
                     .then((dataCategory) => setData(dataCategory))
                     .then(() => setLoading(false))
                     .catch((err) => setLoading(true))
                 break;
 
             case "File'sIdUser":
-                favoriteSaveIdUserFIle(funcFetchData.idUser)
+                favoriteSaveIdUserFIle(idUser||"")
                     .then((dataCategory) => setData(dataCategory))
                     .then(() => setLoading(false))
                     .catch((err) => setLoading(true))
                 break;
 
             case "Video'sIdUser":
-                favoriteSaveIdUserVideo(funcFetchData.idUser)
+                favoriteSaveIdUserVideo(idUser||"")
                     .then((dataCategory) => setData(dataCategory))
                     .then(() => setLoading(false))
                     .catch((err) => setLoading(true))
@@ -82,7 +82,7 @@ export const CountFetch = (funcFetchData) => {
     useEffect(() => {
 
         countData();
-    }, [funcFetchData]);
+    }, [typeFetchData, idUser]);
 
     return { data, loading, error };
 };

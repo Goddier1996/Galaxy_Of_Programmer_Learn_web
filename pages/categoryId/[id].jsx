@@ -14,7 +14,6 @@ export default CategoryDetail;
 
 
 
-// Getting Orders by ID from API
 export const getServerSideProps = async ({ params }) => {
   const res = await getCategoryIdInfo(params.id);
 

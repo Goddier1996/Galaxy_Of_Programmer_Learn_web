@@ -242,6 +242,15 @@ export const favoriteRemoveIdUser = async (id) => {
 }
 
 
+export const profileId = async (id) => {
+
+    const res = await axios.get(`${process.env.APP_URL}/api/users/${id}`);
+    const data = await res.data;
+
+    return data;
+}
+
+
 
 
 
@@ -497,4 +506,12 @@ export const favoriteRemoveIdUser = async (id) => {
 
 //     const resData = await res.data;
 //     return resData;
+// }
+
+// export const profileId = async (id) => {
+
+//     const res = await axios.get(`http://localhost:3000/api/users/${id}`);
+//     const data = await res.data;
+
+//     return data;
 // }

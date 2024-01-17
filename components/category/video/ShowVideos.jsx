@@ -11,6 +11,7 @@ const ShowVideos = ({ data, use }) => {
     <div className={styles.videoInfoCategory} key={data._id}>
       <p>
         {use == "info" ? data.titleVideo : use == "user" ? data.title : null}
+        
         {use == "info" ? (
           <UserSaveFavorite
             favorite={data.video}

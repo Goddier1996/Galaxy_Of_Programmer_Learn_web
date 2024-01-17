@@ -10,6 +10,7 @@ export default async function handler(req, res) {
         return registerCheckIfHaveThisUserInDataBase(req, res);
     }
 
+
     if (req.method === "PUT") {
         return updateUser(req, res);
     }

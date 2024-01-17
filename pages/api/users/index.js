@@ -1,5 +1,5 @@
-import { connectToDatabase } from "../../api-helpers/utils";
-import { getAllUsers } from "../../api-helpers/controllers/Users-controller";
+import { connectToDatabase } from "../../../api-helpers/utils";
+import { getAllUsers } from "../../../api-helpers/controllers/Users-controller";
 
 
 export default async function handler(req, res) {

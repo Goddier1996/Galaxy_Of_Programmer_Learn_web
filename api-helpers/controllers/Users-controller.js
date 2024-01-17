@@ -1,6 +1,8 @@
 import Users from "../model/Users";
 import FavoriteUser from "../model/FavoriteUser";
 
+const { ObjectId } = require("mongodb")
+
 
 
 export const getAllUsers = async (req, res) => {
@@ -158,4 +160,14 @@ export const favoriteRemoveIdUser = async (req, res) => {
     }
 
     return res.status(200).json({ message: "Successfully Deleted" });
+};
+
+
+export const profileId = async (req, res) => {
+
+    let id = req.query.id;
+    let users;
+    users = await Users.findOne({ _id: id })
+
+    return res.status(200).json(users);
 };

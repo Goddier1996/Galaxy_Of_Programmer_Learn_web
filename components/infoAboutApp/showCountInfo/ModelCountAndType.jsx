@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import styles from "../../profileUser/css/favoriteUser.module.css";
 import { motion } from "framer-motion";
 import { container, item } from "../../StyleAnimation";
@@ -10,64 +9,9 @@ import { CountFetch } from "../../../customHook/customHookFetchCount";
 const ModelCountAndType = ({ img, type }) => {
 
 
-  const [countInfo, setCountInfo] = useState({});
-
   // custom hook fetch data
-  const { data, loading, error } = CountFetch(countInfo);
+  const { data, loading } = CountFetch(type, null);
 
-    
-  useEffect(() => {
-    
-    let opjDataFetch = {};
-
-    switch (type) {
-      case "Categories's":
-        opjDataFetch = {
-          typeFile: "Categories's",
-          idUser:null
-        };
-        setCountInfo(opjDataFetch);
-        break;
-
-      case "File's":
-        opjDataFetch = {
-          typeFile: "File's",
-          idUser:null
-        };
-        setCountInfo(opjDataFetch);
-        break;
-
-      case "Video's":
-        opjDataFetch = {
-          typeFile: "Video's",
-          idUser:null
-        };
-        setCountInfo(opjDataFetch);
-        break;
-
-      case "Link's":
-        opjDataFetch = {
-          typeFile: "Link's",
-          idUser:null
-        };
-        setCountInfo(opjDataFetch);
-        break;
-
-      case "User's":
-        opjDataFetch = {
-          typeFile: "User's",
-          idUser:null
-        };
-        setCountInfo(opjDataFetch);
-        break;
-
-      default:
-        console.log("not have any data");
-      }
-      
-  }, [type]);
-
-    
     
   return (
     <div className={styles.box}>

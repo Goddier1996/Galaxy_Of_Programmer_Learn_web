@@ -1,39 +1,30 @@
-import {  useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "./css/favoriteUser.module.css";
 import styless from "../category/infoCategoryPage.module.css";
 import { Box, Tab, Tabs } from "@mui/material";
 import { motion } from "framer-motion";
 import { container, item } from "../StyleAnimation";
 import Image from "next/image";
-import ShowCount from "./showCountItemsFavorite/ShowCount";
-import ShowLinkCategoryLearn from "../category/links/ShowLinkCategoryLearn";
-import ShowFilleCategoryLearn from "../category/files/ShowFilleCategoryLearn";
-import ShowVideoCategoryLearn from "../category/video/ShowVideoCategoryLearn";
+import dynamic from "next/dynamic";
+const ShowLinkCategoryLearn = dynamic(() =>
+  import("../category/links/ShowLinkCategoryLearn"));
+  const ShowFilleCategoryLearn = dynamic(() =>
+    import("../category/files/ShowFilleCategoryLearn"));
+    const ShowVideoCategoryLearn = dynamic(() =>
+      import("../category/video/ShowVideoCategoryLearn"));
+      const ShowCount = dynamic(() =>
+  import("./showCountItemsFavorite/ShowCount"));
 
 
-function FavoritesUserId() {
+  
+function FavoritesUserId({ data }) {
 
 
-  const [dataUser, setDataUser] = useState({});
   const [tabIndex, setTabIndex] = useState(0);
-
 
   const handleTabChange = (event, newTabIndex) => {
     setTabIndex(newTabIndex);
   };
-
-
-  useEffect(() => {
-
-    let userData = JSON.parse(window.sessionStorage.getItem('user'))
-
-    if (userData != null) {
-      setDataUser(userData.connectUser);
-    }
-    else {
-      setDataUser()
-    }
-  }, [])
 
 
   return (
@@ -41,7 +32,7 @@ function FavoritesUserId() {
       <motion.div className={styles.titleFavorite}>
         <motion.h1 variants={item}>
           <span>Hi</span>
-          <span>{dataUser.name}</span>
+          <span>{data.name}</span>
           <span>your</span>
           <span>Favorite</span>
           <span>
@@ -63,16 +54,20 @@ function FavoritesUserId() {
               img={"https://i.postimg.cc/wTC3v49v/documents.png"}
               typeCount={"File'sIdUser"}
               nameType={"File's"}
+              idUser={data._id}
             />
             <ShowCount
               img={"https://i.postimg.cc/Tw1TQnTF/video-marketing.png"}
               typeCount={"Video'sIdUser"}
               nameType={"Video's"}
+              idUser={data._id}
+
             />
             <ShowCount
               img={"https://i.postimg.cc/g2pXstQ7/link.png"}
               typeCount={"Link'sIdUser"}
               nameType={"Link's"}
+              idUser={data._id}
             />
           </div>
         </div>
@@ -97,19 +92,19 @@ function FavoritesUserId() {
             <Box>
               {tabIndex === 0 && (
                 <ShowVideoCategoryLearn
-                  idCategoryVideo={dataUser._id}
+                  idCategoryVideo={data._id}
                   howUse={"user"}
                 />
               )}
               {tabIndex === 1 && (
                 <ShowLinkCategoryLearn
-                  idCategoryLink={dataUser._id}
+                  idCategoryLink={data._id}
                   howUse={"user"}
                 />
               )}
               {tabIndex === 2 && (
                 <ShowFilleCategoryLearn
-                  idCategoryFille={dataUser._id}
+                  idCategoryFille={data._id}
                   howUse={"user"}
                 />
               )}

@@ -3,7 +3,7 @@ import { getAllCategories,getCategoryIdInfoFilesLearn, favoriteSaveIdUserFIle, g
 
 
 // here fetch all data from database
-export const UseFetch = (funcFetchData) => {
+export const UseFetch = (typeFetchData,id,typeFile) => {
 
 
   const [data, setData] = useState([]);
@@ -15,7 +15,7 @@ export const UseFetch = (funcFetchData) => {
 
     setLoading(true);
   
-    switch (funcFetchData.typeHowUse) {
+    switch (typeFetchData) {
 
       case "ShowAllCategories":
         getAllCategories()
@@ -25,23 +25,23 @@ export const UseFetch = (funcFetchData) => {
         break;
   
       case "user":
-        switch (funcFetchData.typeFile) {
+        switch (typeFile) {
           case "File":
-            favoriteSaveIdUserFIle(funcFetchData.id)
+            favoriteSaveIdUserFIle(id)
               .then((dataCategory) => setData(dataCategory))
               .then(() => setLoading(false))
               .catch((err) => setLoading(true))
             break;
   
           case "Link":
-            favoriteSaveIdUserLink(funcFetchData.id)
+            favoriteSaveIdUserLink(id)
               .then((dataCategory) => setData(dataCategory))
               .then(() => setLoading(false))
               .catch((err) => setLoading(true))
             break;
   
           case "Video":
-            favoriteSaveIdUserVideo(funcFetchData.id)
+            favoriteSaveIdUserVideo(id)
               .then((dataCategory) => setData(dataCategory))
               .then(() => setLoading(false))
               .catch((err) => setLoading(true))
@@ -51,23 +51,23 @@ export const UseFetch = (funcFetchData) => {
   
       case "info":
   
-        switch (funcFetchData.typeFile) {
+        switch (typeFile) {
           case "File":
-            getCategoryIdInfoFilesLearn(funcFetchData.id)
+            getCategoryIdInfoFilesLearn(id)
               .then((dataCategory) => setData(dataCategory))
               .then(() => setLoading(false))
               .catch((err) => setLoading(true))
             break;
   
           case "Link":
-            getCategoryIdInfoLinkLearn(funcFetchData.id)
+            getCategoryIdInfoLinkLearn(id)
               .then((dataCategory) => setData(dataCategory))
               .then(() => setLoading(false))
               .catch((err) => setLoading(true))
             break;
   
           case "Video":
-            getCategoryIdInfoVideoLearn(funcFetchData.id)
+            getCategoryIdInfoVideoLearn(id)
               .then((dataCategory) => setData(dataCategory))
               .then(() => setLoading(false))
               .catch((err) => setLoading(true))
@@ -86,7 +86,7 @@ export const UseFetch = (funcFetchData) => {
   useEffect(() => {
 
     fetchData();
-  }, [funcFetchData]);
+  }, [typeFetchData, id, typeFile]);
 
   return { data, loading, error };
 };
