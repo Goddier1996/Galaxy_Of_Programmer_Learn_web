@@ -144,6 +144,7 @@
 }
 
 b.SaveBookMarkInfoUser {
+    padding-left: 3%;
     display: inline-block;
     animation: SaveBookMarkInfoUser 0.7s ease 2s infinite alternate;
 }

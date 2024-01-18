@@ -1,4 +1,3 @@
-import React from "react";
 import UserSaveFavorite from "../optionUserClickSaveFavorite/UserSaveFavorite";
 import styles from "../infoCategoryPage.module.css";
 import UserDeleteFavorite from "../../profileUser/UserDeleteFavorite";
@@ -6,7 +5,7 @@ import UserDeleteFavorite from "../../profileUser/UserDeleteFavorite";
 
 const ShowVideos = ({ data, use }) => {
 
-  
+
   return (
     <div className={styles.videoInfoCategory} key={data._id}>
       <p>
@@ -17,8 +16,8 @@ const ShowVideos = ({ data, use }) => {
             favorite={data.video}
             title={data.titleVideo}
             type={data.type}
-            idFavorite={data._id}
-          />
+              idFavorite={data._id}
+            />
         ) : use == "user" ? (
           <UserDeleteFavorite id={data._id} />
         ) : null}

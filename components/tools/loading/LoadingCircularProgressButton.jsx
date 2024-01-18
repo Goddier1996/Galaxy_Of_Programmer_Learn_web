@@ -18,7 +18,11 @@ const LoadingCircularProgressButton = ({ whereUse }) => {
           </Grid>
           <p>Loading Categories...</p>
         </div>
-      ) : (
+          ):
+          whereUse == "saveOrDeleteFavorite" ? (
+            <CircularProgress  color="success" size={20} />
+          )
+            : (
         ""
       )}
     </div>
