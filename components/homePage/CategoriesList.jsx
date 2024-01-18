@@ -1,20 +1,14 @@
 import styles from "./home.module.css";
 import CardModel from "../category/showCardsCategoryHomePage/CardModel";
-import { UseFetch } from "../../customHook/customHook";
 import LoadingCircularProgressButton from "../tools/loading/LoadingCircularProgressButton";
 
 
-// const CategoriesList = ({ data }) => {
-const CategoriesList = () => {
 
-
-    // custom hook fetch data
-  const { data, loading } = UseFetch("ShowAllCategories", null, null);
-  
+const CategoriesList = ({ data }) => {
  
   return (
     <div className={styles.listCategory}>
-      {loading ? (
+      {!data ? (
         <LoadingCircularProgressButton whereUse="loadingCategories" />
       ) : (
         <>
