@@ -53,9 +53,10 @@ const DesktopMenu = ({
           <Image
             src="https://i.postimg.cc/wBpsh76T/giphy.gif"
             alt="logo heater"
+            blurDataURL="https://i.postimg.cc/wBpsh76T/giphy.gif"
+            placeholder="blur"
             width={900}
             height={900}
-            priority
           />
         </div>
       </Typography>

@@ -18,9 +18,10 @@ const CardModel = ({ data }) => {
                         <Image
                             src={data.image}
                             alt={data.image}
+                            blurDataURL={data.image}
+                            placeholder="blur"
                             width={100}
                             height={100}
-                            priority
                         />
                     </motion.div>
                 </div>

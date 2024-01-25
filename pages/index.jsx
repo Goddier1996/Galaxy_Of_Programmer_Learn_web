@@ -1,9 +1,9 @@
-import { useEffect } from "react";
 import { getAllCategories } from "../api-helpers/frontend/utils";
 import dynamic from "next/dynamic";
 import { useMediaQuery } from "@mui/material";
 import { OpenCloseModelsPopUpAndAlert } from "../customHook/OpenCloseModelsPopUp";
 import CategoriesList from "../components/homePage/CategoriesList";
+import { useEffect } from "react";
 const ShowHomeTitle = dynamic(() =>
   import("../components/homePage/ShowHomeTitle"));
 const ModelSelectCursors = dynamic(() =>
@@ -21,6 +21,7 @@ const Index = ({ categories }) => {
   const mobileScreen = useMediaQuery("(min-width:991px)", { noSsr: true });
 
 
+
   useEffect(() => {
     let typeCursor = sessionStorage.getItem("typeCursor");
 
@@ -35,7 +36,7 @@ const Index = ({ categories }) => {
   return (
     <>
       <ModelSelectCursors open={showModel} hide={() => handleCloseModel()} />
-
+    
       <ShowHomeTitle />
 
       <CategoriesList data={categories} />

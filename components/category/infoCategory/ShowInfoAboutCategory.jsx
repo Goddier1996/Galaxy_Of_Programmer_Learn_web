@@ -18,6 +18,8 @@ const ShowInfoAboutCategory = ({ data }) => {
           <Image
             src={data.imageLanguage}
             alt="category image info"
+            blurDataURL={data.imageLanguage}
+            placeholder="blur"
             width={400}
             height={400}
           />

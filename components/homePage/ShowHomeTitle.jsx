@@ -26,7 +26,9 @@ const ShowHomeTitle = () => {
                         <Image src='https://i.postimg.cc/cHm55PJC/mm1.webp' alt='drown choose category'
                             width={180}
                             height={100}
-                            priority />
+                            blurDataURL='https://i.postimg.cc/cHm55PJC/mm1.webp'
+                            placeholder="blur"
+                        />
                     </motion.div>
 
                 </motion.div>
@@ -41,7 +43,8 @@ const ShowHomeTitle = () => {
                         <Image src='https://i.postimg.cc/Xqqx1Jh1/y1.webp' alt='drown choose category'
                             width={100}
                             height={100}
-                            priority
+                            blurDataURL='https://i.postimg.cc/Xqqx1Jh1/y1.webp'
+                            placeholder="blur"
                         />
                     </motion.div>
                 </div>
